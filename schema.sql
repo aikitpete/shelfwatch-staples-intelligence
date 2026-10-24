@@ -9,7 +9,7 @@ create table if not exists countries (
 );
 -- sample rows: replace with your own countries
 insert into countries (code, name, currency) values
-  ('AUR','Aurelia','EUR'), ('BOR','Borealia','BOR'), ('CAS','Cascadia','CAS')
+  ('US','United States','USD'), ('GB','United Kingdom','GBP'), ('JP','Japan','JPY')
 on conflict (code) do nothing;
 
 create table if not exists retailers (

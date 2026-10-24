@@ -321,7 +321,7 @@ details.card>summary{cursor:pointer;list-style:none;min-height:24px}details.card
 const $=(s,r)=>(r||document).querySelector(s);
 const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 /* Countries, currencies and shop priorities come from SW_CONFIG (injected by scripts/build.py), never from code. */
-const CFG=window.SW_CONFIG||{countries:{AA:{name:'Aurelia',cur:'EUR'}},currencies:{EUR:{sym:'€',dec:2}},home:'AA'};
+const CFG=window.SW_CONFIG||{countries:{US:{name:'United States',cur:'USD'}},currencies:{EUR:{sym:'€',dec:2},USD:{sym:'$',dec:2}},home:'US'};
 const COUNTRIES=CFG.countries;
 const CURS=Object.assign({EUR:{sym:'€',dec:2}},CFG.currencies||{});
 const CUR=Object.fromEntries(Object.entries(CURS).map(([k,v])=>[k,v.sym||k]));
