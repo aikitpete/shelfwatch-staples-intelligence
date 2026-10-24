@@ -1,15 +1,16 @@
 {
-  "home": "AUR",
+  "home": "US",
   "countries": {
-    "AUR": {"name": "Aurelia", "cur": "EUR"},
-    "BOR": {"name": "Borealia", "cur": "BOR"},
-    "CAS": {"name": "Cascadia", "cur": "CAS"}
+    "US": {"name": "United States", "cur": "USD"},
+    "GB": {"name": "United Kingdom", "cur": "GBP"},
+    "JP": {"name": "Japan", "cur": "JPY"}
   },
   "currencies": {
     "EUR": {"sym": "€", "dec": 2},
-    "BOR": {"sym": "B$", "dec": 2},
-    "CAS": {"sym": "C$", "dec": 0}
+    "USD": {"sym": "$", "dec": 2},
+    "GBP": {"sym": "£", "dec": 2},
+    "JPY": {"sym": "¥", "dec": 0}
   },
-  "storePriority": ["aur-cornerplus", "bor-daily-fresh", "cas-quickstop"],
+  "storePriority": ["us-cornerstop", "gb-harrow-express", "jp-lantern-24"],
   "hiddenByDefault": []
 }

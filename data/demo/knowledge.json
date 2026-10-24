@@ -1,4 +1,10 @@
 {
+ "about": {
+  "body": "The story: a household buys a protein-first weekly basket (eggs, chicken, fish, yoghurt, oats, lentils, fresh produce) plus a few household basics, and shops in three markets: the United States, the United Kingdom and Japan.\nWhat to look for:\n- Compare tab: every staple ranked per kg, per litre or per piece in EUR, with the local price beneath. Pack price is never the comparison.\n- The US is cheapest for chicken, beef and rice, Japan only for fish, and fresh produce costs the most in Japan. Switch country at the top to see the ladder change.\n- Summit Warehouse Club is often cheapest per unit but needs a membership, so it is hidden by default. Tick it under Stores to see what it would save.\n- Promotions show the discount and end date. A promo that has ended falls back to the regular price, and prices older than 90 days count as unknown.\n- Add a price with + Price: photo, pasted text or JSON. Edits stay in your browser.\nCountries are real, but every shop, price and rate here is invented for illustration.",
+  "order": 0,
+  "title": "About this demo",
+  "updated": "2026-10-24"
+ },
  "deals": {
   "body": "Only price reductions are promos (percent off, multi-buy, coupon, price below the regular price). Shipping fees, minimum orders and pack options go in the note, never in the promo label. A promo is a price with an end date: record it, watch it, and drop it when it ends.\n- Store on every promo price: promo (label), promo_until (YYYY-MM-DD), regular_unit_price (the normal shelf price per unit), requires_program (loyalty program id, if a card or app is needed).\n- If promo_until is in the past, the app ranks the item at regular_unit_price. With no regular price the row leaves the ranking and shows Promo ended until re-checked.",
   "order": 2,
@@ -12,7 +18,7 @@
   "updated": "2026-10-24"
  },
  "loyalty": {
-  "body": "Use only free programs that match what is actually bought. Paid programs must save more than they cost.\nSample programs: Fresh Mart Club (AUR), Northgate Points (BOR), MegaMart Club (CAS, membership).",
+  "body": "Use only free programs that match what is actually bought. Paid memberships must save more than they cost.\nSample programs: Summit Warehouse Club (US, membership), Highfield member prices (GB), Sakura Mart points (JP).",
   "order": 4,
   "title": "Loyalty programs and cards",
   "updated": "2026-10-24"
@@ -24,7 +30,7 @@
   "updated": "2026-10-24"
  },
  "sources": {
-  "body": "Prefer shop websites and flyers, then open price surveys, then photos of shelf tags. Record the source URL and date on every price. Sample data only: these shops and prices are invented.",
+  "body": "Prefer shop websites and flyers, then open price surveys, then photos of shelf tags. Record the source URL and date on every price. These shops and prices are invented.",
   "order": 5,
   "title": "Where to fetch prices (sources playbook)",
   "updated": "2026-10-24"

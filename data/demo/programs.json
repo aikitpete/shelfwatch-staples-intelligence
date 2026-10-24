@@ -1,52 +1,52 @@
 {
- "aur-fresh-club": {
-  "benefit": "Member prices on selected items.",
+ "gb-highfield-card": {
+  "benefit": "Member-only prices on selected items.",
   "cost": "Free",
-  "country": "AUR",
+  "country": "GB",
   "created_at": "2026-10-24T09:00:00Z",
-  "expiry": "Annual (sample).",
+  "expiry": "Check the terms (sample).",
   "how": "App or card (sample).",
-  "id": "aur-fresh-club",
-  "name": "Fresh Mart Club",
-  "note": "Sample program.",
+  "id": "gb-highfield-card",
+  "name": "Highfield member prices",
+  "note": "Illustrative sample.",
   "retailers": [
-   "aur-fresh-mart"
+   "gb-highfield"
   ],
   "source_url": null,
   "status": "unverified",
   "updated_at": "2026-10-24T09:00:00Z",
   "verified_at": null
  },
- "bor-northgate-points": {
+ "jp-sakura-points": {
   "benefit": "Points on every basket.",
   "cost": "Free",
-  "country": "BOR",
+  "country": "JP",
   "created_at": "2026-10-24T09:00:00Z",
-  "expiry": "Annual (sample).",
+  "expiry": "Check the terms (sample).",
   "how": "App or card (sample).",
-  "id": "bor-northgate-points",
-  "name": "Northgate Points",
-  "note": "Sample program.",
+  "id": "jp-sakura-points",
+  "name": "Sakura Mart points",
+  "note": "Illustrative sample.",
   "retailers": [
-   "bor-northgate"
+   "jp-sakura-mart"
   ],
   "source_url": null,
   "status": "unverified",
   "updated_at": "2026-10-24T09:00:00Z",
   "verified_at": null
  },
- "cas-megamart-club": {
-  "benefit": "Access to club prices.",
+ "us-summit-club": {
+  "benefit": "Access to bulk prices.",
   "cost": "Annual fee (sample)",
-  "country": "CAS",
+  "country": "US",
   "created_at": "2026-10-24T09:00:00Z",
-  "expiry": "Annual (sample).",
+  "expiry": "Check the terms (sample).",
   "how": "App or card (sample).",
-  "id": "cas-megamart-club",
-  "name": "MegaMart Club",
-  "note": "Sample program.",
+  "id": "us-summit-club",
+  "name": "Summit Warehouse Club membership",
+  "note": "Illustrative sample.",
   "retailers": [
-   "cas-megamart"
+   "us-summit-club"
   ],
   "source_url": null,
   "status": "unverified",

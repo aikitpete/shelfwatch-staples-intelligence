@@ -1,107 +1,107 @@
 {
- "aur-cornerplus": {
-  "country": "AUR",
+ "gb-harrow-express": {
+  "country": "GB",
   "created_at": "2026-10-24T09:00:00Z",
   "kind": "offline",
-  "name": "CornerPlus",
+  "name": "Harrow Express",
   "starter": true,
   "updated_at": "2026-10-24T09:00:00Z"
  },
- "aur-fresh-mart": {
-  "country": "AUR",
+ "gb-highfield": {
+  "country": "GB",
   "created_at": "2026-10-24T09:00:00Z",
   "kind": "both",
-  "name": "Fresh Mart",
+  "name": "Highfield Stores",
   "starter": true,
   "updated_at": "2026-10-24T09:00:00Z"
  },
- "aur-greenfield": {
-  "country": "AUR",
+ "gb-pantry-online": {
+  "country": "GB",
   "created_at": "2026-10-24T09:00:00Z",
   "kind": "online",
-  "name": "Greenfield Online",
+  "name": "Pantry Online",
   "starter": true,
   "updated_at": "2026-10-24T09:00:00Z"
  },
- "aur-hyperone": {
-  "country": "AUR",
-  "created_at": "2026-10-24T09:00:00Z",
-  "kind": "both",
-  "name": "HyperOne",
-  "starter": true,
-  "updated_at": "2026-10-24T09:00:00Z"
- },
- "aur-value-basket": {
-  "country": "AUR",
+ "gb-penny-co": {
+  "country": "GB",
   "created_at": "2026-10-24T09:00:00Z",
   "kind": "offline",
-  "name": "Value Basket",
+  "name": "Penny & Co",
   "starter": true,
   "updated_at": "2026-10-24T09:00:00Z"
  },
- "bor-bulk-depot": {
-  "country": "BOR",
+ "jp-daily-yamato": {
+  "country": "JP",
   "created_at": "2026-10-24T09:00:00Z",
   "kind": "offline",
-  "name": "Bulk Depot",
+  "name": "Daily Yamato",
   "starter": true,
   "updated_at": "2026-10-24T09:00:00Z"
  },
- "bor-daily-fresh": {
-  "country": "BOR",
-  "created_at": "2026-10-24T09:00:00Z",
-  "kind": "offline",
-  "name": "Daily Fresh",
-  "starter": true,
-  "updated_at": "2026-10-24T09:00:00Z"
- },
- "bor-northgate": {
-  "country": "BOR",
-  "created_at": "2026-10-24T09:00:00Z",
-  "kind": "both",
-  "name": "Northgate Market",
-  "starter": true,
-  "updated_at": "2026-10-24T09:00:00Z"
- },
- "bor-shopline": {
-  "country": "BOR",
+ "jp-harvest-online": {
+  "country": "JP",
   "created_at": "2026-10-24T09:00:00Z",
   "kind": "online",
-  "name": "Shopline",
+  "name": "Harvest Online",
   "starter": true,
   "updated_at": "2026-10-24T09:00:00Z"
  },
- "cas-harbour-grocer": {
-  "country": "CAS",
+ "jp-lantern-24": {
+  "country": "JP",
   "created_at": "2026-10-24T09:00:00Z",
   "kind": "offline",
-  "name": "Harbour Grocer",
+  "name": "Lantern 24",
   "starter": true,
   "updated_at": "2026-10-24T09:00:00Z"
  },
- "cas-megamart": {
-  "country": "CAS",
+ "jp-sakura-mart": {
+  "country": "JP",
   "created_at": "2026-10-24T09:00:00Z",
   "kind": "both",
-  "name": "MegaMart",
+  "name": "Sakura Mart",
+  "starter": true,
+  "updated_at": "2026-10-24T09:00:00Z"
+ },
+ "us-cornerstop": {
+  "country": "US",
+  "created_at": "2026-10-24T09:00:00Z",
+  "kind": "offline",
+  "name": "Corner Stop",
+  "starter": true,
+  "updated_at": "2026-10-24T09:00:00Z"
+ },
+ "us-greenbox": {
+  "country": "US",
+  "created_at": "2026-10-24T09:00:00Z",
+  "kind": "online",
+  "name": "Greenbox Delivery",
+  "starter": true,
+  "updated_at": "2026-10-24T09:00:00Z"
+ },
+ "us-maple-market": {
+  "country": "US",
+  "created_at": "2026-10-24T09:00:00Z",
+  "kind": "both",
+  "name": "Maple Market",
+  "starter": true,
+  "updated_at": "2026-10-24T09:00:00Z"
+ },
+ "us-summit-club": {
+  "country": "US",
+  "created_at": "2026-10-24T09:00:00Z",
+  "kind": "both",
+  "name": "Summit Warehouse Club",
   "needs_membership": true,
-  "note": "Membership needed in store (sample).",
+  "note": "Membership needed. Cheapest per unit but hidden by default, tick it in Stores to include.",
   "starter": true,
   "updated_at": "2026-10-24T09:00:00Z"
  },
- "cas-quickstop": {
-  "country": "CAS",
+ "us-value-cart": {
+  "country": "US",
   "created_at": "2026-10-24T09:00:00Z",
   "kind": "offline",
-  "name": "QuickStop",
-  "starter": true,
-  "updated_at": "2026-10-24T09:00:00Z"
- },
- "cas-sunmarket": {
-  "country": "CAS",
-  "created_at": "2026-10-24T09:00:00Z",
-  "kind": "both",
-  "name": "Sun Market",
+  "name": "Value Cart",
   "starter": true,
   "updated_at": "2026-10-24T09:00:00Z"
  }

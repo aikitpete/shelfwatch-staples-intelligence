@@ -1,17 +1,17 @@
 {
-  "home": "AUR",
+  "home": "US",
   "countries": {
-    "AUR": {
-      "name": "Aurelia",
-      "cur": "EUR"
+    "US": {
+      "name": "United States",
+      "cur": "USD"
     },
-    "BOR": {
-      "name": "Borealia",
-      "cur": "BOR"
+    "GB": {
+      "name": "United Kingdom",
+      "cur": "GBP"
     },
-    "CAS": {
-      "name": "Cascadia",
-      "cur": "CAS"
+    "JP": {
+      "name": "Japan",
+      "cur": "JPY"
     }
   },
   "currencies": {
@@ -19,19 +19,23 @@
       "sym": "€",
       "dec": 2
     },
-    "BOR": {
-      "sym": "B$",
+    "USD": {
+      "sym": "$",
       "dec": 2
     },
-    "CAS": {
-      "sym": "C$",
+    "GBP": {
+      "sym": "£",
+      "dec": 2
+    },
+    "JPY": {
+      "sym": "¥",
       "dec": 0
     }
   },
   "storePriority": [
-    "aur-cornerplus",
-    "bor-daily-fresh",
-    "cas-quickstop"
+    "us-cornerstop",
+    "gb-harrow-express",
+    "jp-lantern-24"
   ],
   "hiddenByDefault": [],
   "_comment": "Copy to data/private/config.json and replace with your own countries, currencies (code -> symbol and decimals; rates are per 1 EUR in the app) and shop ids."

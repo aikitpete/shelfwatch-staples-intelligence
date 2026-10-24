@@ -2,10 +2,11 @@
  "fx": {
   "date": "2026-10-24",
   "rates": {
-   "BOR": 1.4,
-   "CAS": 380.0
+   "GBP": 0.87,
+   "JPY": 170.0,
+   "USD": 1.12
   },
-  "source": "Sample rates (invented)",
+  "source": "Indicative sample rates (invented)",
   "updated_by": "sample"
  }
 }
