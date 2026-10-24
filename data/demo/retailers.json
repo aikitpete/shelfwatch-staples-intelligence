@@ -1,324 +1,108 @@
 {
- "aldi-de": {
-  "country": "DE",
-  "created_at": "2026-10-24T08:26:54Z",
+ "aur-cornerplus": {
+  "country": "AUR",
+  "created_at": "2026-10-24T09:00:00Z",
   "kind": "offline",
-  "name": "Aldi",
+  "name": "CornerPlus",
   "starter": true,
-  "updated_at": "2026-10-24T08:26:54Z"
+  "updated_at": "2026-10-24T09:00:00Z"
  },
- "amanpremiumtea-co-kr-kr": {
-  "country": "KR",
-  "created_at": "2026-10-24T12:52:29.326Z",
+ "aur-fresh-mart": {
+  "country": "AUR",
+  "created_at": "2026-10-24T09:00:00Z",
+  "kind": "both",
+  "name": "Fresh Mart",
+  "starter": true,
+  "updated_at": "2026-10-24T09:00:00Z"
+ },
+ "aur-greenfield": {
+  "country": "AUR",
+  "created_at": "2026-10-24T09:00:00Z",
+  "kind": "online",
+  "name": "Greenfield Online",
+  "starter": true,
+  "updated_at": "2026-10-24T09:00:00Z"
+ },
+ "aur-hyperone": {
+  "country": "AUR",
+  "created_at": "2026-10-24T09:00:00Z",
+  "kind": "both",
+  "name": "HyperOne",
+  "starter": true,
+  "updated_at": "2026-10-24T09:00:00Z"
+ },
+ "aur-value-basket": {
+  "country": "AUR",
+  "created_at": "2026-10-24T09:00:00Z",
   "kind": "offline",
-  "name": "아만프리미엄티 (amanpremiumtea.co.kr)",
-  "updated_at": "2026-10-24T12:52:29.326Z"
- },
- "amazon-de": {
-  "country": "DE",
-  "created_at": "2026-10-24T08:26:54Z",
-  "kind": "online",
-  "name": "Amazon.de",
-  "note": "PDF 'Spar' = Spar-Abo (Subscribe & Save), assumed",
-  "updated_at": "2026-10-24T08:26:54Z",
-  "url": "https://www.amazon.de"
- },
- "bodfeld-apotheke": {
-  "country": "DE",
-  "created_at": "2026-10-24T08:26:54Z",
-  "kind": "online",
-  "name": "Bodfeld Apotheke",
-  "note": "Found via Idealo",
-  "updated_at": "2026-10-24T08:26:54Z",
-  "url": "https://www.bodfeld-apotheke.de"
- },
- "carrefour-tw": {
-  "country": "TW",
-  "created_at": "2026-10-24T08:26:54Z",
-  "kind": "both",
-  "name": "Carrefour Taiwan",
+  "name": "Value Basket",
   "starter": true,
-  "updated_at": "2026-10-24T08:26:54Z"
+  "updated_at": "2026-10-24T09:00:00Z"
  },
- "costco-kr": {
-  "country": "KR",
-  "created_at": "2026-10-24T08:26:54Z",
+ "bor-bulk-depot": {
+  "country": "BOR",
+  "created_at": "2026-10-24T09:00:00Z",
+  "kind": "offline",
+  "name": "Bulk Depot",
+  "starter": true,
+  "updated_at": "2026-10-24T09:00:00Z"
+ },
+ "bor-daily-fresh": {
+  "country": "BOR",
+  "created_at": "2026-10-24T09:00:00Z",
+  "kind": "offline",
+  "name": "Daily Fresh",
+  "starter": true,
+  "updated_at": "2026-10-24T09:00:00Z"
+ },
+ "bor-northgate": {
+  "country": "BOR",
+  "created_at": "2026-10-24T09:00:00Z",
   "kind": "both",
-  "name": "Costco Korea (costco.co.kr)",
+  "name": "Northgate Market",
+  "starter": true,
+  "updated_at": "2026-10-24T09:00:00Z"
+ },
+ "bor-shopline": {
+  "country": "BOR",
+  "created_at": "2026-10-24T09:00:00Z",
+  "kind": "online",
+  "name": "Shopline",
+  "starter": true,
+  "updated_at": "2026-10-24T09:00:00Z"
+ },
+ "cas-harbour-grocer": {
+  "country": "CAS",
+  "created_at": "2026-10-24T09:00:00Z",
+  "kind": "offline",
+  "name": "Harbour Grocer",
+  "starter": true,
+  "updated_at": "2026-10-24T09:00:00Z"
+ },
+ "cas-megamart": {
+  "country": "CAS",
+  "created_at": "2026-10-24T09:00:00Z",
+  "kind": "both",
+  "name": "MegaMart",
   "needs_membership": true,
-  "note": "Membership card required to buy in store; online prices shown on the site. Fee not verified.",
-  "updated_at": "2026-10-24T10:30:00Z",
-  "url": "https://www.costco.co.kr"
- },
- "coupang": {
-  "country": "KR",
-  "created_at": "2026-10-24T08:26:54Z",
-  "kind": "online",
-  "name": "Coupang",
+  "note": "Membership needed in store (sample).",
   "starter": true,
-  "updated_at": "2026-10-24T08:26:54Z",
-  "url": "https://www.coupang.com"
+  "updated_at": "2026-10-24T09:00:00Z"
  },
- "cu-kr": {
-  "chain_type": "convenience",
-  "country": "KR",
-  "created_at": "2026-10-24T10:30:07Z",
+ "cas-quickstop": {
+  "country": "CAS",
+  "created_at": "2026-10-24T09:00:00Z",
   "kind": "offline",
-  "name": "CU",
-  "updated_at": "2026-10-24T10:30:07Z"
+  "name": "QuickStop",
+  "starter": true,
+  "updated_at": "2026-10-24T09:00:00Z"
  },
- "dm-de": {
-  "country": "DE",
-  "created_at": "2026-10-24T08:26:54Z",
+ "cas-sunmarket": {
+  "country": "CAS",
+  "created_at": "2026-10-24T09:00:00Z",
   "kind": "both",
-  "name": "dm",
+  "name": "Sun Market",
   "starter": true,
-  "updated_at": "2026-10-24T08:26:54Z",
-  "url": "https://www.dm.de"
- },
- "dm-sk": {
-  "country": "SK",
-  "created_at": "2026-10-24T08:26:54Z",
-  "kind": "both",
-  "name": "dm Slovakia",
-  "starter": true,
-  "updated_at": "2026-10-24T08:26:54Z"
- },
- "emart": {
-  "country": "KR",
-  "created_at": "2026-10-24T08:26:54Z",
-  "kind": "both",
-  "name": "E-mart",
-  "starter": true,
-  "updated_at": "2026-10-24T08:26:54Z"
- },
- "emart-everyday-kr": {
-  "chain_type": "supermarket",
-  "country": "KR",
-  "created_at": "2026-10-24T10:30:07Z",
-  "kind": "offline",
-  "name": "E-Mart Everyday",
-  "updated_at": "2026-10-24T10:30:07Z"
- },
- "emart24-kr": {
-  "chain_type": "convenience",
-  "country": "KR",
-  "created_at": "2026-10-24T10:30:07Z",
-  "kind": "offline",
-  "name": "emart24",
-  "updated_at": "2026-10-24T10:30:07Z"
- },
- "gs-fresh-kr": {
-  "country": "KR",
-  "created_at": "2026-10-24T10:14:26Z",
-  "kind": "offline",
-  "name": "GS The Fresh",
-  "note": "Chain from KCA price survey; prices are branch medians.",
-  "updated_at": "2026-10-24T10:14:26Z"
- },
- "gs25-kr": {
-  "chain_type": "convenience",
-  "country": "KR",
-  "created_at": "2026-10-24T10:30:07Z",
-  "kind": "offline",
-  "name": "GS25",
-  "updated_at": "2026-10-24T10:30:07Z"
- },
- "hddfs": {
-  "country": "KR",
-  "created_at": "2026-10-24T08:26:54Z",
-  "kind": "online",
-  "name": "Hyundai Duty Free (hddfs.com)",
-  "note": "Prices listed in USD",
-  "updated_at": "2026-10-24T08:26:54Z",
-  "url": "https://m.hddfs.com"
- },
- "homeplus-kr": {
-  "chain_type": "hypermarket",
-  "country": "KR",
-  "created_at": "2026-10-24T10:30:07Z",
-  "kind": "offline",
-  "name": "Homeplus",
-  "updated_at": "2026-10-24T10:30:07Z"
- },
- "hyundai-dept-kr": {
-  "country": "KR",
-  "created_at": "2026-10-24T10:14:26Z",
-  "kind": "offline",
-  "name": "Hyundai Department Store food hall",
-  "note": "Chain from KCA price survey; prices are branch medians.",
-  "updated_at": "2026-10-24T10:14:26Z"
- },
- "kaufland-sk": {
-  "country": "SK",
-  "created_at": "2026-10-24T08:26:54Z",
-  "kind": "offline",
-  "name": "Kaufland Slovakia",
-  "starter": true,
-  "updated_at": "2026-10-24T08:26:54Z"
- },
- "kleinanzeigen-ebay": {
-  "country": "DE",
-  "created_at": "2026-10-24T08:26:54Z",
-  "kind": "online",
-  "name": "Kleinanzeigen / eBay",
-  "note": "PDF: 'Klein/Ebay'",
-  "updated_at": "2026-10-24T08:26:54Z"
- },
- "lidl-de": {
-  "country": "DE",
-  "created_at": "2026-10-24T08:26:54Z",
-  "kind": "offline",
-  "name": "Lidl",
-  "starter": true,
-  "updated_at": "2026-10-24T08:26:54Z"
- },
- "lidl-sk": {
-  "country": "SK",
-  "created_at": "2026-10-24T08:26:54Z",
-  "kind": "offline",
-  "name": "Lidl Slovakia",
-  "starter": true,
-  "updated_at": "2026-10-24T08:26:54Z"
- },
- "lotte-super-kr": {
-  "country": "KR",
-  "created_at": "2026-10-24T10:14:26Z",
-  "kind": "offline",
-  "name": "Lotte Super",
-  "note": "Chain from KCA price survey; prices are branch medians.",
-  "updated_at": "2026-10-24T10:14:26Z"
- },
- "naver-shopping": {
-  "country": "KR",
-  "created_at": "2026-10-24T08:26:54Z",
-  "kind": "online",
-  "name": "Naver Shopping",
-  "starter": true,
-  "updated_at": "2026-10-24T08:26:54Z",
-  "url": "https://shopping.naver.com"
- },
- "netto": {
-  "country": "DE",
-  "created_at": "2026-10-24T08:26:54Z",
-  "kind": "both",
-  "name": "Netto",
-  "updated_at": "2026-10-24T08:26:54Z",
-  "url": "https://www.netto-online.de"
- },
- "nonghyup-kr": {
-  "country": "KR",
-  "created_at": "2026-10-24T10:14:26Z",
-  "kind": "offline",
-  "name": "Nonghyup Hanaro Mart",
-  "note": "Chain from KCA price survey; prices are branch medians.",
-  "updated_at": "2026-10-24T10:14:26Z"
- },
- "olive-young": {
-  "country": "KR",
-  "created_at": "2026-10-24T08:26:54Z",
-  "kind": "both",
-  "name": "Olive Young",
-  "starter": true,
-  "updated_at": "2026-10-24T08:26:54Z",
-  "url": "https://www.oliveyoung.co.kr"
- },
- "online-unspecified": {
-  "country": "DE",
-  "created_at": "2026-10-24T08:26:54Z",
-  "kind": "online",
-  "name": "Online (shop not named)",
-  "note": "PDF: 'Online'",
-  "updated_at": "2026-10-24T08:26:54Z"
- },
- "pchome": {
-  "country": "TW",
-  "created_at": "2026-10-24T08:26:54Z",
-  "kind": "online",
-  "name": "PChome 24h",
-  "starter": true,
-  "updated_at": "2026-10-24T08:26:54Z",
-  "url": "https://24h.pchome.com.tw"
- },
- "picnic": {
-  "country": "DE",
-  "created_at": "2026-10-24T08:26:54Z",
-  "kind": "online",
-  "name": "Picnic",
-  "updated_at": "2026-10-24T08:26:54Z",
-  "url": "https://www.picnic.app"
- },
- "pxmart": {
-  "country": "TW",
-  "created_at": "2026-10-24T08:26:54Z",
-  "kind": "both",
-  "name": "PX Mart",
-  "starter": true,
-  "updated_at": "2026-10-24T08:26:54Z"
- },
- "rewe": {
-  "country": "DE",
-  "created_at": "2026-10-24T08:26:54Z",
-  "kind": "both",
-  "name": "REWE",
-  "note": "Delivery and stores",
-  "updated_at": "2026-10-24T08:26:54Z",
-  "url": "https://www.rewe.de"
- },
- "rossmann": {
-  "country": "DE",
-  "created_at": "2026-10-24T08:26:54Z",
-  "kind": "both",
-  "name": "Rossmann",
-  "updated_at": "2026-10-24T08:26:54Z",
-  "url": "https://www.rossmann.de"
- },
- "seven-eleven-kr": {
-  "chain_type": "convenience",
-  "country": "KR",
-  "created_at": "2026-10-24T10:30:07Z",
-  "kind": "offline",
-  "name": "7-Eleven",
-  "updated_at": "2026-10-24T10:30:07Z"
- },
- "temu": {
-  "country": "DE",
-  "created_at": "2026-10-24T08:26:54Z",
-  "kind": "online",
-  "name": "Temu",
-  "updated_at": "2026-10-24T08:26:54Z",
-  "url": "https://www.temu.com"
- },
- "tesco-sk": {
-  "country": "SK",
-  "created_at": "2026-10-24T08:26:54Z",
-  "kind": "both",
-  "name": "Tesco Slovakia",
-  "starter": true,
-  "updated_at": "2026-10-24T08:26:54Z"
- },
- "theordinary": {
-  "country": "DE",
-  "created_at": "2026-10-24T08:26:54Z",
-  "kind": "online",
-  "name": "theordinary.com",
-  "updated_at": "2026-10-24T08:26:54Z",
-  "url": "https://theordinary.com"
- },
- "unspecified": {
-  "country": "DE",
-  "created_at": "2026-10-24T08:26:54Z",
-  "kind": "unknown",
-  "name": "Source not recorded",
-  "note": "PDF row had no source",
-  "updated_at": "2026-10-24T08:26:54Z"
- },
- "watsons-tw": {
-  "country": "TW",
-  "created_at": "2026-10-24T08:26:54Z",
-  "kind": "both",
-  "name": "Watsons Taiwan",
-  "starter": true,
-  "updated_at": "2026-10-24T08:26:54Z"
+  "updated_at": "2026-10-24T09:00:00Z"
  }
 }

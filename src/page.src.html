@@ -315,18 +315,27 @@ details.card>summary{cursor:pointer;list-style:none;min-height:24px}details.card
 
 <script>
 /*__SCHEMA__*/
+/*__CONFIG__*/
 (function(){
 'use strict';
 const $=(s,r)=>(r||document).querySelector(s);
 const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const COUNTRIES={DE:{name:'Germany',cur:'EUR'},KR:{name:'Korea',cur:'KRW'},TW:{name:'Taiwan',cur:'TWD'},SK:{name:'Slovakia',cur:'EUR'}};
-const CUR={EUR:'€',KRW:'₩',TWD:'NT$',USD:'US$'};
+/* Countries, currencies and shop priorities come from SW_CONFIG (injected by scripts/build.py), never from code. */
+const CFG=window.SW_CONFIG||{countries:{AA:{name:'Aurelia',cur:'EUR'}},currencies:{EUR:{sym:'€',dec:2}},home:'AA'};
+const COUNTRIES=CFG.countries;
+const CURS=Object.assign({EUR:{sym:'€',dec:2}},CFG.currencies||{});
+const CUR=Object.fromEntries(Object.entries(CURS).map(([k,v])=>[k,v.sym||k]));
+const CODES=Object.keys(COUNTRIES),HOME=CFG.home&&COUNTRIES[CFG.home]?CFG.home:CODES[0];
+const FXCUR=Object.keys(CURS).filter(c=>c!=='EUR');
+const NAMES=(()=>{const n=CODES.map(c=>COUNTRIES[c].name);return n.length>1?n.slice(0,-1).join(', ')+' and '+n[n.length-1]:n[0]})();
+const QCUR=Object.keys(CURS).map(c=>'"'+c+'"').join('|'),QCTY=CODES.map(c=>'"'+c+'"').join('|');
+const HIDDEN_DEFAULT=new Set(CFG.hiddenByDefault||[]),STORE_PRIO=CFG.storePriority||[];
 const UNITS={g:['kg',1000],kg:['kg',1],ml:['l',1000],l:['l',1],pc:['pc',1]};
 const BASE_UNITS={kg:['g','kg'],l:['ml','l'],pc:['pc']};
-const SRC={paste:'Pasted text',dataset:'KCA survey',import:'PDF import',research:'Research',photo:'Photo',manual:'Manual'};
+const SRC={paste:'Pasted text',dataset:'Dataset',import:'PDF import',research:'Research',photo:'Photo',manual:'Manual'};
 const CATS=['Food','Household','Skincare','Dental','Grooming'];
 let PREF={};try{PREF=JSON.parse(localStorage.getItem('sw.inc')||'{}')||{}}catch(x){}
-const S={ex:new Set(),fOpen:false,br:{t:'prices',q:'',json:false},country:'KR',tab:'compare',q:'',cat:'All',open:new Set(),items:new Map(),retailers:new Map(),prices:[],checks:[],fx:null,auto:null,daily:false,reorder:false,org:'',kn:[],prog:[],src:[],store:'',cOpen:false,sOpen:false,hereBest:false,
+const S={ex:new Set(),fOpen:false,br:{t:'prices',q:'',json:false},country:HOME,tab:'compare',q:'',cat:'All',open:new Set(),items:new Map(),retailers:new Map(),prices:[],checks:[],fx:null,auto:null,daily:false,reorder:false,org:'',kn:[],prog:[],src:[],store:'',cOpen:false,sOpen:false,hereBest:false,
   db:null,sample:null,assets:null,downloads:null,canWrite:true,imgOK:false,D:null,loaded:0,photo:null};
 try{const c=localStorage.getItem('sw.c2');if(c&&(c==='ALL'||COUNTRIES[c]))S.country=c}catch(e){}
 
@@ -335,7 +344,7 @@ const rate=c=>c==='EUR'?1:((S.fx&&S.fx.rates&&S.fx.rates[c])||null);
 const toEur=(c,v)=>{if(v==null)return null;const r=rate(c);return r?v/r:null};
 function money(cur,v){
   if(v==null||!isFinite(v))return '—';
-  let d=2;if(cur==='KRW')d=0;else if(cur==='TWD')d=Math.abs(v)<10?1:0;else if(Math.abs(v)>=100)d=0;
+  const dc=(CURS[cur]||{}).dec;let d=dc!=null?dc:(Math.abs(v)>=100?0:2);
   return (CUR[cur]||cur+' ')+v.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
 }
 const calcUnit=(a,s,u)=>(a>0&&s>0&&UNITS[u])?a/(s/UNITS[u][1]):null;
@@ -389,9 +398,8 @@ function derive(){
   }
   return {byItem,groups};
 }
-const isOff=id=>{if(id in PREF)return !PREF[id];const r=S.retailers.get(id);return !!(r&&r.needs_membership)||id==='costco-kr'};
-const KR_PRIO=['cu-kr','gs25-kr','seven-eleven-kr','emart','emart-everyday-kr','emart24-kr','homeplus-kr'];
-const sRank=id=>{const i=KR_PRIO.indexOf(id);return i<0?99:i};
+const isOff=id=>{if(id in PREF)return !PREF[id];const r=S.retailers.get(id);return !!(r&&r.needs_membership)||HIDDEN_DEFAULT.has(id)};
+const sRank=id=>{const i=STORE_PRIO.indexOf(id);return i<0?99:i};
 const HIDE_RT=new Set(['unspecified','online-unspecified']);
 const inScope=o=>S.country==='ALL'||o.country===S.country;
 function offersFor(it){
@@ -399,7 +407,7 @@ function offersFor(it){
   return {all,ranked:all.filter(o=>o.eurUnit!=null).sort((a,b)=>a.eurUnit-b.eurUnit),other:all.filter(o=>o.eurUnit==null)};
 }
 function countryCounts(){
-  const n={ALL:0,DE:0,KR:0,TW:0,SK:0};
+  const n={ALL:0};CODES.forEach(c=>n[c]=0);
   if(S.D)for(const arr of S.D.byItem.values())for(const o of arr)if(o.eurUnit!=null&&!isOff(o.latest.retailer_id)){n.ALL++;if(n[o.country]!=null)n[o.country]++}
   return n;
 }
@@ -666,7 +674,7 @@ function viewGuide(){
 function viewSetup(){
   const fx=S.fx||{rates:{}},cnt=`${S.items.size} items · ${S.retailers.size} retailers · ${S.prices.length} price rows`;
   return `<div class="card"><h3>Exchange rates</h3><span class="sub">Units per 1 EUR. ${fx.date?`Set ${esc(fx.date)} by ${esc(fx.updated_by||'unknown')}.`:'Not set yet.'} ${esc(fx.source||'')}</span>
-    <div class="row3"><label class="fld"><span>KRW</span><input id="fx-KRW" inputmode="decimal" value="${esc(fx.rates.KRW||'')}"></label><label class="fld"><span>TWD</span><input id="fx-TWD" inputmode="decimal" value="${esc(fx.rates.TWD||'')}"></label><label class="fld"><span>USD</span><input id="fx-USD" inputmode="decimal" value="${esc(fx.rates.USD||'')}"></label></div>
+    <div class="row3">${FXCUR.map(c=>`<label class="fld"><span>${c}</span><input id="fx-${c}" inputmode="decimal" value="${esc(fx.rates[c]||'')}"></label>`).join('')}</div>
     <div class="btns"><button class="btn dark" data-act="savefx"${S.canWrite?'':' disabled'}>Save rates</button></div>
     <span class="sub">EUR is the base. Each price keeps its day's rate; lists use today's.</span></div>
   <div class="card"><h3>Move to Supabase</h3><span class="sub">${esc(cnt)}. Export, then run in Supabase SQL editor.</span>
@@ -692,11 +700,11 @@ function renderTop(){
   if(S.country!=='ALL'&&S.tab==='compare'){const al=allStores(),off=al.filter(x=>isOff(x.id)).length;seg+=`<button class="pick two${off?' on':''}" data-act="fexp" aria-expanded="${S.fOpen}"><span class="pl">Stores</span><span class="pn">${off?(al.length-off)+' of '+al.length:'All'}</span><span class="car" aria-hidden="true">${S.fOpen?'▴':'▾'}</span></button>`}
   seg+=`</div>`;
   if(S.fOpen&&S.country!=='ALL')seg+=`<div class="chips stores" role="group" aria-label="Stores to include"><span class="sub" style="flex-basis:100%">Untick stores you don't use. They leave all comparisons.</span>${allStores().map(x=>`<button class="chip" data-act="stoff" data-s="${esc(x.id)}" aria-pressed="${!isOff(x.id)}">${esc(short(x.name))} <small>${x.n}</small></button>`).join('')}</div>`;
-  if(S.cOpen)seg+=`<div class="seg" role="group" aria-label="Country">${['KR','TW','SK','DE','ALL'].map(c=>`<button data-act="country" data-c="${c}" aria-pressed="${S.country===c}">${c==='ALL'?'All':c}<small>${n[c]} priced</small></button>`).join('')}</div>`;
+  if(S.cOpen)seg+=`<div class="seg" role="group" aria-label="Country">${[...CODES,'ALL'].map(c=>`<button data-act="country" data-c="${c}" aria-pressed="${S.country===c}">${c==='ALL'?'All':c}<small>${n[c]} priced</small></button>`).join('')}</div>`;
   if(S.sOpen)seg+=`<div class="chips stores" role="group" aria-label="Stores in ${esc(cname)}"><span class="sub" style="flex-basis:100%">Pick a shop to see only its prices.</span><button class="chip" data-act="store" data-s="" aria-pressed="${!S.store}">Any store</button>${stores.map(x=>`<button class="chip" data-act="store" data-s="${esc(x.id)}" aria-pressed="${S.store===x.id}">${esc(short(x.name))}${x.on?' <small class="on">online</small>':''} <small>${x.n}</small></button>`).join('')}${stores.length?'':'<span class="sub">No stores in this country yet. Add one from + Price.</span>'}</div>`;
   $('#seg').innerHTML=seg;
   const r=S.fx&&S.fx.rates;
-  $('#fxline').innerHTML=r?`1 € = <b>₩${Math.round(r.KRW||0).toLocaleString('en-US')}</b> · <b>NT$${(r.TWD||0).toFixed(1)}</b> · <b>US$${(r.USD||0).toFixed(2)}</b>`:'No FX rates set';
+  $('#fxline').innerHTML=r?'1 € = '+FXCUR.map(c=>`<b>${esc(money(c,r[c]||0))}</b>`).join(' · '):'No FX rates set';
   const cats=['All',...new Set([...S.items.values()].map(i=>i.category).filter(Boolean))].sort((a,b)=>(a==='All'?-1:b==='All'?1:CATS.indexOf(a)-CATS.indexOf(b)));
   $('#chips').innerHTML=`<button class="chip" data-act="daily" aria-pressed="${S.daily}">Daily drivers</button><button class="chip" data-act="reorder" aria-pressed="${S.reorder}">Reorder</button>`+cats.map(c=>`<button class="chip" data-act="cat" data-c="${esc(c)}" aria-pressed="${S.cat===c}">${esc(c)}</button>`).join('');
   $('#tools').hidden=S.tab!=='compare';
@@ -768,7 +776,7 @@ function unitOpts(base,sel){return (BASE_UNITS[base]||['g','kg','ml','l','pc']).
 function sheetAdd(pre){
   pre=pre||{};
   const items=[...S.items.values()].filter(i=>i.status!=='replaced').sort(byName);
-  const cty=pre.country||(S.country==='ALL'?'DE':S.country);
+  const cty=pre.country||(S.country==='ALL'?HOME:S.country);
   const order=[cty,...Object.keys(COUNTRIES).filter(c=>c!==cty)];
   const rets=[...S.retailers.values()];
   const retOpts=order.map(c=>{const l=rets.filter(r=>r.country===c).sort(byName);return l.length?`<optgroup label="${esc(COUNTRIES[c].name)}">${l.map(r=>`<option value="${esc(r.id)}">${esc(r.name)}</option>`).join('')}</optgroup>`:''}).join('');
@@ -845,7 +853,7 @@ async function scanFile(file){
   if(!S.sample||!S.imgOK){st.textContent='Photo attached. Fill in the price by hand; reading photos is not available in this view.';return}
   st.textContent='Reading the tag…';
   const items=[...S.items.values()].map(i=>i.id+': '+i.name).join('\n'),rets=[...S.retailers.values()].map(r=>r.id+': '+r.name+' ('+r.country+')').join('\n');
-  const prompt=`You are reading a photo of a shelf price tag or product package in a shop in Korea, Taiwan, Slovakia or Germany. Extract only what is printed.
+  const prompt=`You are reading a photo of a shelf price tag or product package in a shop in ${NAMES}. Extract only what is printed.
 
 Known items (id: name):
 ${items}
@@ -853,7 +861,7 @@ ${items}
 Known retailers (id: name):
 ${rets}
 
-Reply with only one JSON object: {"item_id": string|null, "product_name": string|null, "brand": string|null, "retailer_id": string|null, "retailer_name": string|null, "price": number|null, "currency": "EUR"|"KRW"|"TWD"|"USD"|null, "size": number|null, "size_unit": "g"|"kg"|"ml"|"l"|"pc"|null, "unit_price": number|null, "promo": string|null, "notes": string|null}
+Reply with only one JSON object: {"item_id": string|null, "product_name": string|null, "brand": string|null, "retailer_id": string|null, "retailer_name": string|null, "price": number|null, "currency": ${QCUR}|null, "size": number|null, "size_unit": "g"|"kg"|"ml"|"l"|"pc"|null, "unit_price": number|null, "promo": string|null, "notes": string|null}
 price is the pack price as sold. unit_price is the per kg, litre or piece price printed on the tag (Grundpreis, 단가, 單價) if there is one. Use item_id and retailer_id only when they clearly match a known entry. Use null for anything you cannot read. Do not guess.`;
   try{
     const o=await S.sample.json(prompt,{images:[blob],cache:false});
@@ -961,7 +969,7 @@ const med2=a=>{const t=[...a].sort((x,y)=>x-y),m=t.length>>1;return t.length%2?t
 function evalRow(r){
   const shot=SC.shots.find(s=>s.id===r.shot)||{};
   const ret=shot.sid&&shot.sid!=='__new'?S.retailers.get(shot.sid):null;
-  const rcty=ret?ret.country:(shot.sid==='__new'?(shot.newCty||'KR'):null);
+  const rcty=ret?ret.country:(shot.sid==='__new'?(shot.newCty||HOME):null);
   const item=r.item_id&&r.item_id!=='__new'?S.items.get(r.item_id):null;
   const cur=r.cur||(rcty?COUNTRIES[rcty].cur:null);
   const base=item?item.base_unit:(UNIT_GUESS[r.unit]||r.base_unit||'kg');
@@ -1051,8 +1059,8 @@ function scanPrompt(shot){
   const items=[...S.items.values()].filter(i=>i.status!=='replaced'&&i.status!=='not_needed').map(i=>`${i.id} | ${i.name} | per ${i.base_unit} | ${(i.products||[]).map(p=>p.id+':'+p.name+(p.size?' '+p.size+p.size_unit:'')).join('; ')}`).join('\n');
   const rets=[...S.retailers.values()].map(r=>`${r.id} | ${r.name} | ${r.country}`).join('\n');
   const hint=S.store&&S.retailers.get(S.store)?`The person says they are currently in: ${S.retailers.get(S.store).name} (${S.retailers.get(S.store).country}).`:S.country!=='ALL'?`The person is probably in ${COUNTRIES[S.country].name}.`:'';
-  return `You are reading a photo taken in a shop (or of a receipt) in Korea, Taiwan, Slovakia or Germany. Today is ${todayStr()}. ${hint}
-Find EVERY price tag or priced product that is legible in the photo, however many there are, and extract only what is printed. Read Korean, Chinese, Slovak and German text. Also identify the store from signage, logos, tag design, bags or the receipt header.
+  return `You are reading a photo taken in a shop (or of a receipt) in ${NAMES}. Today is ${todayStr()}. ${hint}
+Find EVERY price tag or priced product that is legible in the photo, however many there are, and extract only what is printed. Read the local language of each country. Also identify the store from signage, logos, tag design, bags or the receipt header.
 
 Known items (id | name | compared per | products id:name size):
 ${items}
@@ -1061,8 +1069,8 @@ Known stores (id | name | country):
 ${rets}
 
 Reply with only one JSON object:
-{"store":{"retailer_id":string|null,"name":string|null,"country":"KR"|"TW"|"SK"|"DE"|null,"evidence":string|null},
-"tags":[{"name":string,"brand":string|null,"item_id":string|null,"product_id":string|null,"category":"Food"|"Household"|"Skincare"|"Dental"|"Grooming"|null,"size":number|null,"size_unit":"g"|"kg"|"ml"|"l"|"pc"|null,"price":number|null,"currency":"EUR"|"KRW"|"TWD"|"USD"|null,"unit_price":number|null,"promo":string|null,"promo_until":"YYYY-MM-DD"|null,"member_only":boolean,"confidence":number}]}
+{"store":{"retailer_id":string|null,"name":string|null,"country":${QCTY}|null,"evidence":string|null},
+"tags":[{"name":string,"brand":string|null,"item_id":string|null,"product_id":string|null,"category":"Food"|"Household"|"Skincare"|"Dental"|"Grooming"|null,"size":number|null,"size_unit":"g"|"kg"|"ml"|"l"|"pc"|null,"price":number|null,"currency":${QCUR}|null,"unit_price":number|null,"promo":string|null,"promo_until":"YYYY-MM-DD"|null,"member_only":boolean,"confidence":number}]}
 Rules: price is the pack price as sold (the member or sale price if that is what is shown, with promo text). unit_price is the printed price per kg, litre or piece (단가, 100g당, 單價, Grundpreis) normalised to per kg, per litre or per piece, or null if not printed. size is the pack content, for example 500 with unit g, or 6 with unit pc for a 6-pack. item_id and product_id only when they clearly match a known entry. Use null for anything you cannot read. For multi-buy offers (1+1, 2+1, 2 for the price of 1) report the shelf price of ONE pack as price and put the offer text in promo. Never guess a number. confidence is 0 to 1 for how sure you are the row is read correctly. Skip things that are not food, household or personal-care staples only if they are clearly unreadable.`;
 }
 async function scanOne(shot){
@@ -1075,7 +1083,7 @@ async function scanOne(shot){
     if(!id&&S.store&&S.retailers.has(S.store))id=S.store;
     if(!id){const prev=[...SC.shots].reverse().find(s=>s!==shot&&s.sid&&s.sid!=='__new');if(prev&&!st.name)id=prev.sid}
     if(id){shot.sid=id;shot.cty=S.retailers.get(id).country}
-    else if(st.name){shot.sid='__new';shot.newName=st.name;shot.newCty=st.country||(S.country!=='ALL'?S.country:'KR');shot.cty=shot.newCty}
+    else if(st.name){shot.sid='__new';shot.newName=st.name;shot.newCty=st.country||(S.country!=='ALL'?S.country:HOME);shot.cty=shot.newCty}
     else shot.sid='';
     const tags=Array.isArray(o&&o.tags)?o.tags:[];
     shot.n=tags.length;
@@ -1094,7 +1102,7 @@ async function scanOne(shot){
   scanDraw();
 }
 const FMT='shelfwatch-import/1';
-function schemaTxt(){return `{"format":"${FMT}","records":[{"store":{"retailer_id":string|null,"name":string,"country":"KR"|"TW"|"SK"|"DE"},"item_id":string|null,"item_name":string,"category":"Food"|"Household"|"Skincare"|"Dental"|"Grooming","base_unit":"kg"|"l"|"pc","product_id":string|null,"product_name":string,"brand":string|null,"size":number,"size_unit":"g"|"kg"|"ml"|"l"|"pc","price":number,"currency":"EUR"|"KRW"|"TWD"|"USD","unit_price":number|null,"promo":string|null,"promo_until":"YYYY-MM-DD"|null,"member_only":boolean,"observed_at":"YYYY-MM-DD","source_url":string|null,"source_note":string|null,"confidence":number}]}`}
+function schemaTxt(){return `{"format":"${FMT}","records":[{"store":{"retailer_id":string|null,"name":string,"country":${QCTY}},"item_id":string|null,"item_name":string,"category":"Food"|"Household"|"Skincare"|"Dental"|"Grooming","base_unit":"kg"|"l"|"pc","product_id":string|null,"product_name":string,"brand":string|null,"size":number,"size_unit":"g"|"kg"|"ml"|"l"|"pc","price":number,"currency":${QCUR},"unit_price":number|null,"promo":string|null,"promo_until":"YYYY-MM-DD"|null,"member_only":boolean,"observed_at":"YYYY-MM-DD","source_url":string|null,"source_note":string|null,"confidence":number}]}`}
 function knownTxt(){
   const items=[...S.items.values()].filter(i=>i.status!=='replaced'&&i.status!=='not_needed').map(i=>`${i.id} | ${i.name} | per ${i.base_unit} | ${(i.products||[]).map(p=>p.id+':'+p.name+(p.size?' '+p.size+p.size_unit:'')).join('; ')}`).join('\n');
   const rets=[...S.retailers.values()].filter(r=>!HIDE_RT.has(r.id)).sort((a,b)=>a.country.localeCompare(b.country)||sRank(a.id)-sRank(b.id)||byName(a,b)).map(r=>`${r.id} | ${r.name} | ${r.country}`).join('\n');
@@ -1105,16 +1113,16 @@ function rulesTxt(){return `Rules:
 - price is the pack price exactly as sold (the sale or member price if that is what shoppers pay; then put the discount in promo, e.g. "-20%" or "1+1", with promo_until if known. promo is ONLY for price reductions: put shipping fees, minimum orders, pack options and other remarks in source_note, never in promo, and member_only true if a membership is needed). For multi-buy offers (1+1, 2+1) use the shelf price of ONE pack and describe the offer in promo.
 - size and size_unit are the pack content as printed (for example 2.6 kg or 2600 g, 6 pc for a 6 roll pack, 15 pc for 15 eggs). unit_price is the price per kg, per litre or per piece if it is printed on the shelf tag or page, normalised to base_unit; otherwise null (do not compute it).
 - product_name is the exact name as printed on the pack, tag or page, in its original language, including brand and size text. Do not translate or shorten it.
-- store.name is the shop name as shown. Use retailer_id only if the shop is in the known stores list, otherwise null. Be specific about the format of the shop (for example E-Mart, E-Mart Everyday and emart24 are different).
+- store.name is the shop name as shown. Use retailer_id only if the shop is in the known stores list, otherwise null. Be specific about the format of the shop (for example a hypermarket, its convenience format and its discount format are different shops).
 - item_id and product_id only when they clearly match the known lists, otherwise null with item_name as a short generic staple name in English.
 - observed_at is the date the price was seen. source_url is the exact page of the price, source_note a short note on how you found it (page, date, branch).
 - Use null when something is not visible. Never guess a number. Prices in the currency of the country. confidence 0 to 1.
 - Reply with ONLY one JSON object, in one code block, nothing before or after it, no comments, no trailing commas.`}
 function researchPrompt(){
   const k=knownTxt();
-  return `You are helping me build a personal price database (Shelfwatch) for staples in Korea, Taiwan, Slovakia and Germany. Today is ${todayStr()}.
+  return `You are helping me build a personal price database (Shelfwatch) for staples in ${NAMES}. Today is ${todayStr()}.
 
-TASK: [Describe what to find, for example "current shelf prices of eggs, canned tuna and brown rice at E-Mart, Homeplus, CU and GS25 in Seoul"]. Use only prices you can see on a real source (shop website, flyer, app, receipt). Do not estimate.
+TASK: [Describe what to find, for example "current shelf prices of eggs, canned tuna and brown rice at the large supermarkets in my city"]. Use only prices you can see on a real source (shop website, flyer, app, receipt). Do not estimate.
 
 Reply in exactly this JSON format (format: ${FMT}):
 ${schemaTxt()}
@@ -1155,7 +1163,7 @@ function resolveStore(st){
   let id=st.retailer_id&&S.retailers.has(st.retailer_id)?st.retailer_id:null;
   if(!id&&st.name){const n=String(st.name).toLowerCase().trim();const all=[...S.retailers.values()];const m=all.find(r=>r.name.toLowerCase()===n)||all.find(r=>{const rn=r.name.toLowerCase().split(' (')[0];return rn===n||(n.length>3&&(rn.includes(n)||n.includes(rn)))});if(m)id=m.id}
   if(id){out.sid=id;out.cty=S.retailers.get(id).country}
-  else if(st.name){out.sid='__new';out.newName=String(st.name).trim();out.newCty=COUNTRIES[st.country]?st.country:(S.country!=='ALL'?S.country:'KR');out.cty=out.newCty}
+  else if(st.name){out.sid='__new';out.newName=String(st.name).trim();out.newCty=COUNTRIES[st.country]?st.country:(S.country!=='ALL'?S.country:HOME);out.cty=out.newCty}
   return out;
 }
 function guessSize(txt){
@@ -1331,7 +1339,7 @@ async function requestCheck(d){
   try{await S.db.doc('checks/c'+Date.now().toString(36)+Math.random().toString(36).slice(2,4)).set({scope:d.scope||'offer',item_id:d.item_id||null,product_id:d.product_id||null,retailer_id:d.retailer_id||null,country:d.country||(S.country==='ALL'?null:S.country),status:'queued',requested_at:new Date().toISOString()});toast('Check queued')}catch(e){toast(errTxt(e))}
 }
 async function saveFx(){
-  const r={};for(const c of ['KRW','TWD','USD']){const x=parseFloat(String(document.getElementById('fx-'+c).value).replace(',','.'));if(!(x>0))return toast('Enter a rate for '+c);r[c]=x}
+  const r={};for(const c of FXCUR){const x=parseFloat(String(document.getElementById('fx-'+c).value).replace(',','.'));if(!(x>0))return toast('Enter a rate for '+c);r[c]=x}
   try{await S.db.doc('meta/fx').set({date:todayStr(),source:'Entered by hand',rates:r,updated_by:'manual',updated_at:new Date().toISOString()});toast('Rates saved')}catch(e){toast(errTxt(e))}
 }
 const SQLQ=v=>v==null?'NULL':typeof v==='number'?String(v):typeof v==='boolean'?(v?'true':'false'):"'"+String(v).replace(/'/g,"''")+"'";

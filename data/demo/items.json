@@ -268,89 +268,17 @@
   "status": "active",
   "updated_at": "2026-10-24T08:26:54Z"
  },
- "chia": {
-  "base_unit": "kg",
-  "category": "Food",
-  "created_at": "2026-10-24T08:26:54Z",
-  "health": "core",
-  "name": "Chia",
-  "note": "PDF: Not needed",
-  "priority": "regular",
-  "products": [
-   {
-    "id": "chia-std",
-    "name": "Chia"
-   }
-  ],
-  "sort": 250,
-  "sort_updated_at": "2026-10-24T08:26:54Z",
-  "status": "not_needed",
-  "updated_at": "2026-10-24T08:26:54Z"
- },
  "chicken-breast": {
   "base_unit": "kg",
   "category": "Food",
   "created_at": "2026-10-24T08:26:54Z",
   "health": "core",
   "name": "Chicken breast",
-  "note": "Vacuum-sealed or fresh. Compare cooked and raw per kg with care: cooked weighs less per portion.",
   "priority": "daily",
   "products": [
    {
-    "id": "chicken-breast-grilled-vac",
-    "name": "Grilled chicken breast, vacuum sealed",
-    "note": "Ready to eat. Example: Suji's grilled chicken breast 1.8 kg at Costco Korea (98% chicken).",
-    "size": 1800,
-    "size_unit": "g"
-   },
-   {
-    "id": "chicken-breast-raw",
-    "name": "Raw boneless chicken breast",
-    "nutrition": {
-     "basis": "per 100 g",
-     "form": "raw",
-     "note": "Raw boneless skinless breast, converted from a 113 g serving. Cooked or grilled products have different values per 100 g (less water), so use the product label when available.",
-     "retrieved_at": "2026-10-24T08:26:54Z",
-     "scope": "generic_reference",
-     "source_name": "USDA National Nutrient Database for Standard Reference, via NutritionValue.org",
-     "source_url": "https://www.nutritionvalue.org/Chicken%2C_raw%2C_meat_only%2C_boneless%2C_skinless%2C_breast%2C_broiler_or_fryers_nutritional_value.html",
-     "values": {
-      "b12_ug": 0.21,
-      "b1_mg": 0.094,
-      "b2_mg": 0.177,
-      "b3_mg": 9.6,
-      "b6_mg": 0.81,
-      "calcium_mg": 5,
-      "carbs_g": 0,
-      "cholesterol_mg": 73,
-      "energy_kcal": 120,
-      "fat_g": 2.62,
-      "fibre_g": 0,
-      "folate_ug": 9,
-      "iron_mg": 0.37,
-      "magnesium_mg": 28,
-      "mono_fat_g": 0.69,
-      "omega3_g": 0.03,
-      "omega6_g": 0.34,
-      "phosphorus_mg": 213,
-      "poly_fat_g": 0.42,
-      "potassium_mg": 334,
-      "protein_g": 22.5,
-      "salt_g": 0.11,
-      "sat_fat_g": 0.56,
-      "selenium_ug": 22.8,
-      "sodium_mg": 45,
-      "sugars_g": 0,
-      "vit_a_rae_ug": 9,
-      "vit_c_mg": 0,
-      "vit_d_ug": 0,
-      "vit_e_mg": 0.56,
-      "vit_k_ug": 8.4,
-      "zinc_mg": 0.68
-     }
-    },
-    "size": 300,
-    "size_unit": "g"
+    "id": "chicken-breast-std",
+    "name": "Chicken breast"
    }
   ],
   "sort": 20,
@@ -441,16 +369,8 @@
   "priority": "regular",
   "products": [
    {
-    "id": "coffee-sticks-jacobs",
-    "name": "Jacobs Cafe Crema, 25 sticks",
-    "size": 25,
-    "size_unit": "pc"
-   },
-   {
-    "id": "coffee-sticks-maxim-supreme",
-    "name": "Maxim Supreme Gold coffee mix, 170 sticks (KR)",
-    "size": 170,
-    "size_unit": "pc"
+    "id": "coffee-sticks-std",
+    "name": "Coffee sticks"
    }
   ],
   "sort": 340,
@@ -653,87 +573,17 @@
   "status": "active",
   "updated_at": "2026-10-24T10:01:35Z"
  },
- "harzer": {
-  "base_unit": "kg",
-  "category": "Food",
-  "created_at": "2026-10-24T08:26:54Z",
-  "health": "ok",
-  "name": "Harzer Kaese",
-  "priority": "regular",
-  "products": [
-   {
-    "id": "harzer-std",
-    "name": "Harzer Kaese"
-   }
-  ],
-  "sort": 280,
-  "sort_updated_at": "2026-10-24T09:45:22.026Z",
-  "status": "active",
-  "updated_at": "2026-10-24T09:45:22.026Z"
- },
- "healthy-ramen": {
-  "base_unit": "pc",
-  "category": "Food",
-  "created_at": "2026-10-24T08:26:54Z",
-  "health": "ok",
-  "name": "Healthy ramen",
-  "note": "Low calorie, high protein instant noodles. Compared per piece (cup or pack).",
-  "priority": "regular",
-  "products": [
-   {
-    "brand": "Ottogi",
-    "id": "healthy-ramen-ottogi-rose",
-    "name": "Ottogi High Protein Cup Noodles, Spicy Rose",
-    "nutrition": {
-     "basis": "per cup",
-     "form": "instant cup noodle, per cup",
-     "note": "Spicy Rose flavour. Per cup, not per 100 g. Fat, carbs and sodium not found; read the cup label.",
-     "retrieved_at": "2026-10-24T08:26:54Z",
-     "scope": "press_release",
-     "source_name": "Ottogi press coverage (Food Today, 2025-07-10)",
-     "source_url": "https://foodtoday.or.kr/news/article.html?no=195919",
-     "values": {
-      "energy_kcal": 170,
-      "protein_g": 12
-     }
-    }
-   },
-   {
-    "brand": "Ottogi",
-    "id": "healthy-ramen-ottogi-mala",
-    "name": "Ottogi High Protein Cup Noodles, Mala Xiangguo",
-    "nutrition": {
-     "basis": "per cup",
-     "form": "instant cup noodle, per cup",
-     "note": "Mala Xiangguo flavour. Per cup, not per 100 g. Fat, carbs and sodium not found; read the cup label.",
-     "retrieved_at": "2026-10-24T08:26:54Z",
-     "scope": "press_release",
-     "source_name": "Ottogi press coverage (Food Today, 2025-07-10)",
-     "source_url": "https://foodtoday.or.kr/news/article.html?no=195919",
-     "values": {
-      "energy_kcal": 150,
-      "protein_g": 12
-     }
-    }
-   }
-  ],
-  "sort": 210,
-  "sort_updated_at": "2026-10-24T08:26:54Z",
-  "status": "active",
-  "updated_at": "2026-10-24T08:26:54Z"
- },
  "healthy-rice": {
   "base_unit": "kg",
   "category": "Food",
   "created_at": "2026-10-24T08:26:54Z",
   "health": "core",
   "name": "Healthy rice",
-  "note": "Brown, mixed grain (잡곡), black or wild rice. Higher fibre and a lower glycaemic load than polished white rice.",
   "priority": "daily",
   "products": [
    {
-    "id": "healthy-rice-brown",
-    "name": "Brown rice (현미)",
+    "id": "healthy-rice-std",
+    "name": "Healthy rice",
     "nutrition": {
      "basis": "per 100 g",
      "form": "brown long-grain, raw (uncooked)",
@@ -775,10 +625,6 @@
       "zinc_mg": 2.13
      }
     }
-   },
-   {
-    "id": "healthy-rice-mixed",
-    "name": "Mixed grain rice (잡곡)"
    }
   ],
   "sort": 100,
@@ -795,40 +641,8 @@
   "priority": "occasional",
   "products": [
    {
-    "brand": "Revolution",
-    "id": "hyaluron-revolution",
-    "name": "Revolution Hyaluron",
-    "size": 30,
-    "size_unit": "ml"
-   },
-   {
-    "brand": "The Ordinary",
-    "id": "hyaluron-ordinary",
-    "name": "The Ordinary Hyaluronic Acid",
-    "size": 60,
-    "size_unit": "ml"
-   },
-   {
-    "brand": "COSRX",
-    "id": "hyaluron-cosrx",
-    "name": "COSRX Hyaluron (hddfs 06801)",
-    "size": 20,
-    "size_unit": "ml"
-   },
-   {
-    "brand": "Bio",
-    "id": "hyaluron-bio",
-    "name": "Bio (brand as listed in PDF)"
-   },
-   {
-    "brand": "Geek & Gorgeous",
-    "id": "hyaluron-gg",
-    "name": "Geek & Gorgeous Hyaluron"
-   },
-   {
-    "brand": "Paula's Choice",
-    "id": "hyaluron-paulas",
-    "name": "Paula's Choice Hyaluron"
+    "id": "hyaluron-std",
+    "name": "Hyaluronic acid serum"
    }
   ],
   "sort": 440,
@@ -895,42 +709,17 @@
   "status": "active",
   "updated_at": "2026-10-24T10:01:35Z"
  },
- "kimchi": {
-  "base_unit": "kg",
-  "category": "Food",
-  "created_at": "2026-10-24T08:26:54Z",
-  "health": "ok",
-  "name": "Kimchi",
-  "note": "Napa cabbage kimchi. Fermented and good for gut health, but salty.",
-  "priority": "regular",
-  "products": [
-   {
-    "id": "kimchi-napa",
-    "name": "Napa cabbage kimchi (포기김치)"
-   }
-  ],
-  "sort": 200,
-  "sort_updated_at": "2026-10-24T08:26:54Z",
-  "status": "active",
-  "updated_at": "2026-10-24T08:26:54Z"
- },
  "kitchen-roll": {
   "base_unit": "pc",
   "category": "Household",
   "created_at": "2026-10-24T08:26:54Z",
   "health": "ok",
-  "name": "Kitchen rolls (Kuchenrollen)",
+  "name": "Kitchen rolls",
   "priority": "regular",
   "products": [
    {
-    "id": "kitchen-roll-alouette",
-    "name": "Alouette Umwelt Kuechentuecher"
-   },
-   {
-    "id": "kitchen-roll-cody-kr",
-    "name": "Cody kitchen towel, 6 rolls (KR)",
-    "size": 6,
-    "size_unit": "pc"
+    "id": "kitchen-roll-std",
+    "name": "Kitchen rolls"
    }
   ],
   "sort": 380,
@@ -1013,12 +802,12 @@
   "category": "Food",
   "created_at": "2026-10-24T08:26:54Z",
   "health": "core",
-  "name": "Linseed oil (Leinoel)",
+  "name": "Linseed oil",
   "priority": "regular",
   "products": [
    {
     "id": "linseed-oil-std",
-    "name": "Linseed oil (Leinoel)"
+    "name": "Linseed oil"
    }
   ],
   "sort": 250,
@@ -1035,31 +824,8 @@
   "priority": "occasional",
   "products": [
    {
-    "brand": "La Roche-Posay",
-    "buy_in": [
-     "KR",
-     "TW"
-    ],
-    "id": "mat-cream-lrp",
-    "name": "La Roche-Posay mattifying cream",
-    "tier": "Appearance"
-   },
-   {
-    "brand": "CeraVe",
-    "id": "mat-cream-cerave",
-    "name": "CeraVe mattifying gel-cream",
-    "size": 52,
-    "size_unit": "ml",
-    "tier": "Maintenance"
-   },
-   {
-    "brand": "Sebamed",
-    "id": "mat-cream-sebamed",
-    "name": "Sebamed Unreine Haut mattierende Creme",
-    "note": "PDF row 'CeraVe / Seba'; 50 ml from Rossmann URL",
-    "size": 50,
-    "size_unit": "ml",
-    "tier": "Maintenance"
+    "id": "mat-cream-std",
+    "name": "Mattifying cream"
    }
   ],
   "sort": 420,
@@ -1076,10 +842,8 @@
   "priority": "daily",
   "products": [
    {
-    "brand": "Parodontax",
-    "id": "mouthwash-parodontax",
-    "name": "Parodontax mouthwash",
-    "tier": "Maintenance"
+    "id": "mouthwash-std",
+    "name": "Mouthwash"
    }
   ],
   "sort": 500,
@@ -1096,36 +860,8 @@
   "priority": "occasional",
   "products": [
    {
-    "brand": "Revolution",
-    "id": "niacinamide-revolution",
-    "name": "Revolution Niacinamide",
-    "size": 30,
-    "size_unit": "ml"
-   },
-   {
-    "brand": "The Ordinary",
-    "id": "niacinamide-ordinary",
-    "name": "The Ordinary Niacinamide",
-    "size": 60,
-    "size_unit": "ml"
-   },
-   {
-    "brand": "COSRX",
-    "id": "niacinamide-cosrx",
-    "name": "COSRX Niacinamide (hddfs 06301)",
-    "size": 20,
-    "size_unit": "ml"
-   },
-   {
-    "brand": "Geek & Gorgeous",
-    "id": "niacinamide-gg",
-    "name": "Geek & Gorgeous Niacinamide",
-    "note": "PDF: n/a?"
-   },
-   {
-    "brand": "Paula's Choice",
-    "id": "niacinamide-paulas",
-    "name": "Paula's Choice Niacinamide"
+    "id": "niacinamide-std",
+    "name": "Niacinamide serum"
    }
   ],
   "sort": 430,
@@ -1179,26 +915,6 @@
   "status": "active",
   "updated_at": "2026-10-24T10:01:35Z"
  },
- "pangasius": {
-  "base_unit": "kg",
-  "category": "Food",
-  "created_at": "2026-10-24T08:26:54Z",
-  "health": "core",
-  "name": "Pangasius",
-  "note": "PDF: REPLACE WITH COD!!!",
-  "priority": "regular",
-  "products": [
-   {
-    "id": "pangasius-std",
-    "name": "Pangasius"
-   }
-  ],
-  "replaced_by": "cod",
-  "sort": 270,
-  "sort_updated_at": "2026-10-24T08:26:54Z",
-  "status": "replaced",
-  "updated_at": "2026-10-24T08:26:54Z"
- },
  "peppermint-tea": {
   "base_unit": "pc",
   "category": "Food",
@@ -1208,8 +924,8 @@
   "priority": "regular",
   "products": [
    {
-    "id": "peppermint-tea-bags",
-    "name": "Peppermint tea bags"
+    "id": "peppermint-tea-std",
+    "name": "Peppermint tea"
    }
   ],
   "sort": 350,
@@ -1226,11 +942,8 @@
   "priority": "occasional",
   "products": [
    {
-    "brand": "COSRX",
-    "id": "peptides-cosrx",
-    "name": "COSRX Peptides (hddfs 28001)",
-    "size": 150,
-    "size_unit": "ml"
+    "id": "peptides-std",
+    "name": "Peptide serum"
    }
   ],
   "sort": 450,
@@ -1243,12 +956,12 @@
   "category": "Food",
   "created_at": "2026-10-24T08:26:54Z",
   "health": "core",
-  "name": "Pumpkin seeds (Kuerbiskerne)",
+  "name": "Pumpkin seeds",
   "priority": "regular",
   "products": [
    {
     "id": "pumpkin-seeds-std",
-    "name": "Pumpkin seeds (Kuerbiskerne)",
+    "name": "Pumpkin seeds",
     "nutrition": {
      "basis": "per 100 g",
      "form": "dried kernels (partial: macros only)",
@@ -1279,55 +992,11 @@
   "priority": "regular",
   "products": [
    {
-    "id": "quinoa-amazon5",
-    "name": "Quinoa 5 kg bag",
+    "id": "quinoa-std",
+    "name": "Quinoa",
     "nutrition": {
      "basis": "per 100 g",
      "form": "uncooked",
-     "note": "USDA FDC id 168874. Generic raw/reference values, not the retail pack label.",
-     "retrieved_at": "2026-10-24T10:01:35Z",
-     "scope": "generic_reference",
-     "source_name": "USDA FoodData Central (SR Legacy) via getfoodfacts.com",
-     "source_url": "https://getfoodfacts.com/food/quinoa-uncooked-168874",
-     "values": {
-      "b12_ug": 0,
-      "b1_mg": 0.36,
-      "b2_mg": 0.32,
-      "b3_mg": 1.52,
-      "b6_mg": 0.49,
-      "calcium_mg": 47,
-      "carbs_g": 64.2,
-      "cholesterol_mg": 0,
-      "energy_kcal": 368,
-      "fat_g": 6.07,
-      "fibre_g": 7,
-      "folate_ug": 184,
-      "iron_mg": 4.57,
-      "magnesium_mg": 197,
-      "manganese_mg": 2.03,
-      "mono_fat_g": 1.61,
-      "phosphorus_mg": 457,
-      "poly_fat_g": 3.29,
-      "potassium_mg": 563,
-      "protein_g": 14.1,
-      "sat_fat_g": 0.71,
-      "selenium_ug": 8.5,
-      "sodium_mg": 5,
-      "vit_a_rae_ug": 1,
-      "vit_d_ug": 0,
-      "vit_e_mg": 2.44,
-      "zinc_mg": 3.1
-     }
-    },
-    "size": 5,
-    "size_unit": "kg"
-   },
-   {
-    "id": "quinoa-koro",
-    "name": "Koro Bio Quinoa weiss",
-    "nutrition": {
-     "basis": "per 100 g",
-     "form": "uncooked (generic reference; check pack label)",
      "note": "USDA FDC id 168874. Generic raw/reference values, not the retail pack label.",
      "retrieved_at": "2026-10-24T10:01:35Z",
      "scope": "generic_reference",
@@ -1397,46 +1066,8 @@
   "priority": "occasional",
   "products": [
    {
-    "brand": "Revolution",
-    "id": "retinol-revolution",
-    "name": "Revolution Retinol",
-    "size": 30,
-    "size_unit": "ml"
-   },
-   {
-    "brand": "The Ordinary",
-    "id": "retinol-ordinary",
-    "name": "The Ordinary Retinol",
-    "size": 30,
-    "size_unit": "ml"
-   },
-   {
-    "brand": "COSRX",
-    "id": "retinol-cosrx",
-    "name": "COSRX Retinol (hddfs 25901)",
-    "size": 20,
-    "size_unit": "ml"
-   },
-   {
-    "brand": "Bio",
-    "id": "retinol-bio",
-    "name": "Bio (brand as listed in PDF)",
-    "size": 100,
-    "size_unit": "ml"
-   },
-   {
-    "brand": "Geek & Gorgeous",
-    "id": "retinol-gg",
-    "name": "Geek & Gorgeous Retinol",
-    "size": 30,
-    "size_unit": "ml"
-   },
-   {
-    "brand": "Paula's Choice",
-    "id": "retinol-paulas",
-    "name": "Paula's Choice Retinol",
-    "size": 30,
-    "size_unit": "ml"
+    "id": "retinol-std",
+    "name": "Retinol serum"
    }
   ],
   "sort": 460,
@@ -1450,14 +1081,11 @@
   "created_at": "2026-10-24T08:26:54Z",
   "health": "ok",
   "name": "Rice",
-  "note": "Everyday rice. Compare healthy rice separately.",
   "priority": "regular",
   "products": [
    {
     "id": "rice-std",
-    "name": "Rice, bag 5 to 10 kg",
-    "size": 10000,
-    "size_unit": "g"
+    "name": "Rice"
    }
   ],
   "sort": 110,
@@ -1474,39 +1102,8 @@
   "priority": "occasional",
   "products": [
    {
-    "brand": "Revolution",
-    "id": "salicylic-revolution",
-    "name": "Revolution Salicylic",
-    "size": 30,
-    "size_unit": "ml"
-   },
-   {
-    "brand": "The Ordinary",
-    "id": "salicylic-ordinary",
-    "name": "The Ordinary Salicylic Acid",
-    "size": 30,
-    "size_unit": "ml"
-   },
-   {
-    "brand": "COSRX",
-    "id": "salicylic-cosrx",
-    "name": "COSRX Salicylic (Amazon)",
-    "size": 100,
-    "size_unit": "ml"
-   },
-   {
-    "brand": "Geek & Gorgeous",
-    "id": "salicylic-gg",
-    "name": "Geek & Gorgeous Salicylic",
-    "size": 30,
-    "size_unit": "ml"
-   },
-   {
-    "brand": "Paula's Choice",
-    "id": "salicylic-paulas",
-    "name": "Paula's Choice Salicylic",
-    "size": 236,
-    "size_unit": "ml"
+    "id": "salicylic-std",
+    "name": "Salicylic acid"
    }
   ],
   "sort": 470,
@@ -1562,12 +1159,6 @@
       "zinc_mg": 0.64
      }
     }
-   },
-   {
-    "id": "salmon-patagonia-kr",
-    "name": "Patagonia fresh salmon fillet 500 g (KR, farmed)",
-    "size": 500,
-    "size_unit": "g"
    }
   ],
   "sort": 40,
@@ -1585,7 +1176,7 @@
   "products": [
    {
     "id": "salsa-std",
-    "name": "Salsa 235 g",
+    "name": "Salsa",
     "size": 235,
     "size_unit": "g"
    }
@@ -1787,21 +1378,8 @@
   "priority": "daily",
   "products": [
    {
-    "brand": "La Roche-Posay",
-    "buy_in": [
-     "KR",
-     "TW"
-    ],
-    "id": "sunscreen-lrp",
-    "name": "La Roche-Posay sunscreen",
-    "tier": "Appearance"
-   },
-   {
-    "brand": "COSRX",
-    "id": "sunscreen-cosrx",
-    "name": "COSRX sunscreen (hddfs 28401)",
-    "size": 50,
-    "size_unit": "ml"
+    "id": "sunscreen-std",
+    "name": "Sunscreen"
    }
   ],
   "sort": 400,
@@ -1815,7 +1393,6 @@
   "created_at": "2026-10-24T08:26:54Z",
   "health": "ok",
   "name": "Toilet paper",
-  "note": "PDF: REWE / Picnic also 2K Blatt",
   "priority": "daily",
   "products": [
    {
@@ -1837,19 +1414,8 @@
   "priority": "daily",
   "products": [
    {
-    "buy_in": [
-     "KR",
-     "TW"
-    ],
-    "id": "toothpaste-whitening",
-    "name": "Colgate Max White Ultra / Crest 3D White Brilliance",
-    "tier": "Appearance"
-   },
-   {
-    "brand": "Parodontax",
-    "id": "toothpaste-parodontax",
-    "name": "Parodontax",
-    "tier": "Maintenance"
+    "id": "toothpaste-std",
+    "name": "Toothpaste"
    }
   ],
   "sort": 490,
@@ -1902,9 +1468,8 @@
   "priority": "regular",
   "products": [
    {
-    "id": "tuna-dreimaster",
-    "name": "Dreimaster Thunfischfilets in Olivenoel, 48-pack",
-    "note": "URL says 185 g tins, 48er pack",
+    "id": "tuna-std",
+    "name": "Tuna",
     "nutrition": {
      "basis": "per 100 g",
      "form": "light tuna canned in oil, drained (generic; check pack label)",
@@ -1945,12 +1510,6 @@
       "zinc_mg": 0.9
      }
     }
-   },
-   {
-    "id": "tuna-dongwon-light-kr",
-    "name": "Dongwon Light Standard tuna, 150 g can (KR)",
-    "size": 150,
-    "size_unit": "g"
    }
   ],
   "sort": 70,
@@ -2026,18 +1585,8 @@
   "priority": "occasional",
   "products": [
    {
-    "brand": "COSRX",
-    "id": "vitamin-c-cosrx1",
-    "name": "COSRX Vitamin C (hddfs 27601)",
-    "size": 20,
-    "size_unit": "ml"
-   },
-   {
-    "brand": "COSRX",
-    "id": "vitamin-c-cosrx2",
-    "name": "COSRX Vitamin C (hddfs 06501)",
-    "size": 20,
-    "size_unit": "ml"
+    "id": "vitamin-c-std",
+    "name": "Vitamin C serum"
    }
   ],
   "sort": 480,
@@ -2114,21 +1663,8 @@
   "priority": "daily",
   "products": [
    {
-    "brand": "CeraVe",
-    "id": "wash-gel-cerave",
-    "name": "CeraVe wash gel",
-    "tier": "Maintenance",
-    "usage": "Daily"
-   },
-   {
-    "brand": "La Roche-Posay",
-    "buy_in": [
-     "KR",
-     "TW"
-    ],
-    "id": "wash-gel-lrp",
-    "name": "La Roche-Posay wash gel",
-    "tier": "Appearance"
+    "id": "wash-gel-std",
+    "name": "Face wash gel"
    }
   ],
   "sort": 410,

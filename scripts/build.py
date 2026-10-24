@@ -7,7 +7,13 @@ R=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 t=sys.argv[1] if len(sys.argv)>1 else 'demo'
 src=open(f'{R}/src/page.src.html',encoding='utf8').read()
 schema=open(f'{R}/schema.sql',encoding='utf8').read()
-out=src.replace('/*__SCHEMA__*/','window.__SCHEMA__='+json.dumps(schema)+';')
+# Countries, currencies and shop priorities come from a config file, never from code.
+#   demo   -> data/demo-src/config.json (invented sample countries, public)
+#   claude -> data/private/config.json (git-ignored, your real countries); falls back to the sample config
+cfgp=f'{R}/data/private/config.json' if (t=='claude' and os.path.exists(f'{R}/data/private/config.json')) else f'{R}/data/demo-src/config.json'
+if t=='claude' and 'private' not in cfgp:print('WARNING: data/private/config.json not found, using the sample countries')
+cfg=json.load(open(cfgp,encoding='utf8'))
+out=src.replace('/*__SCHEMA__*/','window.__SCHEMA__='+json.dumps(schema)+';').replace('/*__CONFIG__*/','window.SW_CONFIG='+json.dumps(cfg,ensure_ascii=False)+';')
 d=f'{R}/dist/{t}';shutil.rmtree(d,ignore_errors=True);os.makedirs(d)
 if t=='demo':
     shim=open(f'{R}/src/demo-backend.js',encoding='utf8').read()

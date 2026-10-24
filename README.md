@@ -1,6 +1,6 @@
 # Shelfwatch
 
-Mobile-first price comparison for everyday staples across **Korea, Taiwan, Slovakia and Germany**.
+Mobile-first price comparison for everyday staples across any set of countries and currencies you configure.
 Every price is compared per kg, per litre or per piece, shown in EUR with the native currency beneath, and
 stored with its source, origin and date. Prices are append-only, so price history is never lost.
 
@@ -25,6 +25,7 @@ One HTML file, no framework. The app talks to a tiny storage interface
 | `claude` | Claude artifact database | private, real data, photo reading, scheduled research |
 | `demo` | static JSON in `data/demo/` + browser localStorage | public showcase, GitHub Pages |
 
+Countries, currencies and shop priorities live in a config file, not in code: `data/demo-src/config.json` (invented sample countries) for the demo, `data/private/config.json` (git-ignored, your own) for the private build. See `data/config.example.json`.
 Swap the data by replacing the files in `data/demo/` (or set `window.SHELFWATCH_DATA` to another folder).
 A future Supabase backend only needs to implement the same few calls; `schema.sql` is the matching Postgres schema.
 
@@ -36,13 +37,11 @@ python3 scripts/build.py claude          # writes dist/claude/page.html (publish
 ```
 
 ## Keeping private data private
-- `data/private/` is git-ignored. Never commit a real export.
-- `scripts/scrub.py <private-dump-dir>` rebuilds `data/demo/` from a private dump: it drops photos, auto-check logs
-  and personal text, and replaces the guide with generic rules. Prices, store links and USDA reference nutrition are public facts and stay.
-- Review `git diff data/demo` before every push. API keys never belong in the repo.
+- The public demo is fully invented: sample countries, shops and prices from `python3 scripts/make_demo.py` (seeded, reproducible). Nothing in `data/demo/` comes from a real database.
+- `data/private/` is git-ignored. Your real config and exports live there and never get committed.
+- API keys never belong in the repo.
 
 ## Data notes
-Demo prices come from public shelf and web prices plus the Korea Consumer Agency price survey (public data, data.go.kr).
-Treat them as illustrative, not a live price feed.
+Item names and per-100 g reference nutrition are generic public facts (USDA FoodData Central). All shops, prices, programs and exchange rates in the demo are made up. Treat them as illustrative, not a live price feed.
 
 MIT licence.

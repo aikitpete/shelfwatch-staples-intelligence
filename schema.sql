@@ -7,8 +7,9 @@ create table if not exists countries (
   name text not null,
   currency text not null
 );
+-- sample rows: replace with your own countries
 insert into countries (code, name, currency) values
-  ('DE','Germany','EUR'), ('KR','South Korea','KRW'), ('TW','Taiwan','TWD'), ('SK','Slovakia','EUR')
+  ('AUR','Aurelia','EUR'), ('BOR','Borealia','BOR'), ('CAS','Cascadia','CAS')
 on conflict (code) do nothing;
 
 create table if not exists retailers (
@@ -175,7 +176,7 @@ window w as (partition by product_id, retailer_id order by observed_at, created_
 create table if not exists source_register (
   id text primary key,
   name text not null,
-  country text,                      -- KR, TW, SK, DE or ALL
+  country text,                      -- a country code from the countries table, or ALL
   type text,                         -- retailer | aggregator | government | api | flyer | app | community | crowd | nutrition | photo
   url text,
   access text,                       -- fetch | api_key | paid_actor | photo | blocked | manual
