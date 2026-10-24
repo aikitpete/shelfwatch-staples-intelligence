@@ -127,7 +127,27 @@ h2.sec{margin:12px 0 0;font:600 12px/1 var(--font-body);text-transform:uppercase
 .hb .t{height:10px;background:var(--surface-2);border-radius:2px;overflow:hidden;display:flex}
 .hb .t i{display:block;height:100%;background:var(--tag)}
 .hb .t i.g{background:var(--down)}.hb .t i.m{background:var(--bar)}
+.hb .t i.r{background:var(--warn)}
 .hb b{font-variant-numeric:tabular-nums;font-weight:600}
+.hcl{display:inline-flex;gap:2px;margin-right:8px;vertical-align:middle}
+.hc{padding:3px 8px;border-radius:999px;font:700 11.5px/1.2 var(--font-body);color:var(--fg-3);border:1px solid var(--line)}
+.hc[aria-pressed=true]{background:var(--tag);color:var(--tag-fg);border-color:var(--tag)}
+.stb,.spb{display:grid;gap:5px;width:100%;text-align:left;padding:0;min-width:0}
+.stb+.stb{padding-top:10px;border-top:1px solid var(--line)}
+.stt{display:flex;gap:6px;align-items:center;min-width:0}
+.stt b{font-size:14px;overflow-wrap:anywhere;min-width:0}
+.stn{margin-left:auto;font-size:12px;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap;padding-left:6px}
+.stb .t,.spb .t{height:10px;background:var(--surface-2);border-radius:2px;overflow:hidden;display:flex}
+.stb .t i,.spb .t i,.lg i{display:block;height:100%;background:var(--bar)}
+.stb .t i.g,.spb .t i.g,.lg i.g{background:var(--down)}
+.stb .t i.m,.lg i.m{background:var(--tag)}
+.stb .t i.r,.spb .t i.r,.lg i.r{background:var(--warn)}
+.sts{display:flex;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--fg-3)}
+.sts b{color:var(--fg)}
+.lg{display:flex;gap:12px;flex-wrap:wrap;font-size:11.5px;color:var(--fg-3)}
+.lg i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:-1px}
+.sec3{margin:10px 0 0;font:700 11px/1 var(--font-body);letter-spacing:.09em;text-transform:uppercase;color:var(--fg-3)}
+.spb+.spb{padding-top:8px;border-top:1px solid var(--line)}
 .dgrid{display:grid;gap:10px}
 @media (min-width:700px){.dgrid{grid-template-columns:1fr 1fr}}
 .pc{background:var(--surface);border:1px solid var(--line);border-radius:6px;min-width:0;display:grid}
@@ -257,8 +277,8 @@ h2.sec{margin:12px 0 0;font:600 12px/1 var(--font-body);text-transform:uppercase
 .brw{overflow-x:auto;border:1px solid var(--line);border-radius:10px;margin-top:8px}.brt{border-collapse:collapse;font-size:12.5px;width:max-content;min-width:100%}.brt th{position:sticky;top:0;background:var(--surface-2);text-align:left;padding:6px 10px;font-weight:600;white-space:nowrap}.brt td{padding:6px 10px;border-top:1px solid var(--line);white-space:nowrap;max-width:240px;overflow:hidden;text-overflow:ellipsis}.brt td.f{font-weight:600;position:sticky;left:0;background:var(--surface)}.brq{width:100%;margin-top:8px;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--fg);font:inherit}.brj{font-size:11.5px;overflow:auto;max-height:60vh;background:var(--surface-2);padding:10px;border-radius:10px;margin-top:8px}
 /* nav */
 .nav{position:fixed;left:0;right:0;bottom:0;z-index:25;background:var(--surface);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
-.nav-in{display:grid;grid-template-columns:1fr auto 1fr 1fr 1fr;gap:4px;align-items:center;padding-block:6px}
-.nav button{padding:8px 4px;text-align:center;font-weight:600;font-size:12.5px;color:var(--fg-3);border-radius:8px}
+.nav-in{display:grid;grid-template-columns:1fr auto 1fr 1fr 1fr 1fr;gap:2px;align-items:center;padding-block:6px}
+.nav button{padding:8px 2px;text-align:center;font-weight:600;font-size:12px;color:var(--fg-3);border-radius:8px}
 .nav button[aria-current="page"]{color:var(--fg);background:var(--surface-2)}
 .nav .add{background:var(--tag);color:var(--tag-fg);font-size:14px;padding:10px 18px;border-radius:999px;margin-top:-18px;box-shadow:0 2px 8px rgba(0,0,0,.28)}
 
@@ -337,11 +357,14 @@ const CATS=['Food','Household','Skincare','Dental','Grooming'];
 let PREF={};try{PREF=JSON.parse(localStorage.getItem('sw.inc')||'{}')||{}}catch(x){}
 const S={ex:new Set(),fOpen:false,br:{t:'prices',q:'',json:false},country:HOME,tab:'compare',q:'',cat:'All',open:new Set(),items:new Map(),retailers:new Map(),prices:[],checks:[],fx:null,auto:null,daily:false,reorder:false,org:'',kn:[],prog:[],src:[],store:'',cOpen:false,sOpen:false,hereBest:false,
   db:null,sample:null,assets:null,downloads:null,canWrite:true,imgOK:false,D:null,loaded:0,photo:null};
+try{const h=localStorage.getItem('sw.home');if(h)S.home=h}catch(e){}
 try{const c=localStorage.getItem('sw.c2');if(c&&(c==='ALL'||COUNTRIES[c]))S.country=c}catch(e){}
 
 /* ---------- helpers ---------- */
 const rate=c=>c==='EUR'?1:((S.fx&&S.fx.rates&&S.fx.rates[c])||null);
 const toEur=(c,v)=>{if(v==null)return null;const r=rate(c);return r?v/r:null};
+const home=()=>S.home&&rate(S.home)?S.home:'EUR';
+const mh=v=>(v==null||!isFinite(v))?'—':money(home(),v*rate(home()));
 function money(cur,v){
   if(v==null||!isFinite(v))return '—';
   const dc=(CURS[cur]||{}).dec;let d=dc!=null?dc:(Math.abs(v)>=100?0:2);
@@ -421,9 +444,9 @@ function priceCell(o,big){
     return `<div class="o-price need"><b>Needs price</b></div>`;
   }
   const ev=o.eff||{},shown=ev.reg?r.regular_unit_price:r.unit_price;
-  const second=ev.ended&&!ev.reg?'promo ended, re-check':r.currency==='EUR'
-    ?(r.amount!=null&&!ev.reg?`pack ${money('EUR',r.amount)}${r.size?' · '+r.size+' '+r.size_unit:''}`:(ev.reg?'regular price':''))
-    :(o.eurUnit!=null?`≈ ${money('EUR',o.eurUnit)}/${b}`:'EUR rate missing');
+  const second=ev.ended&&!ev.reg?'promo ended, re-check':r.currency===home()
+    ?(r.amount!=null&&!ev.reg?`pack ${money(r.currency,r.amount)}${r.size?' · '+r.size+' '+r.size_unit:''}`:(ev.reg?'regular price':''))
+    :(o.eurUnit!=null?`≈ ${mh(o.eurUnit)}/${b}`:'EUR rate missing');
   return `<div class="o-price"><span class="num">${money(r.currency,shown)}<small>/${b}</small></span><small>${esc(second)}</small></div>`;
 }
 function badges(o,withCty){
@@ -467,11 +490,11 @@ function ladRow(o,rank,max,best){
   if(isDeal(r)&&ps==='ended')tags.push(`<span class="tg warn">promo ended</span>`);
   if(isStale(r))tags.push(`<span class="tg warn">old price</span>`);
   if(o.pct!=null&&Math.abs(o.pct)>=.005)tags.push(`<span class="${o.pct<0?'dn':'upc'}">${o.pct<0?'▼':'▲'} ${pctTxt(o.pct)}</span>`);
-  const nat=!nopx&&r.currency!=='EUR'&&r.unit_price!=null?money(r.currency,o.eff&&o.eff.reg?r.regular_unit_price:r.unit_price)+'/'+b:'';
+  const nat=!nopx&&r.currency!==home()&&r.unit_price!=null?money(r.currency,o.eff&&o.eff.reg?r.regular_unit_price:r.unit_price)+'/'+b:'';
   const vs=!nopx&&rank>1&&best?'+'+Math.round((o.eurUnit/best-1)*100)+'%':'';
-  const pv=nopx?`<b class="nx">${r.amount!=null&&r.unit_price==null?'pack '+money(r.currency,r.amount):'no price'}</b>`:`<span class="num">${money('EUR',o.eurUnit)}<small>/${b}</small></span><small>${[nat,vs].filter(Boolean).join(' · ')}</small>`;
+  const pv=nopx?`<b class="nx">${r.amount!=null&&r.unit_price==null?'pack '+money(r.currency,r.amount):'no price'}</b>`:`<span class="num">${mh(o.eurUnit)}<small>/${b}</small></span><small>${[nat,vs].filter(Boolean).join(' · ')}</small>`;
   const pname=r.product_name||(o.prod&&o.prod.name)||'';
-  const sz=sizeLab(r),pe=r.amount!=null&&!r.placeholder?money(r.currency,r.amount)+(r.currency!=='EUR'&&toEur(r.currency,r.amount)!=null?' ≈ '+money('EUR',toEur(r.currency,r.amount)):''):'';
+  const sz=sizeLab(r),pe=r.amount!=null&&!r.placeholder?money(r.currency,r.amount)+(r.currency!==home()&&toEur(r.currency,r.amount)!=null?' ≈ '+mh(toEur(r.currency,r.amount)):''):'';
   const pk=[sz,pe?'pack '+pe:''].filter(Boolean).join(' · ');
   const meta=[r.observed_at,SRC[r.source_type]||r.source_type].filter(Boolean).join(' · ');
   const img=r.image_url||(o.prod&&o.prod.image_url)||(r.asset_id?'/_blob/'+r.asset_id:'');
@@ -483,13 +506,13 @@ function itemCard(it){
   const sub=[it.priority==='daily'?'Daily':'',it.health==='core'?'Core':it.health==='limit'?'Limit':'','per '+(it.base_unit||'kg')].filter(Boolean).join(' · ');
   if(!all.length){
     const c=byCty(it),k=Object.keys(c).sort((x,y)=>c[x].v-c[y].v);
-    return `<article class="sc none"><div class="sh"><div class="sx"><b>${esc(it.name)}</b><small>${esc(sub)}</small></div><button class="btn" data-act="addfor" data-item="${esc(it.id)}">+ Price</button></div>${k.length?`<div class="hint">Not priced in ${S.country==='ALL'?'any country':esc(COUNTRIES[S.country].name)}. ${k[0]} has it at ${money('EUR',c[k[0]].v)}/${bl(it.base_unit)}.</div>`:''}</article>`;
+    return `<article class="sc none"><div class="sh"><div class="sx"><b>${esc(it.name)}</b><small>${esc(sub)}</small></div><button class="btn" data-act="addfor" data-item="${esc(it.id)}">+ Price</button></div>${k.length?`<div class="hint">Not priced in ${S.country==='ALL'?'any country':esc(COUNTRIES[S.country].name)}. ${k[0]} has it at ${mh(c[k[0]].v)}/${bl(it.base_unit)}.</div>`:''}</article>`;
   }
   const e=ranked.map(o=>o.eurUnit),best=ranked[0],b=best?bl(best.latest.base_unit):bl(it.base_unit);
   const mdn=e.length>2?med(e):null,save=mdn?1-e[0]/mdn:null;
   const rowsAll=ranked.map((o,i)=>[o,i+1]).concat(other.map(o=>[o,0])),shown=open?rowsAll.length:3,max=e.length?Math.max(...e):1;
-  const r0=best&&best.latest,nat=r0&&r0.currency!=='EUR'&&r0.unit_price!=null?money(r0.currency,best.eff&&best.eff.reg?r0.regular_unit_price:r0.unit_price)+'/'+b:'';
-  const head=best?`<div class="sp"><span class="num">${money('EUR',best.eurUnit)}<small>/${b}</small></span>${nat?`<small>${nat}</small>`:''}</div>`:`<div class="sp"><small class="nx">needs a price</small></div>`;
+  const r0=best&&best.latest,nat=r0&&r0.currency!==home()&&r0.unit_price!=null?money(r0.currency,best.eff&&best.eff.reg?r0.regular_unit_price:r0.unit_price)+'/'+b:'';
+  const head=best?`<div class="sp"><span class="num">${mh(best.eurUnit)}<small>/${b}</small></span>${nat?`<small>${nat}</small>`:''}</div>`:`<div class="sp"><small class="nx">needs a price</small></div>`;
   const facts=[];
   if(save!=null&&save>=.08)facts.push(`<span class="ft g">${Math.round(save*100)}% below the usual price</span>`);
   if(ranked.length>1){const gap=ranked[1].eurUnit/e[0]-1;if(gap>=.05)facts.push(`<span class="ft">next best +${Math.round(gap*100)}%</span>`)}
@@ -497,7 +520,7 @@ function itemCard(it){
   if(pe)facts.push(`<span class="ft p">${pe>=100?Math.round(pe):pe.toFixed(1)} g protein per €</span>`);
   if(bnu&&bnu.values.energy_kcal!=null&&bnu.basis)facts.push(`<span class="ft">${bnu.values.energy_kcal} kcal ${esc(bnu.basis.replace('per ','/'))}</span>`);
   const c=byCty(it),cheaper=Object.keys(c).filter(x=>x!==S.country&&S.country!=='ALL'&&best&&c[x].v<best.eurUnit*0.9).sort((x,y)=>c[x].v-c[y].v)[0];
-  if(cheaper)facts.push(`<span class="ft">${cheaper} ${money('EUR',c[cheaper].v)}</span>`);
+  if(cheaper)facts.push(`<span class="ft">${cheaper} ${mh(c[cheaper].v)}</span>`);
   const more=rowsAll.length>3?`<button class="lk" data-act="toggle" data-id="${esc(it.id)}">${open?'Show fewer':'All '+rowsAll.length+' shops'}</button>`:'';
   const ex=S.ex.has(it.id),bs=best?short(best.rt.name):'';
   return `<article class="sc${ex?' ex':''}"><button class="sh" data-act="cx" data-id="${esc(it.id)}" aria-expanded="${ex}"><div class="sx"><b>${esc(it.name)}</b><small>${esc(sub)}${!ex&&bs?' · '+esc(bs)+(ranked.length>1?' +'+(ranked.length-1):''):''}</small></div>${head}<span class="chv" aria-hidden="true">${ex?'▴':'▾'}</span></button>${ex?`${facts.length?`<div class="fts">${facts.join('')}</div>`:''}<div class="sls">${rowsAll.slice(0,shown).map(([o,k])=>ladRow(o,k,max,e[0])).join('')}</div><div class="sf">${more}<button class="lk" data-act="addfor" data-item="${esc(it.id)}">+ Add price</button></div>`:''}</article>`;
@@ -515,12 +538,12 @@ function storeCard(it){
   const others=ranked.filter(o=>o.latest.retailer_id!==S.store).slice(0,isBest?1:2);
   const rows=mine.map((o,i)=>[o,ranked.indexOf(o)+1]).concat(others.map(o=>[o,ranked.indexOf(o)+1]));
   const max=Math.max(...rows.map(([o])=>o.eurUnit));
-  const r0=m.latest,nat=r0.currency!=='EUR'&&r0.unit_price!=null?money(r0.currency,m.eff&&m.eff.reg?r0.regular_unit_price:r0.unit_price)+'/'+b:'';
+  const r0=m.latest,nat=r0.currency!==home()&&r0.unit_price!=null?money(r0.currency,m.eff&&m.eff.reg?r0.regular_unit_price:r0.unit_price)+'/'+b:'';
   const gap=Math.round((m.eurUnit/best.eurUnit-1)*100);
   const verdict=isBest?`<span class="ft g">Cheapest in ${esc(COUNTRIES[S.country].name)}</span>`:`<span class="ft w">+${gap}% vs ${esc(best.rt.name)}</span>`;
   const pe=protPer(it,m.eurUnit,m.prod),pf=pe?`<span class="ft p">${pe>=100?Math.round(pe):pe.toFixed(1)} g protein per €</span>`:'';
   const sub=[it.priority==='daily'?'Daily':'',it.health==='core'?'Core':'','per '+(it.base_unit||'kg')].filter(Boolean).join(' · ');
-  return {isBest,html:`<article class="sc here${isBest?' win':''}${S.ex.has(it.id)?' ex':''}"><button class="sh" data-act="cx" data-id="${esc(it.id)}" aria-expanded="${S.ex.has(it.id)}"><div class="sx"><b>${esc(it.name)}</b><small>${esc(sub)}</small></div><div class="sp"><span class="num">${money('EUR',m.eurUnit)}<small>/${b}</small></span>${nat?`<small>${nat}</small>`:''}</div><span class="chv" aria-hidden="true">${S.ex.has(it.id)?'▴':'▾'}</span></button><div class="fts">${verdict}${S.ex.has(it.id)?pf:''}</div>${S.ex.has(it.id)?`<div class="sls">${rows.map(([o,k],i)=>ladRow(o,k,max,best.eurUnit)).join('')}</div>`:''}</article>`};
+  return {isBest,html:`<article class="sc here${isBest?' win':''}${S.ex.has(it.id)?' ex':''}"><button class="sh" data-act="cx" data-id="${esc(it.id)}" aria-expanded="${S.ex.has(it.id)}"><div class="sx"><b>${esc(it.name)}</b><small>${esc(sub)}</small></div><div class="sp"><span class="num">${mh(m.eurUnit)}<small>/${b}</small></span>${nat?`<small>${nat}</small>`:''}</div><span class="chv" aria-hidden="true">${S.ex.has(it.id)?'▴':'▾'}</span></button><div class="fts">${verdict}${S.ex.has(it.id)?pf:''}</div>${S.ex.has(it.id)?`<div class="sls">${rows.map(([o,k],i)=>ladRow(o,k,max,best.eurUnit)).join('')}</div>`:''}</article>`};
 }
 function dealsStrip(){
   const d=[];
@@ -528,7 +551,7 @@ function dealsStrip(){
     for(const o of offersFor(it).ranked){const ps=promoState(o.latest);if(isDeal(o.latest)&&ps!=='ended')d.push({o,it,ps})}}
   if(!d.length)return '';
   d.sort((a,b)=>(a.ps==='soon'?0:1)-(b.ps==='soon'?0:1)||(a.o.latest.promo_until||'9').localeCompare(b.o.latest.promo_until||'9'));
-  return `<section aria-label="Promotions"><h2 class="sec">Promotions now</h2><div class="deals">${d.slice(0,8).map(x=>`<button class="deal" data-act="detail" data-key="${esc(x.o.key)}"><b>${esc(x.it.name)}</b><span class="num">${money('EUR',x.o.eurUnit)}<small>/${bl(x.o.latest.base_unit)}</small></span><small>${esc(x.o.rt.name)}</small><small class="${x.ps==='soon'?'warnt':''}">${esc(dealTxt(x.o.latest))}</small></button>`).join('')}</div></section>`;
+  return `<section aria-label="Promotions"><h2 class="sec">Promotions now</h2><div class="deals">${d.slice(0,8).map(x=>`<button class="deal" data-act="detail" data-key="${esc(x.o.key)}"><b>${esc(x.it.name)}</b><span class="num">${mh(x.o.eurUnit)}<small>/${bl(x.o.latest.base_unit)}</small></span><small>${esc(x.o.rt.name)}</small><small class="${x.ps==='soon'?'warnt':''}">${esc(dealTxt(x.o.latest))}</small></button>`).join('')}</div></section>`;
 }
 function dashboard(){
   const live=[...S.items.values()].filter(i=>i.status!=='replaced'&&i.status!=='not_needed');
@@ -704,11 +727,116 @@ function renderTop(){
   if(S.sOpen)seg+=`<div class="chips stores" role="group" aria-label="Stores in ${esc(cname)}"><span class="sub" style="flex-basis:100%">Pick a shop to see only its prices.</span><button class="chip" data-act="store" data-s="" aria-pressed="${!S.store}">Any store</button>${stores.map(x=>`<button class="chip" data-act="store" data-s="${esc(x.id)}" aria-pressed="${S.store===x.id}">${esc(short(x.name))}${x.on?' <small class="on">online</small>':''} <small>${x.n}</small></button>`).join('')}${stores.length?'':'<span class="sub">No stores in this country yet. Add one from + Price.</span>'}</div>`;
   $('#seg').innerHTML=seg;
   const r=S.fx&&S.fx.rates;
-  $('#fxline').innerHTML=r?'1 € = '+FXCUR.map(c=>`<b>${esc(money(c,r[c]||0))}</b>`).join(' · '):'No FX rates set';
+  const hc=['EUR',...new Set(S.prices.map(x=>x.currency).filter(c=>c&&c!=='EUR')),'USD'].filter((c,i,A)=>A.indexOf(c)===i&&rate(c));
+  $('#fxline').innerHTML=r?`<span class="hcl" role="group" aria-label="Show prices in">${hc.map(c=>`<button class="hc" data-act="home" data-c="${c}" aria-pressed="${home()===c}">${esc(CUR[c]||c)}</button>`).join('')}</span><span>1 € = ${FXCUR.map(c=>`<b>${esc(money(c,r[c]||0))}</b>`).join(' · ')}</span>`:'No FX rates set';
   const cats=['All',...new Set([...S.items.values()].map(i=>i.category).filter(Boolean))].sort((a,b)=>(a==='All'?-1:b==='All'?1:CATS.indexOf(a)-CATS.indexOf(b)));
   $('#chips').innerHTML=`<button class="chip" data-act="daily" aria-pressed="${S.daily}">Daily drivers</button><button class="chip" data-act="reorder" aria-pressed="${S.reorder}">Reorder</button>`+cats.map(c=>`<button class="chip" data-act="cat" data-c="${esc(c)}" aria-pressed="${S.cat===c}">${esc(c)}</button>`).join('');
   $('#tools').hidden=S.tab!=='compare';
-  $('#nav').innerHTML=`<button data-act="tab" data-t="compare"${S.tab==='compare'?' aria-current="page"':''}>Compare</button><button class="add" data-act="add">+ Price</button><button data-act="tab" data-t="guide"${S.tab==='guide'?' aria-current="page"':''}>Guide</button><button data-act="tab" data-t="activity"${S.tab==='activity'?' aria-current="page"':''}>Data</button><button data-act="tab" data-t="setup"${S.tab==='setup'?' aria-current="page"':''}>Setup</button>`;
+  $('#nav').innerHTML=`<button data-act="tab" data-t="compare"${S.tab==='compare'?' aria-current="page"':''}>Compare</button><button class="add" data-act="add">+ Price</button><button data-act="tab" data-t="guide"${S.tab==='guide'?' aria-current="page"':''}>Guide</button><button data-act="tab" data-t="stores"${S.tab==='stores'?' aria-current="page"':''}>Stores</button><button data-act="tab" data-t="activity"${S.tab==='activity'?' aria-current="page"':''}>Data</button><button data-act="tab" data-t="setup"${S.tab==='setup'?' aria-current="page"':''}>Setup</button>`;
+}
+/* ---------- store stats (price related) ---------- */
+const memStore=id=>{const r=S.retailers.get(id);return !!(r&&r.needs_membership)||HIDDEN_DEFAULT.has(id)};
+const stOff=id=>isOff(id)&&!(S.stMem&&memStore(id)&&!(id in PREF));
+function storeStats(){
+  const stores=new Map(),spreads=[],cty={},cmap={};
+  if(!S.D)return {list:[],spreads,cty:[]};
+  const geo=a=>Math.exp(a.reduce((s,x)=>s+Math.log(x),0)/a.length);
+  for(const [iid,arr] of S.D.byItem){
+    const it=S.items.get(iid);if(!it)continue;
+    /* best offer per store (cheapest product) */
+    const best=new Map();
+    for(const o of arr){
+      if(o.eurUnit==null||!(o.eurUnit>0)||HIDE_RT.has(o.latest.retailer_id)||stOff(o.latest.retailer_id))continue;
+      if(S.country!=='ALL'&&o.country!==S.country)continue;
+      const k=o.latest.retailer_id,c=best.get(k);
+      if(!c||o.eurUnit<c.eurUnit)best.set(k,o);
+    }
+    /* compare stores only inside their own country */
+    const byC={};for(const o of best.values())(byC[o.country]=byC[o.country]||[]).push(o);
+    for(const c in byC){
+      const l=byC[c].sort((a,b)=>a.eurUnit-b.eurUnit);
+      if(l.length<2)continue;
+      const min=l[0].eurUnit,max=l[l.length-1].eurUnit,b=bl(l[0].latest.base_unit);
+      spreads.push({it,country:c,lo:l[0],hi:l[l.length-1],sp:max/min-1,n:l.length,b});
+      l.forEach((o,i)=>{
+        const id=o.latest.retailer_id;
+        let s=stores.get(id);if(!s){s={id,rt:o.rt,country:c,n:0,w:0,t3:0,last:0,ln:[],pcts:[],deals:0,wins:[],lasts:[],all:[]};stores.set(id,s)}
+        const win=o.eurUnit<=min*1.005,ratio=o.eurUnit/min;
+        s.n++;s.ln.push(ratio);s.all.push({it,o,ratio,rank:i+1,of:l.length});
+        if(win){s.w++;const nx=l.find(x=>x.eurUnit>min*1.005);s.wins.push({it,o,gap:nx?nx.eurUnit/o.eurUnit-1:0,nx})}
+        if(i<3)s.t3++;
+        if(i===l.length-1&&l.length>=3){s.last++;s.lasts.push({it,o,ratio,lo:l[0]})}
+        if(o.pct!=null)s.pcts.push(o.pct);
+        if(isDeal(o.latest))s.deals++;
+      });
+    }
+    /* country level: cheapest offer per country */
+    const cb={};
+    for(const o of arr){
+      if(o.eurUnit==null||!(o.eurUnit>0)||HIDE_RT.has(o.latest.retailer_id)||stOff(o.latest.retailer_id))continue;
+      if(!cb[o.country]||o.eurUnit<cb[o.country])cb[o.country]=o.eurUnit;
+    }
+    const cs=Object.keys(cb);
+    for(const c of cs)(cmap[c]=cmap[c]||{})[iid]=cb[c];
+    if(cs.length>=2){const m=Math.min(...cs.map(c=>cb[c]));for(const c of cs)(cty[c]=cty[c]||[]).push({it,ratio:cb[c]/m,v:cb[c]})}
+  }
+  const list=[...stores.values()].filter(s=>s.n>=3).map(s=>({...s,idx:geo(s.ln)-1,pc:s.pcts.length?s.pcts.reduce((a,b)=>a+b,0)/s.pcts.length:null,share:s.w/s.n}));
+  const cl=Object.keys(cty).map(c=>{const r=cty[c],lo=r.filter(x=>x.ratio>1.005);return {c,n:r.length,w:r.length-lo.length,lose:lo.length,lidx:lo.length?geo(lo.map(x=>x.ratio))-1:0}}).filter(x=>x.n>=3);
+  spreads.sort((a,b)=>b.sp-a.sp);
+  return {list,spreads,cty:cl,cmap};
+}
+function viewStores(){
+  const st=storeStats(),sort=S.stSort||'wins';
+  const list=st.list.slice().sort(sort==='wins'?((a,b)=>b.share-a.share||b.w-a.w||a.idx-b.idx):((a,b)=>a.idx-b.idx||b.w-a.w));
+  const maxIdx=Math.max(.2,...list.map(s=>s.idx));
+  const hasMem=[...S.retailers.keys()].some(memStore);
+  let h=`<h2 class="sec">Store scoreboard</h2><div class="sub">Each store's cheapest price per item, compared with the other stores in the same country. Needs 3+ shared items.</div>`;
+  h+=`<div class="chips"><button class="chip" data-act="stsort" data-v="wins" aria-pressed="${sort==='wins'}">Cheapest most often</button><button class="chip" data-act="stsort" data-v="idx" aria-pressed="${sort==='idx'}">Lowest price level</button>${hasMem?`<button class="chip" data-act="stmem" aria-pressed="${!!S.stMem}">Incl. member stores</button>`:''}</div>`;
+  if(!list.length)h+=`<div class="sub">Not enough shared prices yet in this scope.</div>`;
+  else h+=`<div class="panel2" style="gap:12px">`+list.map(s=>{
+    const r1=s.w,r23=Math.max(0,s.t3-s.w),rest=Math.max(0,s.n-s.t3);
+    const pc=v=>(v/s.n*100).toFixed(1);
+    return `<button class="stb" data-act="stdet" data-s="${esc(s.id)}" data-c="${s.country}"><div class="stt"><b>${esc(short(s.rt.name))}</b>${S.country==='ALL'?`<span class="pill">${s.country}</span>`:''}${memStore(s.id)?'<span class="pill">members</span>':''}<span class="stn">${s.w} of ${s.n} cheapest</span></div>`
+      +`<div class="t" role="img" aria-label="${s.w} first, ${r23} top three, ${rest} lower"><i class="g" style="width:${pc(r1)}%"></i><i class="m" style="width:${pc(r23)}%"></i><i class="r" style="width:${pc(rest)}%"></i></div>`
+      +`<div class="sts"><span>${s.idx<.005?'cheapest level':'<b>'+pctTxt(s.idx)+'</b> vs cheapest'}</span><span>${s.last?s.last+' priciest':'never priciest'}</span>${s.deals?`<span>${s.deals} promo</span>`:''}</div></button>`}).join('')
+    +`<div class="lg"><span><i class="g"></i>cheapest</span><span><i class="m"></i>2nd–3rd</span><span><i class="r"></i>lower</span></div></div>`;
+  /* spreads */
+  const sp=st.spreads.filter(x=>x.sp>=.1).slice(0,8);
+  if(sp.length){
+    const mx=Math.max(...sp.map(x=>x.sp));
+    h+=`<h2 class="sec">Where the store matters</h2><div class="sub">Items with the biggest gap between cheapest and priciest store.</div><div class="panel2">`
+    +sp.map(x=>`<button class="spb" data-act="detail" data-key="${esc(x.lo.key)}"><div class="stt"><b>${esc(x.it.name)}</b><span class="stn">${S.country==='ALL'?x.country+' · ':''}${pctTxt(x.sp)}</span></div><div class="t"><i class="g" style="width:${(100/(1+mx)).toFixed(1)}%"></i><i class="r" style="width:${(100*(x.sp/(1+mx))).toFixed(1)}%"></i></div><div class="sts"><span>${esc(short(x.lo.rt.name))} <b>${mh(x.lo.eurUnit)}</b>/${x.b}</span><span>${esc(short(x.hi.rt.name))} <b>${mh(x.hi.eurUnit)}</b></span></div></button>`).join('')+`</div>`;
+  }
+  /* countries */
+  {
+    const cs=Object.keys(st.cmap).filter(c=>Object.keys(st.cmap[c]).length>=3);
+    if(cs.length>=2){
+      const ref=cs.includes(S.lvRef)?S.lvRef:(cs.includes(HOME)?HOME:cs[0]);
+      const rows=cs.filter(c=>c!==ref).map(c=>{const ks=Object.keys(st.cmap[c]).filter(k=>st.cmap[ref][k]);const n=ks.length;
+        return {c,n,idx:n>=3?Math.exp(ks.reduce((a,k)=>a+Math.log(st.cmap[c][k]/st.cmap[ref][k]),0)/n):null}}).filter(x=>x.idx!=null);
+      h+=`<h2 class="sec">Price level by country</h2><div class="sub">Same items, cheapest price in each country. If a basket costs 100 in ${COUNTRIES[ref].name}, it costs:</div><div class="chips">${cs.map(c=>`<button class="chip" data-act="lvref" data-c="${c}" aria-pressed="${c===ref}">vs ${COUNTRIES[c].name}</button>`).join('')}</div>`;
+      if(rows.length){const mx=Math.max(100,...rows.map(x=>x.idx*100));
+        h+=`<div class="panel2"><div class="hb"><span>${COUNTRIES[ref].name}</span><div class="t"><i style="width:${(100/mx*100).toFixed(1)}%"></i></div><b>100</b></div>`+rows.sort((a,b)=>a.idx-b.idx).map(x=>`<div class="hb"><span>${COUNTRIES[x.c].name}</span><div class="t"><i class="${x.idx<1?'g':'r'}" style="width:${(x.idx*100/mx*100).toFixed(1)}%"></i></div><b>${Math.round(x.idx*100)}</b></div><div class="sub" style="margin-top:-4px">${x.n} shared items · ${x.idx<1?Math.round((1-x.idx)*100)+'% cheaper':Math.round((x.idx-1)*100)+'% dearer'}</div>`).join('')+`</div>`;
+      }else h+=`<div class="sub">Not enough items priced in both countries yet.</div>`;
+    }
+  }
+  if(st.cty.length>=2){
+    h+=`<h2 class="sec">Which country is cheapest</h2><div class="sub">For items priced in 2+ countries: in how many is each country the cheapest, and how much dearer is it in the rest.</div><div class="panel2">`
+    +st.cty.slice().sort((a,b)=>b.w/b.n-a.w/a.n).map(x=>`<div class="stb"><div class="stt"><b>${COUNTRIES[x.c].name}</b><span class="stn">cheapest on ${x.w} of ${x.n}</span></div><div class="t"><i class="g" style="width:${(x.w/x.n*100).toFixed(1)}%"></i></div><div class="sts"><span>${x.lose?'otherwise <b>'+pctTxt(x.lidx)+'</b> dearer on average':'never dearer'}</span></div></div>`).join('')+`</div>`;
+  }
+  return h;
+}
+function sheetStore(id,c){
+  const s=storeStats().list.find(x=>x.id===id&&x.country===c);if(!s)return;
+  const row=(it,o,t)=>`<button class="spb" data-act="detail" data-key="${esc(o.key)}"><div class="stt"><b>${esc(it.name)}</b><span class="stn">${t}</span></div><div class="sts"><span><b>${mh(o.eurUnit)}</b>/${bl(o.latest.base_unit)}</span>${o.latest.currency!==home()?`<span>${esc(money(o.latest.currency,o.latest.unit_price!=null?o.latest.unit_price:o.latest.amount))}</span>`:''}</div></button>`;
+  let h=`<h2 class="sec" style="margin-top:0">${esc(short(s.rt.name))}</h2><div class="sub">${s.w} of ${s.n} items cheapest · ${s.idx<.005?'cheapest level':pctTxt(s.idx)+' vs cheapest'} · ${s.t3} in top 3</div>`;
+  const w=s.wins.slice().sort((a,b)=>b.gap-a.gap);
+  if(w.length)h+=`<h3 class="sec3">Cheapest here</h3><div class="panel2">`+w.slice(0,10).map(x=>row(x.it,x.o,x.nx?pctTxt(-x.gap/(1+x.gap))+' vs '+esc(short(x.nx.rt.name)):'')).join('')+`</div>`;
+  const l=s.lasts.slice().sort((a,b)=>b.ratio-a.ratio);
+  if(l.length)h+=`<h3 class="sec3">Priciest here</h3><div class="panel2">`+l.slice(0,8).map(x=>row(x.it,x.o,'+'+Math.round((x.ratio-1)*100)+'% vs '+esc(short(x.lo.rt.name)))).join('')+`</div>`;
+  if(!w.length&&!l.length)h+=`<div class="sub">Always mid-pack.</div>`;
+  h+=``;
+  openSheet(h);
 }
 function render(){
   S.D=derive();
@@ -718,7 +846,7 @@ function render(){
   if(!S.db&&S.loaded===-1)h+=`<div class="banner">Cannot load prices here. Open in Claude, signed in.</div>`;
   else if(S.loaded<3)h+=`<div class="sub">Loading prices…</div>`;
   if(S.db&&!S.canWrite)h+=`<div class="banner">Read-only access.</div>`;
-  h+=S.tab==='compare'?viewCompare():S.tab==='activity'?viewActivity():S.tab==='guide'?viewGuide():viewSetup();
+  h+=S.tab==='compare'?viewCompare():S.tab==='activity'?viewActivity():S.tab==='stores'?viewStores():S.tab==='guide'?viewGuide():viewSetup();
   v.innerHTML=h;
 }
 let raf=0;const sched=()=>{if(raf)return;raf=requestAnimationFrame(()=>{raf=0;render()})};
@@ -735,7 +863,7 @@ function spark(rows){
   const X=t=>pad+(t1===t0?0:(t-t0)/(t1-t0))*(W-2*pad),Y=v=>H-pad-((v-lo)/rg)*(H-2*pad);
   const d=pts.map((p,i)=>(i?'L':'M')+X(p.t).toFixed(1)+' '+Y(p.v).toFixed(1)).join(' ');
   const last=pts[pts.length-1];
-  return `<svg class="spark" viewBox="0 0 ${W} ${H}" role="img" aria-label="EUR unit price over time, from ${money('EUR',pts[0].v)} to ${money('EUR',last.v)}"><line x1="${pad}" y1="${H-pad}" x2="${W-pad}" y2="${H-pad}" stroke="var(--line)" stroke-width="1"/><path d="${d}" fill="none" stroke="var(--fg)" stroke-width="2"/><circle cx="${X(last.t).toFixed(1)}" cy="${Y(last.v).toFixed(1)}" r="4" fill="var(--tag)" stroke="var(--fg)" stroke-width="1.5"/></svg>`;
+  return `<svg class="spark" viewBox="0 0 ${W} ${H}" role="img" aria-label="EUR unit price over time, from ${mh(pts[0].v)} to ${mh(last.v)}"><line x1="${pad}" y1="${H-pad}" x2="${W-pad}" y2="${H-pad}" stroke="var(--line)" stroke-width="1"/><path d="${d}" fill="none" stroke="var(--fg)" stroke-width="2"/><circle cx="${X(last.t).toFixed(1)}" cy="${Y(last.v).toFixed(1)}" r="4" fill="var(--tag)" stroke="var(--fg)" stroke-width="1.5"/></svg>`;
 }
 function sheetDetail(key){
   const o=S.D&&S.D.byItem.get((S.D.groups.get(key)||[{}])[0].item_id||'')?.find(x=>x.key===key);
@@ -751,7 +879,7 @@ function sheetDetail(key){
       <div class="badges"><span class="bd o-${originOf(r)}">${originOf(r)==='auto'?'Auto':'Yours'}</span><span class="bd src-${r.source_type}">${esc(SRC[r.source_type]||r.source_type)}</span>${isDeal(r)?`<span class="bd">${esc(dealTxt(r))}</span>`:''}${r.flag?'<span class="bd flag">Check</span>':''}${d}</div>
       ${noteHtml((r.promo&&!isDeal(r)?r.promo+'. ':'')+(r.source_note||''))}${link}${r.research_attempt?noteHtml('Auto '+stamp(r.research_attempt.at)+': '+(r.research_attempt.note||r.research_attempt.result)):''}<span class="sub">${esc(stamp(r.checked_at||r.created_at))}</span>${r.flag?`<span class="sub" style="color:var(--warn)">${esc(r.flag)}</span>`:''}
       ${r.asset_id?`<a href="/_blob/${esc(r.asset_id)}" target="_blank" rel="noopener"><img alt="Photo of the price tag" src="/_blob/${esc(r.asset_id)}"></a>`:''}</div>
-      <div class="o-price">${r.placeholder?'<small>no price yet</small>':`<span class="num">${money(r.currency,r.unit_price!=null?r.unit_price:r.amount)}${r.unit_price!=null?`<small>/${bl(r.base_unit)}</small>`:''}</span><small>${r.amount!=null&&r.unit_price!=null?'pack '+money(r.currency,r.amount)+(r.size?' · '+r.size+' '+r.size_unit:''):''}</small><small>${eurAt!=null&&r.currency!=='EUR'?'then ≈ '+money('EUR',eurAt):''}</small>`}</div></div>`}).join('');
+      <div class="o-price">${r.placeholder?'<small>no price yet</small>':`<span class="num">${money(r.currency,r.unit_price!=null?r.unit_price:r.amount)}${r.unit_price!=null?`<small>/${bl(r.base_unit)}</small>`:''}</span><small>${r.amount!=null&&r.unit_price!=null?'pack '+money(r.currency,r.amount)+(r.size?' · '+r.size+' '+r.size_unit:''):''}</small><small>${eurAt!=null&&r.currency!==home()?'then ≈ '+mh(eurAt):''}</small>`}</div></div>`}).join('');
   openSheet(`<div class="ph"><div><h3>${esc(o.item.name)}</h3><div class="sub">${esc([pl,o.rt.name,COUNTRIES[o.country]?COUNTRIES[o.country].name:o.country].filter(Boolean).join(' · '))}</div></div><button class="x" data-act="close">Close</button></div>
     <div class="prev"><span class="num">${priceCellInline(o)}</span><span class="sub">${esc(ago(o.latest))}${o.latest.placeholder?'':' · '+esc(SRC[o.latest.source_type]||'')}</span></div>
     ${spark(o.rows)}
@@ -768,7 +896,7 @@ function nutBlock(prod){
 function priceCellInline(o){
   const r=o.latest,b=bl(r.base_unit);
   if(r.unit_price==null)return r.amount!=null?money(r.currency,r.amount)+' pack':'Needs price';
-  return money(r.currency,r.unit_price)+'/'+b+(r.currency!=='EUR'&&o.eurUnit!=null?'  ≈ '+money('EUR',o.eurUnit)+'/'+b:'');
+  return money(r.currency,r.unit_price)+'/'+b+(r.currency!==home()&&o.eurUnit!=null?'  ≈ '+mh(o.eurUnit)+'/'+b:'');
 }
 
 /* ---------- add price ---------- */
@@ -825,7 +953,7 @@ function sheetAdd(pre){
     const a=parseFloat(F('f-amount').value),s=parseFloat(F('f-size').value),u=F('f-unit').value,up0=parseFloat(F('f-up').value),cur=F('f-cur').value;
     const up=isFinite(up0)?up0:calcUnit(a,s,u),b=UNITS[u]?UNITS[u][0]:'kg';
     F('pv-l').textContent=isFinite(up0)?'Unit price as entered':'Unit price from pack';
-    F('pv').textContent=up==null?'—':money(cur,up)+'/'+b+(cur!=='EUR'&&toEur(cur,up)!=null?'  ≈ '+money('EUR',toEur(cur,up)):'');
+    F('pv').textContent=up==null?'—':money(cur,up)+'/'+b+(cur!==home()&&toEur(cur,up)!=null?'  ≈ '+mh(toEur(cur,up)):'');
   };
   F('f-item').addEventListener('change',syncProducts);F('f-ni-base').addEventListener('change',syncProd);
   F('f-prod').addEventListener('change',syncProd);F('f-ret').addEventListener('change',syncRet);F('f-nr-country').addEventListener('change',syncRet);
@@ -1041,7 +1169,7 @@ function scanRow(r,e){
   let h=`<div class="srow${e.clean?'':' chk'}${r.on?' on':''}"><label class="ck"${e.ok?'':` data-act="sc-why" data-id="${r.id}"`}><input type="checkbox" data-sf="on" data-id="${r.id}"${r.on?' checked':''}${e.ok?'':' disabled'} aria-label="Accept ${esc(nm)}"></label>
   <button class="sbody" data-act="sc-exp" data-id="${r.id}"><b>${esc((r.brand?r.brand+' ':'')+nm)}</b><span class="sub">${esc(sub)}</span><span class="fts" style="padding:0">${chips.join('')}</span>${cv}${bl.length?`<span class="why">Fix: ${esc(bl.join('; '))}.</span>`:''}</button>
   <div class="rc"><button data-act="sc-up" data-id="${r.id}" aria-label="Move up">↑</button><button data-act="sc-down" data-id="${r.id}" aria-label="Move down">↓</button><button data-act="sc-drop" data-id="${r.id}" aria-label="Remove">✕</button></div>
-  <div class="sprice">${e.eur!=null?`<span class="num">${money('EUR',e.eur)}</span><small>/${e.base}${e.cur&&e.cur!=='EUR'&&e.up!=null?' · '+money(e.cur,e.up):''}</small>`:'<small class="nx">no unit price</small>'}</div>${fixBox(r,e)}</div>`;
+  <div class="sprice">${e.eur!=null?`<span class="num">${mh(e.eur)}</span><small>/${e.base}${e.cur&&e.cur!==home()&&e.up!=null?' · '+money(e.cur,e.up):''}</small>`:'<small class="nx">no unit price</small>'}</div>${fixBox(r,e)}</div>`;
   if(r.exp){
     const items=[...S.items.values()].filter(i=>i.status!=='replaced').sort(byName);
     const prods=it?(it.products||[]):[];
@@ -1392,6 +1520,11 @@ document.addEventListener('click',e=>{
   else if(a==='reorder'){S.reorder=!S.reorder;render()}
   else if(a==='mv')moveItem(t.dataset.id,+t.dataset.d);
   else if(a==='cat'){S.cat=t.dataset.c;render()}
+  else if(a==='home'){S.home=t.dataset.c;try{localStorage.setItem('sw.home',S.home)}catch(x){}render()}
+  else if(a==='lvref'){S.lvRef=t.dataset.c;render()}
+  else if(a==='stsort'){S.stSort=t.dataset.v;render()}
+  else if(a==='stmem'){S.stMem=!S.stMem;render()}
+  else if(a==='stdet')sheetStore(t.dataset.s,t.dataset.c);
   else if(a==='tab'){S.tab=t.dataset.t;render();window.scrollTo(0,0)}
   else if(a==='toggle'){const id=t.dataset.id;S.open.has(id)?S.open.delete(id):S.open.add(id);render()}
   else if(a==='detail')sheetDetail(t.dataset.key);

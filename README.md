@@ -11,6 +11,8 @@ stored with its source, origin and date. Prices are append-only, so price histor
 ## What it does
 - **Compare** staples per unit, with a ladder of the best shops, promo end dates and "old price" warnings.
 - **In-store mode**: pick the shop you are in and see only its prices and where it beats the rest.
+- **Stores**: scoreboard of which shop is cheapest most often and how much dearer the others are, the items where the shop choice matters most, and a country price-level index (basket = 100 in a reference country).
+- **Home currency**: switch every price between EUR, the currencies in your data and USD from the top bar.
 - **Import**: photo of a shelf or receipt (Claude vision), pasted text, or JSON from any LLM.
   Rows are checked before saving. Units that differ from the item's comparison unit are converted and highlighted.
 - **Data**: price history, freshness, coverage, a failed-fetch report ranked by fixability, SQL export for Supabase.
