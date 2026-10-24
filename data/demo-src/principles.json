@@ -1,0 +1,6 @@
+{
+ "title": "Buying principles",
+ "order": 1,
+ "updated": "2026-10-24",
+ "body": "Value = price per kg / l / piece in EUR, after checking a promo has not expired. Pack price is never the comparison.\nComparison unit follows how the item is bought: weight (per kg), liquids (per l), counted things (per piece).\nHealth first: a cheaper product with added sugar or heavy processing is shown, but never ranked best for health.\nDaily drivers are tracked tightly; one-off purchases only when cheap to check.\nStale data is not a price: older than 90 days, or an ended promo, counts as unknown until re-checked.\nOnly price reductions are promos. Shipping, minimum orders and pack options go in the note.\nPrices are append-only: a changed price is a new row; an unchanged price only gets a new checked date.\nEvery price has an origin (yours or auto) and a source."
+}

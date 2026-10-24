@@ -1,0 +1,2139 @@
+{
+ "beef": {
+  "base_unit": "kg",
+  "category": "Food",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "core",
+  "name": "Beef",
+  "priority": "daily",
+  "products": [
+   {
+    "id": "beef-std",
+    "name": "Beef",
+    "nutrition": {
+     "basis": "per 100 g",
+     "form": "ground 95% lean, raw",
+     "note": "USDA FDC id 171790. Generic raw/reference values, not the retail pack label.",
+     "retrieved_at": "2026-10-24T10:01:35Z",
+     "scope": "generic_reference",
+     "source_name": "USDA FoodData Central (SR Legacy) via getfoodfacts.com",
+     "source_url": "https://getfoodfacts.com/food/beef-ground-95-lean-meat-5-fat-raw-171790",
+     "values": {
+      "b12_ug": 2.24,
+      "b1_mg": 0.041,
+      "b2_mg": 0.15,
+      "b3_mg": 5.49,
+      "b6_mg": 0.39,
+      "calcium_mg": 9,
+      "carbs_g": 0,
+      "cholesterol_mg": 62,
+      "energy_kcal": 137,
+      "fat_g": 5,
+      "folate_ug": 5,
+      "iron_mg": 2.38,
+      "magnesium_mg": 22,
+      "mono_fat_g": 1.99,
+      "phosphorus_mg": 198,
+      "poly_fat_g": 0.26,
+      "potassium_mg": 346,
+      "protein_g": 21.4,
+      "sat_fat_g": 2.18,
+      "selenium_ug": 17.4,
+      "sodium_mg": 66,
+      "vit_a_rae_ug": 4,
+      "vit_c_mg": 0,
+      "vit_d_ug": 0.1,
+      "vit_e_mg": 0.17,
+      "vit_k_ug": 0.3,
+      "zinc_mg": 5.09
+     }
+    }
+   }
+  ],
+  "sort": 30,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T10:01:35Z"
+ },
+ "black-pepper": {
+  "base_unit": "kg",
+  "category": "Food",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "ok",
+  "name": "Black pepper",
+  "priority": "regular",
+  "products": [
+   {
+    "id": "black-pepper-std",
+    "name": "Black pepper"
+   }
+  ],
+  "sort": 310,
+  "sort_updated_at": "2026-10-24T09:45:22.026Z",
+  "status": "active",
+  "updated_at": "2026-10-24T09:45:22.026Z"
+ },
+ "blueberries": {
+  "base_unit": "kg",
+  "category": "Food",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "core",
+  "name": "Blueberries",
+  "priority": "daily",
+  "products": [
+   {
+    "id": "blueberries-std",
+    "name": "Blueberries",
+    "nutrition": {
+     "basis": "per 100 g",
+     "form": "raw",
+     "note": "USDA FDC id 171711. Generic raw/reference values, not the retail pack label.",
+     "retrieved_at": "2026-10-24T10:01:35Z",
+     "scope": "generic_reference",
+     "source_name": "USDA FoodData Central (SR Legacy) via getfoodfacts.com",
+     "source_url": "https://getfoodfacts.com/food/blueberries-raw-171711",
+     "values": {
+      "b12_ug": 0,
+      "b1_mg": 0.037,
+      "b2_mg": 0.041,
+      "b3_mg": 0.42,
+      "b6_mg": 0.052,
+      "calcium_mg": 6,
+      "carbs_g": 14.5,
+      "cholesterol_mg": 0,
+      "energy_kcal": 57,
+      "fat_g": 0.33,
+      "fibre_g": 2.4,
+      "folate_ug": 6,
+      "iron_mg": 0.28,
+      "magnesium_mg": 6,
+      "manganese_mg": 0.34,
+      "mono_fat_g": 0.047,
+      "phosphorus_mg": 12,
+      "poly_fat_g": 0.15,
+      "potassium_mg": 77,
+      "protein_g": 0.74,
+      "sat_fat_g": 0.028,
+      "selenium_ug": 0.1,
+      "sodium_mg": 1,
+      "sugars_g": 9.96,
+      "vit_a_rae_ug": 3,
+      "vit_c_mg": 9.7,
+      "vit_d_ug": 0,
+      "vit_e_mg": 0.57,
+      "vit_k_ug": 19.3,
+      "zinc_mg": 0.16
+     }
+    }
+   }
+  ],
+  "sort": 160,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T10:01:35Z"
+ },
+ "broccoli": {
+  "base_unit": "kg",
+  "category": "Food",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "core",
+  "name": "Broccoli",
+  "priority": "daily",
+  "products": [
+   {
+    "id": "broccoli-std",
+    "name": "Broccoli",
+    "nutrition": {
+     "basis": "per 100 g",
+     "form": "raw",
+     "note": "USDA FDC id 170379. Generic raw/reference values, not the retail pack label.",
+     "retrieved_at": "2026-10-24T10:01:35Z",
+     "scope": "generic_reference",
+     "source_name": "USDA FoodData Central (SR Legacy) via getfoodfacts.com",
+     "source_url": "https://getfoodfacts.com/food/broccoli-raw-170379",
+     "values": {
+      "b12_ug": 0,
+      "b1_mg": 0.071,
+      "b2_mg": 0.12,
+      "b3_mg": 0.64,
+      "b6_mg": 0.17,
+      "calcium_mg": 47,
+      "carbs_g": 6.64,
+      "cholesterol_mg": 0,
+      "energy_kcal": 34,
+      "fat_g": 0.37,
+      "fibre_g": 2.6,
+      "folate_ug": 63,
+      "iron_mg": 0.73,
+      "magnesium_mg": 21,
+      "manganese_mg": 0.21,
+      "mono_fat_g": 0.031,
+      "phosphorus_mg": 66,
+      "poly_fat_g": 0.11,
+      "potassium_mg": 316,
+      "protein_g": 2.82,
+      "sat_fat_g": 0.11,
+      "selenium_ug": 2.5,
+      "sodium_mg": 33,
+      "sugars_g": 1.7,
+      "vit_a_rae_ug": 31,
+      "vit_c_mg": 89.2,
+      "vit_d_ug": 0,
+      "vit_e_mg": 0.78,
+      "vit_k_ug": 102,
+      "zinc_mg": 0.41
+     }
+    }
+   }
+  ],
+  "sort": 150,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T10:01:35Z"
+ },
+ "cayenne": {
+  "base_unit": "kg",
+  "category": "Food",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "ok",
+  "name": "Cayenne pepper",
+  "priority": "regular",
+  "products": [
+   {
+    "id": "cayenne-std",
+    "name": "Cayenne pepper",
+    "nutrition": {
+     "basis": "per 100 g",
+     "form": "red/cayenne ground spice",
+     "note": "USDA FDC id 170932. Generic raw/reference values, not the retail pack label.",
+     "retrieved_at": "2026-10-24T10:01:35Z",
+     "scope": "generic_reference",
+     "source_name": "USDA FoodData Central (SR Legacy) via getfoodfacts.com",
+     "source_url": "https://getfoodfacts.com/food/spices-pepper-red-or-cayenne-170932",
+     "values": {
+      "b12_ug": 0,
+      "b1_mg": 0.33,
+      "b2_mg": 0.92,
+      "b3_mg": 8.7,
+      "b6_mg": 2.45,
+      "calcium_mg": 148,
+      "carbs_g": 56.6,
+      "cholesterol_mg": 0,
+      "energy_kcal": 318,
+      "fat_g": 17.3,
+      "fibre_g": 27.2,
+      "folate_ug": 106,
+      "iron_mg": 7.8,
+      "magnesium_mg": 152,
+      "manganese_mg": 2,
+      "mono_fat_g": 2.75,
+      "phosphorus_mg": 293,
+      "poly_fat_g": 8.37,
+      "potassium_mg": 2014,
+      "protein_g": 12,
+      "sat_fat_g": 3.26,
+      "selenium_ug": 8.8,
+      "sodium_mg": 30,
+      "sugars_g": 10.3,
+      "vit_a_rae_ug": 2081,
+      "vit_c_mg": 76.4,
+      "vit_d_ug": 0,
+      "vit_e_mg": 29.8,
+      "vit_k_ug": 80.3,
+      "zinc_mg": 2.48
+     }
+    }
+   }
+  ],
+  "sort": 320,
+  "sort_updated_at": "2026-10-24T09:45:22.026Z",
+  "status": "active",
+  "updated_at": "2026-10-24T10:01:35Z"
+ },
+ "celery": {
+  "base_unit": "kg",
+  "category": "Food",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "core",
+  "name": "Celery",
+  "priority": "regular",
+  "products": [
+   {
+    "id": "celery-std",
+    "name": "Celery"
+   }
+  ],
+  "sort": 180,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T08:26:54Z"
+ },
+ "chia": {
+  "base_unit": "kg",
+  "category": "Food",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "core",
+  "name": "Chia",
+  "note": "PDF: Not needed",
+  "priority": "regular",
+  "products": [
+   {
+    "id": "chia-std",
+    "name": "Chia"
+   }
+  ],
+  "sort": 250,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "not_needed",
+  "updated_at": "2026-10-24T08:26:54Z"
+ },
+ "chicken-breast": {
+  "base_unit": "kg",
+  "category": "Food",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "core",
+  "name": "Chicken breast",
+  "note": "Vacuum-sealed or fresh. Compare cooked and raw per kg with care: cooked weighs less per portion.",
+  "priority": "daily",
+  "products": [
+   {
+    "id": "chicken-breast-grilled-vac",
+    "name": "Grilled chicken breast, vacuum sealed",
+    "note": "Ready to eat. Example: Suji's grilled chicken breast 1.8 kg at Costco Korea (98% chicken).",
+    "size": 1800,
+    "size_unit": "g"
+   },
+   {
+    "id": "chicken-breast-raw",
+    "name": "Raw boneless chicken breast",
+    "nutrition": {
+     "basis": "per 100 g",
+     "form": "raw",
+     "note": "Raw boneless skinless breast, converted from a 113 g serving. Cooked or grilled products have different values per 100 g (less water), so use the product label when available.",
+     "retrieved_at": "2026-10-24T08:26:54Z",
+     "scope": "generic_reference",
+     "source_name": "USDA National Nutrient Database for Standard Reference, via NutritionValue.org",
+     "source_url": "https://www.nutritionvalue.org/Chicken%2C_raw%2C_meat_only%2C_boneless%2C_skinless%2C_breast%2C_broiler_or_fryers_nutritional_value.html",
+     "values": {
+      "b12_ug": 0.21,
+      "b1_mg": 0.094,
+      "b2_mg": 0.177,
+      "b3_mg": 9.6,
+      "b6_mg": 0.81,
+      "calcium_mg": 5,
+      "carbs_g": 0,
+      "cholesterol_mg": 73,
+      "energy_kcal": 120,
+      "fat_g": 2.62,
+      "fibre_g": 0,
+      "folate_ug": 9,
+      "iron_mg": 0.37,
+      "magnesium_mg": 28,
+      "mono_fat_g": 0.69,
+      "omega3_g": 0.03,
+      "omega6_g": 0.34,
+      "phosphorus_mg": 213,
+      "poly_fat_g": 0.42,
+      "potassium_mg": 334,
+      "protein_g": 22.5,
+      "salt_g": 0.11,
+      "sat_fat_g": 0.56,
+      "selenium_ug": 22.8,
+      "sodium_mg": 45,
+      "sugars_g": 0,
+      "vit_a_rae_ug": 9,
+      "vit_c_mg": 0,
+      "vit_d_ug": 0,
+      "vit_e_mg": 0.56,
+      "vit_k_ug": 8.4,
+      "zinc_mg": 0.68
+     }
+    },
+    "size": 300,
+    "size_unit": "g"
+   }
+  ],
+  "sort": 20,
+  "sort_updated_at": "2026-10-24T09:45:22.973Z",
+  "status": "active",
+  "updated_at": "2026-10-24T09:45:22.973Z"
+ },
+ "chilli": {
+  "base_unit": "kg",
+  "category": "Food",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "ok",
+  "name": "Chilli (jar)",
+  "priority": "regular",
+  "products": [
+   {
+    "id": "chilli-std",
+    "name": "Chilli (jar)"
+   }
+  ],
+  "sort": 290,
+  "sort_updated_at": "2026-10-24T09:45:22.026Z",
+  "status": "active",
+  "updated_at": "2026-10-24T09:45:22.026Z"
+ },
+ "cod": {
+  "base_unit": "kg",
+  "category": "Food",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "core",
+  "name": "Cod",
+  "priority": "daily",
+  "products": [
+   {
+    "id": "cod-std",
+    "name": "Cod",
+    "nutrition": {
+     "basis": "per 100 g",
+     "form": "Atlantic raw",
+     "note": "USDA FDC id 171955. Generic raw/reference values, not the retail pack label.",
+     "retrieved_at": "2026-10-24T10:01:35Z",
+     "scope": "generic_reference",
+     "source_name": "USDA FoodData Central (SR Legacy) via getfoodfacts.com",
+     "source_url": "https://getfoodfacts.com/food/fish-cod-atlantic-raw-171955",
+     "values": {
+      "b12_ug": 0.91,
+      "b1_mg": 0.076,
+      "b2_mg": 0.065,
+      "b3_mg": 2.06,
+      "b6_mg": 0.24,
+      "calcium_mg": 16,
+      "carbs_g": 0,
+      "cholesterol_mg": 43,
+      "energy_kcal": 82,
+      "fat_g": 0.67,
+      "folate_ug": 7,
+      "iron_mg": 0.38,
+      "magnesium_mg": 32,
+      "mono_fat_g": 0.094,
+      "phosphorus_mg": 203,
+      "poly_fat_g": 0.23,
+      "potassium_mg": 413,
+      "protein_g": 17.8,
+      "sat_fat_g": 0.13,
+      "selenium_ug": 33.1,
+      "sodium_mg": 54,
+      "vit_a_rae_ug": 12,
+      "vit_c_mg": 1,
+      "vit_d_ug": 0.9,
+      "vit_e_mg": 0.64,
+      "vit_k_ug": 0.1,
+      "zinc_mg": 0.45
+     }
+    }
+   }
+  ],
+  "sort": 60,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T10:01:35Z"
+ },
+ "coffee-sticks": {
+  "base_unit": "pc",
+  "category": "Food",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "ok",
+  "name": "Coffee sticks",
+  "priority": "regular",
+  "products": [
+   {
+    "id": "coffee-sticks-jacobs",
+    "name": "Jacobs Cafe Crema, 25 sticks",
+    "size": 25,
+    "size_unit": "pc"
+   },
+   {
+    "id": "coffee-sticks-maxim-supreme",
+    "name": "Maxim Supreme Gold coffee mix, 170 sticks (KR)",
+    "size": 170,
+    "size_unit": "pc"
+   }
+  ],
+  "sort": 340,
+  "sort_updated_at": "2026-10-24T09:45:22.026Z",
+  "status": "active",
+  "updated_at": "2026-10-24T10:14:26Z"
+ },
+ "eggs": {
+  "base_unit": "pc",
+  "category": "Food",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "core",
+  "name": "Eggs",
+  "priority": "daily",
+  "products": [
+   {
+    "id": "eggs-std",
+    "name": "Eggs",
+    "nutrition": {
+     "basis": "per 100 g",
+     "form": "whole raw",
+     "note": "USDA FDC id 171287. Generic raw/reference values, not the retail pack label.",
+     "retrieved_at": "2026-10-24T10:01:35Z",
+     "scope": "generic_reference",
+     "source_name": "USDA FoodData Central (SR Legacy) via getfoodfacts.com",
+     "source_url": "https://getfoodfacts.com/food/egg-whole-raw-fresh-171287",
+     "values": {
+      "b12_ug": 0.89,
+      "b1_mg": 0.04,
+      "b2_mg": 0.46,
+      "b3_mg": 0.075,
+      "b6_mg": 0.17,
+      "calcium_mg": 56,
+      "carbs_g": 0.72,
+      "cholesterol_mg": 372,
+      "energy_kcal": 143,
+      "fat_g": 9.51,
+      "fibre_g": 0,
+      "folate_ug": 47,
+      "iron_mg": 1.75,
+      "magnesium_mg": 12,
+      "manganese_mg": 0.028,
+      "mono_fat_g": 3.66,
+      "phosphorus_mg": 198,
+      "poly_fat_g": 1.91,
+      "potassium_mg": 138,
+      "protein_g": 12.6,
+      "sat_fat_g": 3.13,
+      "selenium_ug": 30.7,
+      "sodium_mg": 142,
+      "sugars_g": 0.37,
+      "vit_a_rae_ug": 160,
+      "vit_c_mg": 0,
+      "vit_d_ug": 2,
+      "vit_e_mg": 1.05,
+      "vit_k_ug": 0.3,
+      "zinc_mg": 1.29
+     }
+    }
+   }
+  ],
+  "sort": 10,
+  "sort_updated_at": "2026-10-24T09:45:22.973Z",
+  "status": "active",
+  "updated_at": "2026-10-24T10:01:35Z"
+ },
+ "flaxseed": {
+  "base_unit": "kg",
+  "category": "Food",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "core",
+  "name": "Flaxseed",
+  "priority": "regular",
+  "products": [
+   {
+    "id": "flaxseed-std",
+    "name": "Flaxseed",
+    "nutrition": {
+     "basis": "per 100 g",
+     "form": "whole seed",
+     "note": "USDA FDC id 169414. Generic raw/reference values, not the retail pack label.",
+     "retrieved_at": "2026-10-24T10:01:35Z",
+     "scope": "generic_reference",
+     "source_name": "USDA FoodData Central (SR Legacy) via getfoodfacts.com",
+     "source_url": "https://getfoodfacts.com/food/seeds-flaxseed-169414",
+     "values": {
+      "b12_ug": 0,
+      "b1_mg": 1.64,
+      "b2_mg": 0.16,
+      "b3_mg": 3.08,
+      "b6_mg": 0.47,
+      "calcium_mg": 255,
+      "carbs_g": 28.9,
+      "cholesterol_mg": 0,
+      "energy_kcal": 534,
+      "fat_g": 42.2,
+      "fibre_g": 27.3,
+      "folate_ug": 87,
+      "iron_mg": 5.73,
+      "magnesium_mg": 392,
+      "manganese_mg": 2.48,
+      "mono_fat_g": 7.53,
+      "omega3_g": 22.8,
+      "omega6_g": 5.9,
+      "phosphorus_mg": 642,
+      "poly_fat_g": 28.7,
+      "potassium_mg": 813,
+      "protein_g": 18.3,
+      "sat_fat_g": 3.66,
+      "selenium_ug": 25.4,
+      "sodium_mg": 30,
+      "sugars_g": 1.55,
+      "vit_a_rae_ug": 0,
+      "vit_c_mg": 0.6,
+      "vit_d_ug": 0,
+      "vit_e_mg": 0.31,
+      "vit_k_ug": 4.3,
+      "zinc_mg": 4.34
+     }
+    }
+   }
+  ],
+  "sort": 240,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T10:01:35Z"
+ },
+ "floss": {
+  "base_unit": "pc",
+  "category": "Dental",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "ok",
+  "name": "Dental floss",
+  "priority": "daily",
+  "products": [
+   {
+    "id": "floss-std",
+    "name": "Dental floss"
+   }
+  ],
+  "sort": 510,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T08:26:54Z"
+ },
+ "greek-yoghurt": {
+  "base_unit": "kg",
+  "category": "Food",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "core",
+  "name": "Greek yoghurt",
+  "priority": "daily",
+  "products": [
+   {
+    "id": "greek-yoghurt-std",
+    "name": "Greek yoghurt",
+    "nutrition": {
+     "basis": "per 100 g",
+     "form": "plain nonfat",
+     "note": "USDA FDC id 170894. Generic raw/reference values, not the retail pack label.",
+     "retrieved_at": "2026-10-24T10:01:35Z",
+     "scope": "generic_reference",
+     "source_name": "USDA FoodData Central (SR Legacy) via getfoodfacts.com",
+     "source_url": "https://getfoodfacts.com/food/yogurt-greek-plain-nonfat-includes-foods-for-usdas-food-distribution-program-170894",
+     "values": {
+      "b12_ug": 0.75,
+      "b1_mg": 0.023,
+      "b2_mg": 0.28,
+      "b3_mg": 0.21,
+      "b6_mg": 0.063,
+      "calcium_mg": 110,
+      "carbs_g": 3.6,
+      "cholesterol_mg": 5,
+      "energy_kcal": 59,
+      "fat_g": 0.39,
+      "fibre_g": 0,
+      "folate_ug": 7,
+      "iron_mg": 0.07,
+      "magnesium_mg": 11,
+      "mono_fat_g": 0.053,
+      "phosphorus_mg": 135,
+      "poly_fat_g": 0.012,
+      "potassium_mg": 141,
+      "protein_g": 10.2,
+      "sat_fat_g": 0.12,
+      "sodium_mg": 36,
+      "sugars_g": 3.24,
+      "vit_a_rae_ug": 1,
+      "vit_c_mg": 0,
+      "vit_d_ug": 0,
+      "vit_e_mg": 0.01,
+      "vit_k_ug": 0,
+      "zinc_mg": 0.52
+     }
+    }
+   }
+  ],
+  "sort": 80,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T10:01:35Z"
+ },
+ "harzer": {
+  "base_unit": "kg",
+  "category": "Food",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "ok",
+  "name": "Harzer Kaese",
+  "priority": "regular",
+  "products": [
+   {
+    "id": "harzer-std",
+    "name": "Harzer Kaese"
+   }
+  ],
+  "sort": 280,
+  "sort_updated_at": "2026-10-24T09:45:22.026Z",
+  "status": "active",
+  "updated_at": "2026-10-24T09:45:22.026Z"
+ },
+ "healthy-ramen": {
+  "base_unit": "pc",
+  "category": "Food",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "ok",
+  "name": "Healthy ramen",
+  "note": "Low calorie, high protein instant noodles. Compared per piece (cup or pack).",
+  "priority": "regular",
+  "products": [
+   {
+    "brand": "Ottogi",
+    "id": "healthy-ramen-ottogi-rose",
+    "name": "Ottogi High Protein Cup Noodles, Spicy Rose",
+    "nutrition": {
+     "basis": "per cup",
+     "form": "instant cup noodle, per cup",
+     "note": "Spicy Rose flavour. Per cup, not per 100 g. Fat, carbs and sodium not found; read the cup label.",
+     "retrieved_at": "2026-10-24T08:26:54Z",
+     "scope": "press_release",
+     "source_name": "Ottogi press coverage (Food Today, 2025-07-10)",
+     "source_url": "https://foodtoday.or.kr/news/article.html?no=195919",
+     "values": {
+      "energy_kcal": 170,
+      "protein_g": 12
+     }
+    }
+   },
+   {
+    "brand": "Ottogi",
+    "id": "healthy-ramen-ottogi-mala",
+    "name": "Ottogi High Protein Cup Noodles, Mala Xiangguo",
+    "nutrition": {
+     "basis": "per cup",
+     "form": "instant cup noodle, per cup",
+     "note": "Mala Xiangguo flavour. Per cup, not per 100 g. Fat, carbs and sodium not found; read the cup label.",
+     "retrieved_at": "2026-10-24T08:26:54Z",
+     "scope": "press_release",
+     "source_name": "Ottogi press coverage (Food Today, 2025-07-10)",
+     "source_url": "https://foodtoday.or.kr/news/article.html?no=195919",
+     "values": {
+      "energy_kcal": 150,
+      "protein_g": 12
+     }
+    }
+   }
+  ],
+  "sort": 210,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T08:26:54Z"
+ },
+ "healthy-rice": {
+  "base_unit": "kg",
+  "category": "Food",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "core",
+  "name": "Healthy rice",
+  "note": "Brown, mixed grain (잡곡), black or wild rice. Higher fibre and a lower glycaemic load than polished white rice.",
+  "priority": "daily",
+  "products": [
+   {
+    "id": "healthy-rice-brown",
+    "name": "Brown rice (현미)",
+    "nutrition": {
+     "basis": "per 100 g",
+     "form": "brown long-grain, raw (uncooked)",
+     "note": "USDA FDC id 169703. Generic raw/reference values, not the retail pack label.",
+     "retrieved_at": "2026-10-24T10:01:35Z",
+     "scope": "generic_reference",
+     "source_name": "USDA FoodData Central (SR Legacy) via getfoodfacts.com",
+     "source_url": "https://getfoodfacts.com/food/rice-brown-long-grain-raw-includes-foods-for-usdas-food-distribution-program-169703",
+     "values": {
+      "b12_ug": 0,
+      "b1_mg": 0.54,
+      "b2_mg": 0.095,
+      "b3_mg": 6.49,
+      "b6_mg": 0.48,
+      "calcium_mg": 9,
+      "carbs_g": 76.3,
+      "cholesterol_mg": 0,
+      "energy_kcal": 367,
+      "fat_g": 3.2,
+      "fibre_g": 3.6,
+      "folate_ug": 23,
+      "iron_mg": 1.29,
+      "magnesium_mg": 116,
+      "manganese_mg": 2.85,
+      "mono_fat_g": 1.05,
+      "phosphorus_mg": 311,
+      "poly_fat_g": 1,
+      "potassium_mg": 250,
+      "protein_g": 7.54,
+      "sat_fat_g": 0.59,
+      "selenium_ug": 17.1,
+      "sodium_mg": 5,
+      "sugars_g": 0.66,
+      "vit_a_rae_ug": 0,
+      "vit_c_mg": 0,
+      "vit_d_ug": 0,
+      "vit_e_mg": 0.6,
+      "vit_k_ug": 0.6,
+      "zinc_mg": 2.13
+     }
+    }
+   },
+   {
+    "id": "healthy-rice-mixed",
+    "name": "Mixed grain rice (잡곡)"
+   }
+  ],
+  "sort": 100,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T10:01:35Z"
+ },
+ "hyaluron": {
+  "base_unit": "l",
+  "category": "Skincare",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "ok",
+  "name": "Hyaluronic acid serum",
+  "priority": "occasional",
+  "products": [
+   {
+    "brand": "Revolution",
+    "id": "hyaluron-revolution",
+    "name": "Revolution Hyaluron",
+    "size": 30,
+    "size_unit": "ml"
+   },
+   {
+    "brand": "The Ordinary",
+    "id": "hyaluron-ordinary",
+    "name": "The Ordinary Hyaluronic Acid",
+    "size": 60,
+    "size_unit": "ml"
+   },
+   {
+    "brand": "COSRX",
+    "id": "hyaluron-cosrx",
+    "name": "COSRX Hyaluron (hddfs 06801)",
+    "size": 20,
+    "size_unit": "ml"
+   },
+   {
+    "brand": "Bio",
+    "id": "hyaluron-bio",
+    "name": "Bio (brand as listed in PDF)"
+   },
+   {
+    "brand": "Geek & Gorgeous",
+    "id": "hyaluron-gg",
+    "name": "Geek & Gorgeous Hyaluron"
+   },
+   {
+    "brand": "Paula's Choice",
+    "id": "hyaluron-paulas",
+    "name": "Paula's Choice Hyaluron"
+   }
+  ],
+  "sort": 440,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T08:26:54Z"
+ },
+ "kale": {
+  "base_unit": "kg",
+  "category": "Food",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "core",
+  "name": "Kale",
+  "priority": "regular",
+  "products": [
+   {
+    "id": "kale-std",
+    "name": "Kale",
+    "nutrition": {
+     "basis": "per 100 g",
+     "form": "raw",
+     "note": "USDA FDC id 168421. Generic raw/reference values, not the retail pack label.",
+     "retrieved_at": "2026-10-24T10:01:35Z",
+     "scope": "generic_reference",
+     "source_name": "USDA FoodData Central (SR Legacy) via getfoodfacts.com",
+     "source_url": "https://getfoodfacts.com/food/kale-raw-168421",
+     "values": {
+      "b12_ug": 0,
+      "b1_mg": 0.11,
+      "b2_mg": 0.35,
+      "b3_mg": 1.18,
+      "b6_mg": 0.15,
+      "calcium_mg": 254,
+      "carbs_g": 4.42,
+      "cholesterol_mg": 0,
+      "energy_kcal": 35,
+      "fat_g": 1.49,
+      "fibre_g": 4.1,
+      "folate_ug": 62,
+      "iron_mg": 1.6,
+      "magnesium_mg": 33,
+      "manganese_mg": 0.92,
+      "mono_fat_g": 0.1,
+      "phosphorus_mg": 55,
+      "poly_fat_g": 0.67,
+      "potassium_mg": 348,
+      "protein_g": 2.92,
+      "sat_fat_g": 0.18,
+      "selenium_ug": 0.9,
+      "sodium_mg": 53,
+      "sugars_g": 0.99,
+      "vit_a_rae_ug": 241,
+      "vit_c_mg": 93.4,
+      "vit_d_ug": 0,
+      "vit_e_mg": 0.66,
+      "vit_k_ug": 390,
+      "zinc_mg": 0.39
+     }
+    }
+   }
+  ],
+  "sort": 170,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T10:01:35Z"
+ },
+ "kimchi": {
+  "base_unit": "kg",
+  "category": "Food",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "ok",
+  "name": "Kimchi",
+  "note": "Napa cabbage kimchi. Fermented and good for gut health, but salty.",
+  "priority": "regular",
+  "products": [
+   {
+    "id": "kimchi-napa",
+    "name": "Napa cabbage kimchi (포기김치)"
+   }
+  ],
+  "sort": 200,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T08:26:54Z"
+ },
+ "kitchen-roll": {
+  "base_unit": "pc",
+  "category": "Household",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "ok",
+  "name": "Kitchen rolls (Kuchenrollen)",
+  "priority": "regular",
+  "products": [
+   {
+    "id": "kitchen-roll-alouette",
+    "name": "Alouette Umwelt Kuechentuecher"
+   },
+   {
+    "id": "kitchen-roll-cody-kr",
+    "name": "Cody kitchen towel, 6 rolls (KR)",
+    "size": 6,
+    "size_unit": "pc"
+   }
+  ],
+  "sort": 380,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T10:14:26Z"
+ },
+ "lemon-juice": {
+  "base_unit": "l",
+  "category": "Food",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "ok",
+  "name": "Lemon juice",
+  "priority": "regular",
+  "products": [
+   {
+    "id": "lemon-juice-std",
+    "name": "Lemon juice"
+   }
+  ],
+  "sort": 330,
+  "sort_updated_at": "2026-10-24T09:45:22.026Z",
+  "status": "active",
+  "updated_at": "2026-10-24T09:45:22.026Z"
+ },
+ "lentils": {
+  "base_unit": "kg",
+  "category": "Food",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "core",
+  "name": "Lentils",
+  "priority": "daily",
+  "products": [
+   {
+    "id": "lentils-std",
+    "name": "Lentils",
+    "nutrition": {
+     "basis": "per 100 g",
+     "form": "raw, dry",
+     "note": "Dry lentils. Cooked lentils are about a third of these values per 100 g.",
+     "retrieved_at": "2026-10-24T08:26:54Z",
+     "scope": "generic_reference",
+     "source_name": "USDA National Nutrient Database for Standard Reference, Release 26, via NutritionValue.org",
+     "source_url": "https://www.nutritionvalue.org/Lentils%2C_raw_nutritional_value.html",
+     "values": {
+      "b1_mg": 0.873,
+      "b2_mg": 0.211,
+      "b3_mg": 2.605,
+      "b6_mg": 0.54,
+      "calcium_mg": 56,
+      "carbs_g": 60.08,
+      "energy_kcal": 343,
+      "fat_g": 1.06,
+      "fibre_g": 30.5,
+      "folate_ug": 479,
+      "iron_mg": 7.54,
+      "magnesium_mg": 122,
+      "manganese_mg": 1.33,
+      "phosphorus_mg": 451,
+      "potassium_mg": 955,
+      "protein_g": 25.8,
+      "salt_g": 0.02,
+      "sat_fat_g": 0.156,
+      "selenium_ug": 8.3,
+      "sodium_mg": 6,
+      "sugars_g": 2.03,
+      "vit_c_mg": 4.4,
+      "zinc_mg": 4.78
+     }
+    }
+   }
+  ],
+  "sort": 120,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T08:26:54Z"
+ },
+ "linseed-oil": {
+  "base_unit": "l",
+  "category": "Food",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "core",
+  "name": "Linseed oil (Leinoel)",
+  "priority": "regular",
+  "products": [
+   {
+    "id": "linseed-oil-std",
+    "name": "Linseed oil (Leinoel)"
+   }
+  ],
+  "sort": 250,
+  "sort_updated_at": "2026-10-24T09:45:22.026Z",
+  "status": "active",
+  "updated_at": "2026-10-24T09:45:22.026Z"
+ },
+ "mat-cream": {
+  "base_unit": "l",
+  "category": "Skincare",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "ok",
+  "name": "Mattifying cream",
+  "priority": "occasional",
+  "products": [
+   {
+    "brand": "La Roche-Posay",
+    "buy_in": [
+     "KR",
+     "TW"
+    ],
+    "id": "mat-cream-lrp",
+    "name": "La Roche-Posay mattifying cream",
+    "tier": "Appearance"
+   },
+   {
+    "brand": "CeraVe",
+    "id": "mat-cream-cerave",
+    "name": "CeraVe mattifying gel-cream",
+    "size": 52,
+    "size_unit": "ml",
+    "tier": "Maintenance"
+   },
+   {
+    "brand": "Sebamed",
+    "id": "mat-cream-sebamed",
+    "name": "Sebamed Unreine Haut mattierende Creme",
+    "note": "PDF row 'CeraVe / Seba'; 50 ml from Rossmann URL",
+    "size": 50,
+    "size_unit": "ml",
+    "tier": "Maintenance"
+   }
+  ],
+  "sort": 420,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T08:26:54Z"
+ },
+ "mouthwash": {
+  "base_unit": "l",
+  "category": "Dental",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "ok",
+  "name": "Mouthwash",
+  "priority": "daily",
+  "products": [
+   {
+    "brand": "Parodontax",
+    "id": "mouthwash-parodontax",
+    "name": "Parodontax mouthwash",
+    "tier": "Maintenance"
+   }
+  ],
+  "sort": 500,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T08:26:54Z"
+ },
+ "niacinamide": {
+  "base_unit": "l",
+  "category": "Skincare",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "ok",
+  "name": "Niacinamide serum",
+  "priority": "occasional",
+  "products": [
+   {
+    "brand": "Revolution",
+    "id": "niacinamide-revolution",
+    "name": "Revolution Niacinamide",
+    "size": 30,
+    "size_unit": "ml"
+   },
+   {
+    "brand": "The Ordinary",
+    "id": "niacinamide-ordinary",
+    "name": "The Ordinary Niacinamide",
+    "size": 60,
+    "size_unit": "ml"
+   },
+   {
+    "brand": "COSRX",
+    "id": "niacinamide-cosrx",
+    "name": "COSRX Niacinamide (hddfs 06301)",
+    "size": 20,
+    "size_unit": "ml"
+   },
+   {
+    "brand": "Geek & Gorgeous",
+    "id": "niacinamide-gg",
+    "name": "Geek & Gorgeous Niacinamide",
+    "note": "PDF: n/a?"
+   },
+   {
+    "brand": "Paula's Choice",
+    "id": "niacinamide-paulas",
+    "name": "Paula's Choice Niacinamide"
+   }
+  ],
+  "sort": 430,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T08:26:54Z"
+ },
+ "oats": {
+  "base_unit": "kg",
+  "category": "Food",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "core",
+  "name": "Oats",
+  "priority": "daily",
+  "products": [
+   {
+    "id": "oats-std",
+    "name": "Oats",
+    "nutrition": {
+     "basis": "per 100 g",
+     "form": "whole grain rolled (Foundation; partial - fibre not declared)",
+     "note": "USDA FDC id 2346396. Generic raw/reference values, not the retail pack label.",
+     "retrieved_at": "2026-10-24T10:01:35Z",
+     "scope": "generic_reference",
+     "source_name": "USDA FoodData Central (SR Legacy) via getfoodfacts.com",
+     "source_url": "https://getfoodfacts.com/food/oats-whole-grain-rolled-old-fashioned-2346396",
+     "values": {
+      "b1_mg": 0.41,
+      "b3_mg": 0.99,
+      "b6_mg": 0.13,
+      "calcium_mg": 45.5,
+      "carbs_g": 68.7,
+      "energy_kcal": 380,
+      "fat_g": 5.89,
+      "folate_ug": 32,
+      "iron_mg": 4.34,
+      "magnesium_mg": 126,
+      "manganese_mg": 3.23,
+      "phosphorus_mg": 387,
+      "potassium_mg": 350,
+      "protein_g": 13.5,
+      "selenium_ug": 25.4,
+      "sodium_mg": 0.67,
+      "zinc_mg": 2.74
+     }
+    }
+   }
+  ],
+  "sort": 90,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T10:01:35Z"
+ },
+ "pangasius": {
+  "base_unit": "kg",
+  "category": "Food",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "core",
+  "name": "Pangasius",
+  "note": "PDF: REPLACE WITH COD!!!",
+  "priority": "regular",
+  "products": [
+   {
+    "id": "pangasius-std",
+    "name": "Pangasius"
+   }
+  ],
+  "replaced_by": "cod",
+  "sort": 270,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "replaced",
+  "updated_at": "2026-10-24T08:26:54Z"
+ },
+ "peppermint-tea": {
+  "base_unit": "pc",
+  "category": "Food",
+  "created_at": "2026-10-24T11:35:00Z",
+  "health": "ok",
+  "name": "Peppermint tea",
+  "priority": "regular",
+  "products": [
+   {
+    "id": "peppermint-tea-bags",
+    "name": "Peppermint tea bags"
+   }
+  ],
+  "sort": 350,
+  "sort_updated_at": "2026-10-24T11:35:00Z",
+  "status": "active",
+  "updated_at": "2026-10-24T11:35:00Z"
+ },
+ "peptides": {
+  "base_unit": "l",
+  "category": "Skincare",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "ok",
+  "name": "Peptide serum",
+  "priority": "occasional",
+  "products": [
+   {
+    "brand": "COSRX",
+    "id": "peptides-cosrx",
+    "name": "COSRX Peptides (hddfs 28001)",
+    "size": 150,
+    "size_unit": "ml"
+   }
+  ],
+  "sort": 450,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T08:26:54Z"
+ },
+ "pumpkin-seeds": {
+  "base_unit": "kg",
+  "category": "Food",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "core",
+  "name": "Pumpkin seeds (Kuerbiskerne)",
+  "priority": "regular",
+  "products": [
+   {
+    "id": "pumpkin-seeds-std",
+    "name": "Pumpkin seeds (Kuerbiskerne)",
+    "nutrition": {
+     "basis": "per 100 g",
+     "form": "dried kernels (partial: macros only)",
+     "note": "USDA FDC id 170556. Generic raw/reference values, not the retail pack label.",
+     "retrieved_at": "2026-10-24T10:01:35Z",
+     "scope": "generic_reference",
+     "source_name": "USDA FoodData Central (SR Legacy) via getfoodfacts.com",
+     "source_url": "https://getfoodfacts.com/food/seeds-pumpkin-and-squash-seed-kernels-dried-170556",
+     "values": {
+      "energy_kcal": 559,
+      "fat_g": 49,
+      "protein_g": 30.2
+     }
+    }
+   }
+  ],
+  "sort": 230,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T10:01:35Z"
+ },
+ "quinoa": {
+  "base_unit": "kg",
+  "category": "Food",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "core",
+  "name": "Quinoa",
+  "priority": "regular",
+  "products": [
+   {
+    "id": "quinoa-amazon5",
+    "name": "Quinoa 5 kg bag",
+    "nutrition": {
+     "basis": "per 100 g",
+     "form": "uncooked",
+     "note": "USDA FDC id 168874. Generic raw/reference values, not the retail pack label.",
+     "retrieved_at": "2026-10-24T10:01:35Z",
+     "scope": "generic_reference",
+     "source_name": "USDA FoodData Central (SR Legacy) via getfoodfacts.com",
+     "source_url": "https://getfoodfacts.com/food/quinoa-uncooked-168874",
+     "values": {
+      "b12_ug": 0,
+      "b1_mg": 0.36,
+      "b2_mg": 0.32,
+      "b3_mg": 1.52,
+      "b6_mg": 0.49,
+      "calcium_mg": 47,
+      "carbs_g": 64.2,
+      "cholesterol_mg": 0,
+      "energy_kcal": 368,
+      "fat_g": 6.07,
+      "fibre_g": 7,
+      "folate_ug": 184,
+      "iron_mg": 4.57,
+      "magnesium_mg": 197,
+      "manganese_mg": 2.03,
+      "mono_fat_g": 1.61,
+      "phosphorus_mg": 457,
+      "poly_fat_g": 3.29,
+      "potassium_mg": 563,
+      "protein_g": 14.1,
+      "sat_fat_g": 0.71,
+      "selenium_ug": 8.5,
+      "sodium_mg": 5,
+      "vit_a_rae_ug": 1,
+      "vit_d_ug": 0,
+      "vit_e_mg": 2.44,
+      "zinc_mg": 3.1
+     }
+    },
+    "size": 5,
+    "size_unit": "kg"
+   },
+   {
+    "id": "quinoa-koro",
+    "name": "Koro Bio Quinoa weiss",
+    "nutrition": {
+     "basis": "per 100 g",
+     "form": "uncooked (generic reference; check pack label)",
+     "note": "USDA FDC id 168874. Generic raw/reference values, not the retail pack label.",
+     "retrieved_at": "2026-10-24T10:01:35Z",
+     "scope": "generic_reference",
+     "source_name": "USDA FoodData Central (SR Legacy) via getfoodfacts.com",
+     "source_url": "https://getfoodfacts.com/food/quinoa-uncooked-168874",
+     "values": {
+      "b12_ug": 0,
+      "b1_mg": 0.36,
+      "b2_mg": 0.32,
+      "b3_mg": 1.52,
+      "b6_mg": 0.49,
+      "calcium_mg": 47,
+      "carbs_g": 64.2,
+      "cholesterol_mg": 0,
+      "energy_kcal": 368,
+      "fat_g": 6.07,
+      "fibre_g": 7,
+      "folate_ug": 184,
+      "iron_mg": 4.57,
+      "magnesium_mg": 197,
+      "manganese_mg": 2.03,
+      "mono_fat_g": 1.61,
+      "phosphorus_mg": 457,
+      "poly_fat_g": 3.29,
+      "potassium_mg": 563,
+      "protein_g": 14.1,
+      "sat_fat_g": 0.71,
+      "selenium_ug": 8.5,
+      "sodium_mg": 5,
+      "vit_a_rae_ug": 1,
+      "vit_d_ug": 0,
+      "vit_e_mg": 2.44,
+      "zinc_mg": 3.1
+     }
+    }
+   }
+  ],
+  "sort": 130,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T10:01:35Z"
+ },
+ "razors": {
+  "base_unit": "pc",
+  "category": "Grooming",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "ok",
+  "name": "Razors",
+  "priority": "occasional",
+  "products": [
+   {
+    "id": "razors-std",
+    "name": "Razors"
+   }
+  ],
+  "sort": 530,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T08:26:54Z"
+ },
+ "retinol": {
+  "base_unit": "l",
+  "category": "Skincare",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "ok",
+  "name": "Retinol serum",
+  "priority": "occasional",
+  "products": [
+   {
+    "brand": "Revolution",
+    "id": "retinol-revolution",
+    "name": "Revolution Retinol",
+    "size": 30,
+    "size_unit": "ml"
+   },
+   {
+    "brand": "The Ordinary",
+    "id": "retinol-ordinary",
+    "name": "The Ordinary Retinol",
+    "size": 30,
+    "size_unit": "ml"
+   },
+   {
+    "brand": "COSRX",
+    "id": "retinol-cosrx",
+    "name": "COSRX Retinol (hddfs 25901)",
+    "size": 20,
+    "size_unit": "ml"
+   },
+   {
+    "brand": "Bio",
+    "id": "retinol-bio",
+    "name": "Bio (brand as listed in PDF)",
+    "size": 100,
+    "size_unit": "ml"
+   },
+   {
+    "brand": "Geek & Gorgeous",
+    "id": "retinol-gg",
+    "name": "Geek & Gorgeous Retinol",
+    "size": 30,
+    "size_unit": "ml"
+   },
+   {
+    "brand": "Paula's Choice",
+    "id": "retinol-paulas",
+    "name": "Paula's Choice Retinol",
+    "size": 30,
+    "size_unit": "ml"
+   }
+  ],
+  "sort": 460,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T08:26:54Z"
+ },
+ "rice": {
+  "base_unit": "kg",
+  "category": "Food",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "ok",
+  "name": "Rice",
+  "note": "Everyday rice. Compare healthy rice separately.",
+  "priority": "regular",
+  "products": [
+   {
+    "id": "rice-std",
+    "name": "Rice, bag 5 to 10 kg",
+    "size": 10000,
+    "size_unit": "g"
+   }
+  ],
+  "sort": 110,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T08:26:54Z"
+ },
+ "salicylic": {
+  "base_unit": "l",
+  "category": "Skincare",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "ok",
+  "name": "Salicylic acid",
+  "priority": "occasional",
+  "products": [
+   {
+    "brand": "Revolution",
+    "id": "salicylic-revolution",
+    "name": "Revolution Salicylic",
+    "size": 30,
+    "size_unit": "ml"
+   },
+   {
+    "brand": "The Ordinary",
+    "id": "salicylic-ordinary",
+    "name": "The Ordinary Salicylic Acid",
+    "size": 30,
+    "size_unit": "ml"
+   },
+   {
+    "brand": "COSRX",
+    "id": "salicylic-cosrx",
+    "name": "COSRX Salicylic (Amazon)",
+    "size": 100,
+    "size_unit": "ml"
+   },
+   {
+    "brand": "Geek & Gorgeous",
+    "id": "salicylic-gg",
+    "name": "Geek & Gorgeous Salicylic",
+    "size": 30,
+    "size_unit": "ml"
+   },
+   {
+    "brand": "Paula's Choice",
+    "id": "salicylic-paulas",
+    "name": "Paula's Choice Salicylic",
+    "size": 236,
+    "size_unit": "ml"
+   }
+  ],
+  "sort": 470,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T08:26:54Z"
+ },
+ "salmon": {
+  "base_unit": "kg",
+  "category": "Food",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "core",
+  "name": "Wild salmon",
+  "priority": "daily",
+  "products": [
+   {
+    "id": "salmon-std",
+    "name": "Wild salmon",
+    "nutrition": {
+     "basis": "per 100 g",
+     "form": "Atlantic wild raw",
+     "note": "USDA FDC id 173686. Generic raw/reference values, not the retail pack label.",
+     "retrieved_at": "2026-10-24T10:01:35Z",
+     "scope": "generic_reference",
+     "source_name": "USDA FoodData Central (SR Legacy) via getfoodfacts.com",
+     "source_url": "https://getfoodfacts.com/food/fish-salmon-atlantic-wild-raw-173686",
+     "values": {
+      "b12_ug": 3.18,
+      "b1_mg": 0.23,
+      "b2_mg": 0.38,
+      "b3_mg": 7.86,
+      "b6_mg": 0.82,
+      "calcium_mg": 12,
+      "carbs_g": 0,
+      "cholesterol_mg": 55,
+      "dha_g": 1.11,
+      "energy_kcal": 142,
+      "epa_g": 0.32,
+      "fat_g": 6.34,
+      "folate_ug": 25,
+      "iron_mg": 0.8,
+      "magnesium_mg": 29,
+      "mono_fat_g": 2.1,
+      "phosphorus_mg": 200,
+      "poly_fat_g": 2.54,
+      "potassium_mg": 490,
+      "protein_g": 19.8,
+      "sat_fat_g": 0.98,
+      "selenium_ug": 36.5,
+      "sodium_mg": 44,
+      "vit_a_rae_ug": 12,
+      "vit_c_mg": 0,
+      "zinc_mg": 0.64
+     }
+    }
+   },
+   {
+    "id": "salmon-patagonia-kr",
+    "name": "Patagonia fresh salmon fillet 500 g (KR, farmed)",
+    "size": 500,
+    "size_unit": "g"
+   }
+  ],
+  "sort": 40,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T10:14:26Z"
+ },
+ "salsa": {
+  "base_unit": "kg",
+  "category": "Food",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "ok",
+  "name": "Salsa",
+  "priority": "regular",
+  "products": [
+   {
+    "id": "salsa-std",
+    "name": "Salsa 235 g",
+    "size": 235,
+    "size_unit": "g"
+   }
+  ],
+  "sort": 270,
+  "sort_updated_at": "2026-10-24T09:45:22.026Z",
+  "status": "active",
+  "updated_at": "2026-10-24T09:45:22.026Z"
+ },
+ "sardines": {
+  "base_unit": "kg",
+  "category": "Food",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "core",
+  "name": "Sardines",
+  "priority": "daily",
+  "products": [
+   {
+    "id": "sardines-std",
+    "name": "Sardines",
+    "nutrition": {
+     "basis": "per 100 g",
+     "form": "Atlantic, canned in oil, drained solids with bone",
+     "note": "USDA FDC id 175139. Generic raw/reference values, not the retail pack label.",
+     "retrieved_at": "2026-10-24T10:01:35Z",
+     "scope": "generic_reference",
+     "source_name": "USDA FoodData Central (SR Legacy) via getfoodfacts.com",
+     "source_url": "https://getfoodfacts.com/food/fish-sardine-atlantic-canned-in-oil-drained-solids-with-bone-175139",
+     "values": {
+      "b12_ug": 8.94,
+      "b1_mg": 0.08,
+      "b2_mg": 0.23,
+      "b3_mg": 5.25,
+      "b6_mg": 0.17,
+      "calcium_mg": 382,
+      "carbs_g": 0,
+      "cholesterol_mg": 142,
+      "dha_g": 0.51,
+      "energy_kcal": 208,
+      "epa_g": 0.47,
+      "fat_g": 11.4,
+      "folate_ug": 10,
+      "iron_mg": 2.92,
+      "magnesium_mg": 39,
+      "mono_fat_g": 3.87,
+      "phosphorus_mg": 490,
+      "poly_fat_g": 5.15,
+      "potassium_mg": 397,
+      "protein_g": 24.6,
+      "sat_fat_g": 1.53,
+      "selenium_ug": 52.7,
+      "sodium_mg": 307,
+      "vit_a_rae_ug": 32,
+      "vit_c_mg": 0,
+      "vit_d_ug": 4.8,
+      "vit_e_mg": 2.04,
+      "vit_k_ug": 2.6,
+      "zinc_mg": 1.31
+     }
+    }
+   }
+  ],
+  "sort": 50,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T10:01:35Z"
+ },
+ "shaving": {
+  "base_unit": "l",
+  "category": "Grooming",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "ok",
+  "name": "Shaving gel / foam",
+  "priority": "regular",
+  "products": [
+   {
+    "id": "shaving-std",
+    "name": "Shaving gel / foam"
+   }
+  ],
+  "sort": 520,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T08:26:54Z"
+ },
+ "spinach": {
+  "base_unit": "kg",
+  "category": "Food",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "core",
+  "name": "Spinach",
+  "priority": "daily",
+  "products": [
+   {
+    "id": "spinach-std",
+    "name": "Spinach",
+    "nutrition": {
+     "basis": "per 100 g",
+     "form": "raw",
+     "note": "Raw spinach. Release year not stated on the page.",
+     "retrieved_at": "2026-10-24T08:26:54Z",
+     "scope": "generic_reference",
+     "source_name": "USDA National Nutrient Database for Standard Reference, via NutritionValue.org",
+     "source_url": "https://www.nutritionvalue.org/Spinach%2C_raw_nutritional_value.html",
+     "values": {
+      "calcium_mg": 99,
+      "carbs_g": 3.63,
+      "energy_kcal": 23,
+      "fat_g": 0.39,
+      "fibre_g": 2.2,
+      "folate_ug": 194,
+      "iron_mg": 2.71,
+      "magnesium_mg": 79,
+      "potassium_mg": 558,
+      "protein_g": 2.86,
+      "salt_g": 0.2,
+      "sat_fat_g": 0.063,
+      "sodium_mg": 79,
+      "sugars_g": 0.42,
+      "vit_a_rae_ug": 469,
+      "vit_c_mg": 28.1,
+      "vit_e_mg": 2.03,
+      "vit_k_ug": 482.9,
+      "zinc_mg": 0.53
+     }
+    }
+   }
+  ],
+  "sort": 140,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T08:26:54Z"
+ },
+ "strawberries": {
+  "base_unit": "kg",
+  "category": "Food",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "core",
+  "name": "Strawberries",
+  "priority": "regular",
+  "products": [
+   {
+    "id": "strawberries-std",
+    "name": "Strawberries",
+    "nutrition": {
+     "basis": "per 100 g",
+     "form": "raw",
+     "note": "USDA FDC id 167762. Generic raw/reference values, not the retail pack label.",
+     "retrieved_at": "2026-10-24T10:01:35Z",
+     "scope": "generic_reference",
+     "source_name": "USDA FoodData Central (SR Legacy) via getfoodfacts.com",
+     "source_url": "https://getfoodfacts.com/food/strawberries-raw-167762",
+     "values": {
+      "b12_ug": 0,
+      "b1_mg": 0.024,
+      "b2_mg": 0.022,
+      "b3_mg": 0.39,
+      "b6_mg": 0.047,
+      "calcium_mg": 16,
+      "carbs_g": 7.68,
+      "cholesterol_mg": 0,
+      "energy_kcal": 32,
+      "fat_g": 0.3,
+      "fibre_g": 2,
+      "folate_ug": 24,
+      "iron_mg": 0.41,
+      "magnesium_mg": 13,
+      "manganese_mg": 0.39,
+      "mono_fat_g": 0.043,
+      "phosphorus_mg": 24,
+      "poly_fat_g": 0.15,
+      "potassium_mg": 153,
+      "protein_g": 0.67,
+      "sat_fat_g": 0.015,
+      "selenium_ug": 0.4,
+      "sodium_mg": 1,
+      "sugars_g": 4.89,
+      "vit_a_rae_ug": 1,
+      "vit_c_mg": 58.8,
+      "vit_d_ug": 0,
+      "vit_e_mg": 0.29,
+      "vit_k_ug": 2.2,
+      "zinc_mg": 0.14
+     }
+    }
+   }
+  ],
+  "sort": 190,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T10:01:35Z"
+ },
+ "sunscreen": {
+  "base_unit": "l",
+  "category": "Skincare",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "ok",
+  "name": "Sunscreen",
+  "priority": "daily",
+  "products": [
+   {
+    "brand": "La Roche-Posay",
+    "buy_in": [
+     "KR",
+     "TW"
+    ],
+    "id": "sunscreen-lrp",
+    "name": "La Roche-Posay sunscreen",
+    "tier": "Appearance"
+   },
+   {
+    "brand": "COSRX",
+    "id": "sunscreen-cosrx",
+    "name": "COSRX sunscreen (hddfs 28401)",
+    "size": 50,
+    "size_unit": "ml"
+   }
+  ],
+  "sort": 400,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T08:26:54Z"
+ },
+ "toilet-paper": {
+  "base_unit": "pc",
+  "category": "Household",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "ok",
+  "name": "Toilet paper",
+  "note": "PDF: REWE / Picnic also 2K Blatt",
+  "priority": "daily",
+  "products": [
+   {
+    "id": "toilet-paper-std",
+    "name": "Toilet paper"
+   }
+  ],
+  "sort": 370,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T08:26:54Z"
+ },
+ "toothpaste": {
+  "base_unit": "kg",
+  "category": "Dental",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "ok",
+  "name": "Toothpaste",
+  "priority": "daily",
+  "products": [
+   {
+    "buy_in": [
+     "KR",
+     "TW"
+    ],
+    "id": "toothpaste-whitening",
+    "name": "Colgate Max White Ultra / Crest 3D White Brilliance",
+    "tier": "Appearance"
+   },
+   {
+    "brand": "Parodontax",
+    "id": "toothpaste-parodontax",
+    "name": "Parodontax",
+    "tier": "Maintenance"
+   }
+  ],
+  "sort": 490,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T08:26:54Z"
+ },
+ "tortillas": {
+  "base_unit": "kg",
+  "category": "Food",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "limit",
+  "name": "Tortillas",
+  "priority": "regular",
+  "products": [
+   {
+    "id": "tortillas-std",
+    "name": "Tortillas"
+   }
+  ],
+  "sort": 260,
+  "sort_updated_at": "2026-10-24T09:45:22.026Z",
+  "status": "active",
+  "updated_at": "2026-10-24T09:45:22.026Z"
+ },
+ "trash-bags": {
+  "base_unit": "pc",
+  "category": "Household",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "ok",
+  "name": "Trash bags",
+  "priority": "occasional",
+  "products": [
+   {
+    "id": "trash-bags-std",
+    "name": "Trash bags"
+   }
+  ],
+  "sort": 390,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T08:26:54Z"
+ },
+ "tuna": {
+  "base_unit": "kg",
+  "category": "Food",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "core",
+  "name": "Tuna",
+  "priority": "regular",
+  "products": [
+   {
+    "id": "tuna-dreimaster",
+    "name": "Dreimaster Thunfischfilets in Olivenoel, 48-pack",
+    "note": "URL says 185 g tins, 48er pack",
+    "nutrition": {
+     "basis": "per 100 g",
+     "form": "light tuna canned in oil, drained (generic; check pack label)",
+     "note": "USDA FDC id 173708. Generic raw/reference values, not the retail pack label.",
+     "retrieved_at": "2026-10-24T10:01:35Z",
+     "scope": "generic_reference",
+     "source_name": "USDA FoodData Central (SR Legacy) via getfoodfacts.com",
+     "source_url": "https://getfoodfacts.com/food/fish-tuna-light-canned-in-oil-drained-solids-173708",
+     "values": {
+      "b12_ug": 2.2,
+      "b1_mg": 0.038,
+      "b2_mg": 0.12,
+      "b3_mg": 12.4,
+      "b6_mg": 0.11,
+      "calcium_mg": 13,
+      "carbs_g": 0,
+      "cholesterol_mg": 18,
+      "dha_g": 0.1,
+      "energy_kcal": 198,
+      "epa_g": 0.027,
+      "fat_g": 8.21,
+      "folate_ug": 5,
+      "iron_mg": 1.39,
+      "magnesium_mg": 31,
+      "mono_fat_g": 2.95,
+      "phosphorus_mg": 311,
+      "poly_fat_g": 2.88,
+      "potassium_mg": 207,
+      "protein_g": 29.1,
+      "sat_fat_g": 1.53,
+      "selenium_ug": 76,
+      "sodium_mg": 416,
+      "vit_a_rae_ug": 23,
+      "vit_c_mg": 0,
+      "vit_d_ug": 6.7,
+      "vit_e_mg": 0.87,
+      "vit_k_ug": 44,
+      "zinc_mg": 0.9
+     }
+    }
+   },
+   {
+    "id": "tuna-dongwon-light-kr",
+    "name": "Dongwon Light Standard tuna, 150 g can (KR)",
+    "size": 150,
+    "size_unit": "g"
+   }
+  ],
+  "sort": 70,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T10:14:26Z"
+ },
+ "turmeric": {
+  "base_unit": "kg",
+  "category": "Food",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "ok",
+  "name": "Turmeric",
+  "priority": "regular",
+  "products": [
+   {
+    "id": "turmeric-std",
+    "name": "Turmeric",
+    "nutrition": {
+     "basis": "per 100 g",
+     "form": "ground spice",
+     "note": "USDA FDC id 172231. Generic raw/reference values, not the retail pack label.",
+     "retrieved_at": "2026-10-24T10:01:35Z",
+     "scope": "generic_reference",
+     "source_name": "USDA FoodData Central (SR Legacy) via getfoodfacts.com",
+     "source_url": "https://getfoodfacts.com/food/spices-turmeric-ground-172231",
+     "values": {
+      "b12_ug": 0,
+      "b1_mg": 0.058,
+      "b2_mg": 0.15,
+      "b3_mg": 1.35,
+      "b6_mg": 0.11,
+      "calcium_mg": 168,
+      "carbs_g": 67.1,
+      "cholesterol_mg": 0,
+      "energy_kcal": 312,
+      "fat_g": 3.25,
+      "fibre_g": 22.7,
+      "folate_ug": 20,
+      "iron_mg": 55,
+      "magnesium_mg": 208,
+      "manganese_mg": 19.8,
+      "mono_fat_g": 0.45,
+      "phosphorus_mg": 299,
+      "poly_fat_g": 0.76,
+      "potassium_mg": 2080,
+      "protein_g": 9.68,
+      "sat_fat_g": 1.84,
+      "selenium_ug": 6.2,
+      "sodium_mg": 27,
+      "sugars_g": 3.21,
+      "vit_a_rae_ug": 0,
+      "vit_c_mg": 0.7,
+      "vit_d_ug": 0,
+      "vit_e_mg": 4.43,
+      "vit_k_ug": 13.4,
+      "zinc_mg": 4.5
+     }
+    }
+   }
+  ],
+  "sort": 300,
+  "sort_updated_at": "2026-10-24T09:45:22.026Z",
+  "status": "active",
+  "updated_at": "2026-10-24T10:01:35Z"
+ },
+ "vitamin-c": {
+  "base_unit": "l",
+  "category": "Skincare",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "ok",
+  "name": "Vitamin C serum",
+  "priority": "occasional",
+  "products": [
+   {
+    "brand": "COSRX",
+    "id": "vitamin-c-cosrx1",
+    "name": "COSRX Vitamin C (hddfs 27601)",
+    "size": 20,
+    "size_unit": "ml"
+   },
+   {
+    "brand": "COSRX",
+    "id": "vitamin-c-cosrx2",
+    "name": "COSRX Vitamin C (hddfs 06501)",
+    "size": 20,
+    "size_unit": "ml"
+   }
+  ],
+  "sort": 480,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T08:26:54Z"
+ },
+ "walnuts": {
+  "base_unit": "kg",
+  "category": "Food",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "core",
+  "name": "Walnuts",
+  "priority": "regular",
+  "products": [
+   {
+    "id": "walnuts-std",
+    "name": "Walnuts",
+    "nutrition": {
+     "basis": "per 100 g",
+     "form": "English, raw",
+     "note": "USDA FDC id 170187. Generic raw/reference values, not the retail pack label.",
+     "retrieved_at": "2026-10-24T10:01:35Z",
+     "scope": "generic_reference",
+     "source_name": "USDA FoodData Central (SR Legacy) via getfoodfacts.com",
+     "source_url": "https://getfoodfacts.com/food/nuts-walnuts-english-170187",
+     "values": {
+      "b12_ug": 0,
+      "b1_mg": 0.34,
+      "b2_mg": 0.15,
+      "b3_mg": 1.13,
+      "b6_mg": 0.54,
+      "calcium_mg": 98,
+      "carbs_g": 13.7,
+      "cholesterol_mg": 0,
+      "energy_kcal": 654,
+      "fat_g": 65.2,
+      "fibre_g": 6.7,
+      "folate_ug": 98,
+      "iron_mg": 2.91,
+      "magnesium_mg": 158,
+      "manganese_mg": 3.41,
+      "mono_fat_g": 8.93,
+      "omega3_g": 9.08,
+      "omega6_g": 38.1,
+      "phosphorus_mg": 346,
+      "poly_fat_g": 47.2,
+      "potassium_mg": 441,
+      "protein_g": 15.2,
+      "sat_fat_g": 6.13,
+      "sodium_mg": 2,
+      "sugars_g": 2.61,
+      "vit_a_rae_ug": 1,
+      "vit_c_mg": 1.3,
+      "vit_d_ug": 0,
+      "vit_e_mg": 0.7,
+      "vit_k_ug": 2.7,
+      "zinc_mg": 3.09
+     }
+    }
+   }
+  ],
+  "sort": 220,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T10:01:35Z"
+ },
+ "wash-gel": {
+  "base_unit": "l",
+  "category": "Skincare",
+  "created_at": "2026-10-24T08:26:54Z",
+  "health": "ok",
+  "name": "Face wash gel",
+  "priority": "daily",
+  "products": [
+   {
+    "brand": "CeraVe",
+    "id": "wash-gel-cerave",
+    "name": "CeraVe wash gel",
+    "tier": "Maintenance",
+    "usage": "Daily"
+   },
+   {
+    "brand": "La Roche-Posay",
+    "buy_in": [
+     "KR",
+     "TW"
+    ],
+    "id": "wash-gel-lrp",
+    "name": "La Roche-Posay wash gel",
+    "tier": "Appearance"
+   }
+  ],
+  "sort": 410,
+  "sort_updated_at": "2026-10-24T08:26:54Z",
+  "status": "active",
+  "updated_at": "2026-10-24T08:26:54Z"
+ }
+}

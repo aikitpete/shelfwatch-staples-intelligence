@@ -1,0 +1,290 @@
+{
+ "amazon-spar-abo": {
+  "benefit": "Recurring-delivery discount on eligible items. The price list marks some items Spar-Abo.",
+  "cost": "Free",
+  "country": "DE",
+  "created_at": "2026-10-24T08:26:54Z",
+  "expiry": "The discount percentage varies by item and can change. Check at checkout.",
+  "how": "Choose Spar-Abo on the product page.",
+  "id": "amazon-spar-abo",
+  "name": "Amazon Spar-Abo",
+  "note": "Amazon blocks automated page reading. Percentages not verified.",
+  "retailers": [
+   "amazon-de"
+  ],
+  "source_url": "https://www.amazon.de/gp/help/customer/display.html?nodeId=201889910",
+  "status": "unverified",
+  "updated_at": "2026-10-24T08:26:54Z",
+  "verified_at": null
+ },
+ "carrefour-tw": {
+  "benefit": "Member points and member days.",
+  "cost": "Unknown",
+  "country": "TW",
+  "created_at": "2026-10-24T08:26:54Z",
+  "expiry": "Unknown.",
+  "how": "Carrefour app or card.",
+  "id": "carrefour-tw",
+  "name": "Carrefour Taiwan member card",
+  "note": "The official member page redirected to another site and was not read.",
+  "retailers": [
+   "carrefour-tw"
+  ],
+  "source_url": "https://www.carrefour.com.tw",
+  "status": "unverified",
+  "updated_at": "2026-10-24T08:26:54Z",
+  "verified_at": null
+ },
+ "costco-kr-membership": {
+  "benefit": "Access to Costco prices; online prices were readable on costco.co.kr without login.",
+  "cost": "Annual fee (amount not verified)",
+  "country": "KR",
+  "created_at": "2026-10-24T08:26:54Z",
+  "expiry": "Annual.",
+  "how": "Costco membership card or app.",
+  "id": "costco-kr-membership",
+  "name": "Costco Korea membership",
+  "note": "Fee and renewal rules not read. Check before relying on Costco prices.",
+  "retailers": [
+   "costco-kr"
+  ],
+  "source_url": "https://www.costco.co.kr",
+  "status": "unverified",
+  "updated_at": "2026-10-24T08:26:54Z",
+  "verified_at": null
+ },
+ "coupang-wow": {
+  "benefit": "Free Rocket Delivery, dawn Rocket Fresh delivery on orders from KRW 15,000, free 30-day returns on Rocket Delivery items, member-only deals, up to 5% Coupang Cash in the first 30 days with Coupang Pay Money.",
+  "cost": "Monthly fee, charged automatically (amount not stated on the FAQ read; one Coupang news page indicates KRW 7,890, check before relying)",
+  "country": "KR",
+  "created_at": "2026-10-24T08:26:54Z",
+  "expiry": "Cancel before the auto-charge date; cancelling during a trial takes effect at its end.",
+  "how": "Subscribe in the Coupang app. Fee is auto-charged on the same date each month.",
+  "id": "coupang-wow",
+  "name": "Coupang WOW membership",
+  "note": "FAQ dated 2026-07-08. WOW pays off only if free delivery and Rocket Fresh replace other costs.",
+  "retailers": [
+   "coupang"
+  ],
+  "source_url": "https://news.coupang.com/archives/64216/?print=print",
+  "status": "partial",
+  "updated_at": "2026-10-24T08:26:54Z",
+  "verified_at": "2026-10-24"
+ },
+ "dm-payback": {
+  "benefit": "PAYBACK points and coupons at dm.",
+  "cost": "Free (believed)",
+  "country": "DE",
+  "created_at": "2026-10-24T08:26:54Z",
+  "expiry": "Unknown.",
+  "how": "dm app or PAYBACK card.",
+  "id": "dm-payback",
+  "name": "dm with PAYBACK",
+  "note": "The dm pages could not be read on 2026-10-24. Check before relying on it.",
+  "retailers": [
+   "dm-de"
+  ],
+  "source_url": "https://www.dm.de/services/payback",
+  "status": "unverified",
+  "updated_at": "2026-10-24T08:26:54Z",
+  "verified_at": null
+ },
+ "kaufland-card-sk": {
+  "benefit": "Points can be exchanged for selected products at no extra payment. Existing Kaufland Cards became XTRA after the 3 July 2026 update; old points and coupons stay valid.",
+  "cost": "Free (no fee mentioned)",
+  "country": "SK",
+  "created_at": "2026-10-24T08:26:54Z",
+  "expiry": "Not stated.",
+  "how": "Kaufland app. Pick a product under XTRA produkty, activate it with points and scan at the till.",
+  "id": "kaufland-card-sk",
+  "name": "Kaufland Card XTRA",
+  "note": "Earn rate not stated.",
+  "retailers": [
+   "kaufland-sk"
+  ],
+  "source_url": "https://spolocnost.kaufland.sk/tlacove-spravy/novinky/2026/jul/jednoduche-zbieranie-bodov-prehladnejsia-aplikacia-a-vyhody-na-mieru-kaufland-card-xtra-prinasa-xtra-bonusy",
+  "status": "partial",
+  "updated_at": "2026-10-24T08:26:54Z",
+  "verified_at": "2026-10-24"
+ },
+ "lidl-plus-sk": {
+  "benefit": "Automatic 'Akcie' discounts when the card is scanned; coupons that must be activated first; scratch-card and goal-based coupons.",
+  "cost": "Free",
+  "country": "SK",
+  "created_at": "2026-10-24T08:26:54Z",
+  "expiry": "Coupons have their own end dates in the app.",
+  "how": "Lidl Plus app, pick a favourite store, verify by SMS. Scan the digital card at the till.",
+  "id": "lidl-plus-sk",
+  "name": "Lidl Plus Slovakia",
+  "note": "No points system mentioned.",
+  "retailers": [
+   "lidl-sk"
+  ],
+  "source_url": "https://www.lidl.sk/c/ako-funguje-lidl-plus/s10011671",
+  "status": "verified",
+  "updated_at": "2026-10-24T08:26:54Z",
+  "verified_at": "2026-10-24"
+ },
+ "naver-plus": {
+  "benefit": "Extra Naver points on Naver Shopping purchases.",
+  "cost": "Monthly fee (amount not verified)",
+  "country": "KR",
+  "created_at": "2026-10-24T08:26:54Z",
+  "expiry": "Unknown.",
+  "how": "Subscribe in Naver.",
+  "id": "naver-plus",
+  "name": "Naver Plus membership",
+  "note": "The search for the official page was rejected, so nothing was verified.",
+  "retailers": [
+   "naver-shopping"
+  ],
+  "source_url": "https://www.naver.com",
+  "status": "unverified",
+  "updated_at": "2026-10-24T08:26:54Z",
+  "verified_at": null
+ },
+ "netto-plus": {
+  "benefit": "Weekly app coupons applied at checkout, PAYBACK card can be stored to collect points, points convert to Netto vouchers. Advertised saving of up to EUR 150 a month is a best case.",
+  "cost": "Free",
+  "country": "DE",
+  "created_at": "2026-10-24T08:26:54Z",
+  "expiry": "Coupons are weekly. One coupon per account per week for the 10% coupon.",
+  "how": "Netto plus app, link PAYBACK card or payment method.",
+  "id": "netto-plus",
+  "name": "Netto plus app (PAYBACK)",
+  "note": "",
+  "retailers": [
+   "netto"
+  ],
+  "source_url": "https://www.netto-online.de/ueber-netto/Netto-plus-App.chtm",
+  "status": "verified",
+  "updated_at": "2026-10-24T08:26:54Z",
+  "verified_at": "2026-10-24"
+ },
+ "olive-young-cjone": {
+  "benefit": "CJ ONE points and member coupons at Olive Young.",
+  "cost": "Free (believed)",
+  "country": "KR",
+  "created_at": "2026-10-24T08:26:54Z",
+  "expiry": "Unknown.",
+  "how": "Olive Young app with CJ ONE account.",
+  "id": "olive-young-cjone",
+  "name": "Olive Young with CJ ONE",
+  "note": "CJ ONE pages block automated reading. Check earn rates and tiers in the app.",
+  "retailers": [
+   "olive-young"
+  ],
+  "source_url": "https://www.oliveyoung.co.kr",
+  "status": "unverified",
+  "updated_at": "2026-10-24T08:26:54Z",
+  "verified_at": null
+ },
+ "px-welfare": {
+  "benefit": "NT$100 or more on a receipt earns 3 points. 1 point = NT$1 off, minimum 10 points. Points from purchases never expire.",
+  "cost": "App membership free; physical card NT$30",
+  "country": "TW",
+  "created_at": "2026-10-24T08:26:54Z",
+  "expiry": "Purchase points have no expiry. Annual or promotional bonus points expire and are used first.",
+  "how": "Show the app QR code or card before checkout. Cash, stored value and listed cards count; coupons and points paid amounts do not.",
+  "id": "px-welfare",
+  "name": "PX Mart welfare points (福利點)",
+  "note": "Terms v2.2, changes effective 2026-03-24. Roughly a 3% return on qualifying spend.",
+  "retailers": [
+   "pxmart"
+  ],
+  "source_url": "https://www.pxmart.com.tw/customer-service/card/terms",
+  "status": "verified",
+  "updated_at": "2026-10-24T08:26:54Z",
+  "verified_at": "2026-10-24"
+ },
+ "rewe-bonus": {
+  "benefit": "Euro credit on Bonus offers and coupons; Booster gives up to 10% on a whole shop depending on monthly spend. Credit is redeemable from EUR 1, up to EUR 100 per day. No cash payout.",
+  "cost": "Free",
+  "country": "DE",
+  "created_at": "2026-10-24T08:26:54Z",
+  "expiry": "Credit valid 36 months and expires on the next 31 January after that.",
+  "how": "REWE app plus REWE account. Scan the app at the till. Coupons must be activated first.",
+  "id": "rewe-bonus",
+  "name": "REWE Bonus",
+  "note": "Earn rate per euro is not stated on the page.",
+  "retailers": [
+   "rewe"
+  ],
+  "source_url": "https://www.rewe.de/bonus/",
+  "status": "verified",
+  "updated_at": "2026-10-24T08:26:54Z",
+  "verified_at": "2026-10-24"
+ },
+ "rossmann-app": {
+  "benefit": "Registered users get four 10% coupons every two months, each for a whole purchase; unregistered two. One app coupon per purchase. Extra brand and category coupons.",
+  "cost": "Free",
+  "country": "DE",
+  "created_at": "2026-10-24T08:26:54Z",
+  "expiry": "Coupon dates change. The page lists the current 10% coupons as valid to 31 July 2026, so check the app for the present set.",
+  "how": "Rossmann app, register to unlock all coupons.",
+  "id": "rossmann-app",
+  "name": "Rossmann app",
+  "note": "Dates on the page may be outdated.",
+  "retailers": [
+   "rossmann"
+  ],
+  "source_url": "https://www.rossmann.de/de/service-und-hilfe/rossmann-app",
+  "status": "verified",
+  "updated_at": "2026-10-24T08:26:54Z",
+  "verified_at": "2026-10-24"
+ },
+ "shinsegae-point": {
+  "benefit": "Shinsegae Point earning at E-mart, E-mart Traders and SSG.",
+  "cost": "Free (believed)",
+  "country": "KR",
+  "created_at": "2026-10-24T08:26:54Z",
+  "expiry": "Unknown.",
+  "how": "E-mart app.",
+  "id": "shinsegae-point",
+  "name": "E-mart and Shinsegae Point",
+  "note": "E-mart pages block automated reading.",
+  "retailers": [
+   "emart"
+  ],
+  "source_url": "https://eapp.emart.com/spoint/memberCardView.do",
+  "status": "unverified",
+  "updated_at": "2026-10-24T08:26:54Z",
+  "verified_at": null
+ },
+ "tesco-clubcard-sk": {
+  "benefit": "Clubcard points convert to instant vouchers; coupons and member offers in the app. Clubcard prices exist but the page read did not describe them.",
+  "cost": "Free (no fee mentioned)",
+  "country": "SK",
+  "created_at": "2026-10-24T08:26:54Z",
+  "expiry": "Not stated.",
+  "how": "Clubcard app, no physical card needed.",
+  "id": "tesco-clubcard-sk",
+  "name": "Tesco Clubcard Slovakia",
+  "note": "Earn rate and Clubcard price rules not verified.",
+  "retailers": [
+   "tesco-sk"
+  ],
+  "source_url": "https://www.tesco.sk/help/pages/clubcard/mobilna-aplikacia-clubcard/ake-su-vyhody-registracie-karty-clubcard-a-pouzivania-mobilnej-aplikacie-clubcard",
+  "status": "partial",
+  "updated_at": "2026-10-24T08:26:54Z",
+  "verified_at": "2026-10-24"
+ },
+ "watsons-icard": {
+  "benefit": "1 point per NT$1 (7 points on Sundays). 300 points = NT$1 off. Member prices every day, 10% off counter brands, new-member coupons up to NT$630, birthday coupons.",
+  "cost": "No fee listed on the page",
+  "country": "TW",
+  "created_at": "2026-10-24T08:26:54Z",
+  "expiry": "Points earned in a year expire on 30 November of the following year.",
+  "how": "Watsons membership in store or app.",
+  "id": "watsons-icard",
+  "name": "Watsons 寵i membership",
+  "note": "Points are worth very little (300 points = NT$1), so the member prices and coupons are the real value.",
+  "retailers": [
+   "watsons-tw"
+  ],
+  "source_url": "https://www.watsons.com.tw/member-benefits",
+  "status": "verified",
+  "updated_at": "2026-10-24T08:26:54Z",
+  "verified_at": "2026-10-24"
+ }
+}
