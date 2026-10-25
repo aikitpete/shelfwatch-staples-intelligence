@@ -1,5 +1,7 @@
 # Shelfwatch
 
+[![demo deploy](https://img.shields.io/github/actions/workflow/status/aikitpete/shelfwatch-staples-intelligence/pages.yml?branch=main&label=demo%20deploy)](https://github.com/aikitpete/shelfwatch-staples-intelligence/actions/workflows/pages.yml) [![License](https://img.shields.io/github/license/aikitpete/shelfwatch-staples-intelligence)](LICENSE) [![Live demo](https://img.shields.io/badge/demo-live-brightgreen)](https://aikitpete.github.io/shelfwatch-staples-intelligence/) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black) ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
+
 Mobile-first price comparison for everyday staples across any set of countries and currencies you configure.
 Every price is compared per kg, per litre or per piece, shown in EUR with the native currency beneath, and
 stored with its source, origin and date. Prices are append-only, so price history is never lost.
