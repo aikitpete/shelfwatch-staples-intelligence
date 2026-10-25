@@ -6,6 +6,8 @@ import json,os,re,shutil,sys
 R=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 t=sys.argv[1] if len(sys.argv)>1 else 'demo'
 src=open(f'{R}/src/page.src.html',encoding='utf8').read()
+# the page template keeps markup only; styles and script live in src/app.css and src/app.js and are inlined here
+src=src.replace('/*__APP_CSS__*/',open(f'{R}/src/app.css',encoding='utf8',newline='').read()).replace('/*__APP_JS__*/',open(f'{R}/src/app.js',encoding='utf8',newline='').read())
 schema=open(f'{R}/schema.sql',encoding='utf8').read()
 # Countries, currencies and shop priorities come from a config file, never from code.
 #   demo   -> data/demo-src/config.json (invented sample countries, public)

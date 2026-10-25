@@ -19,7 +19,7 @@ stored with its source, origin and date. Prices are append-only, so price histor
 - **Guide**: buying rules, loyalty programs and a scored register of price sources.
 
 ## Architecture
-One HTML file, no framework. The app talks to a tiny storage interface
+Plain JavaScript and CSS (`src/app.js`, `src/app.css`) inlined into a single self-contained page by `scripts/build.py`, no framework. The app talks to a tiny storage interface
 (`db.collection().onSnapshot`, `db.doc().set/update/delete`), with two backends:
 
 | Target | Backend | Use |
