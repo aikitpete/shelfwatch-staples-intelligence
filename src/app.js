@@ -481,13 +481,13 @@ function viewStores(){
         return {c,n,idx:n>=3?Math.exp(ks.reduce((a,k)=>a+Math.log(st.cmap[c][k]/st.cmap[ref][k]),0)/n):null}}).filter(x=>x.idx!=null);
       h+=`<h2 class="sec">Price level by country</h2><div class="sub">Same items, cheapest price in each country. If a basket costs 100 in ${COUNTRIES[ref].name}, it costs:</div><div class="chips">${cs.map(c=>`<button class="chip" data-act="lvref" data-c="${c}" aria-pressed="${c===ref}">vs ${COUNTRIES[c].name}</button>`).join('')}</div>`;
       if(rows.length){const mx=Math.max(100,...rows.map(x=>x.idx*100));
-        h+=`<div class="panel2"><div class="hb"><span>${COUNTRIES[ref].name}</span><div class="t"><i style="width:${(100/mx*100).toFixed(1)}%"></i></div><b>100</b></div>`+rows.sort((a,b)=>a.idx-b.idx).map(x=>`<div class="hb"><span>${COUNTRIES[x.c].name}</span><div class="t"><i class="${x.idx<1?'g':'r'}" style="width:${(x.idx*100/mx*100).toFixed(1)}%"></i></div><b>${Math.round(x.idx*100)}</b></div><div class="sub" style="margin-top:-4px">${x.n} shared items · ${x.idx<1?Math.round((1-x.idx)*100)+'% cheaper':Math.round((x.idx-1)*100)+'% dearer'}</div>`).join('')+`</div>`;
+        h+=`<div class="panel2"><div class="hb"><span>${COUNTRIES[ref].name}</span><div class="t"><i style="width:${(100/mx*100).toFixed(1)}%"></i></div><b>100</b></div>`+rows.sort((a,b)=>a.idx-b.idx).map(x=>`<div class="hb"><span>${COUNTRIES[x.c].name}</span><div class="t"><i class="${x.idx<1?'g':'r'}" style="width:${(x.idx*100/mx*100).toFixed(1)}%"></i></div><b>${Math.round(x.idx*100)}</b></div><div class="sub" style="margin-top:-4px">${x.n} shared items · ${x.idx<1?Math.round((1-x.idx)*100)+'% cheaper':Math.round((x.idx-1)*100)+'% more expensive'}</div>`).join('')+`</div>`;
       }else h+=`<div class="sub">Not enough items priced in both countries yet.</div>`;
     }
   }
   if(st.cty.length>=2){
-    h+=`<h2 class="sec">Which country is cheapest</h2><div class="sub">For items priced in 2+ countries: in how many is each country the cheapest, and how much dearer is it in the rest.</div><div class="panel2">`
-    +st.cty.slice().sort((a,b)=>b.w/b.n-a.w/a.n).map(x=>`<div class="stb"><div class="stt"><b>${COUNTRIES[x.c].name}</b><span class="stn">cheapest on ${x.w} of ${x.n}</span></div><div class="t"><i class="g" style="width:${(x.w/x.n*100).toFixed(1)}%"></i></div><div class="sts"><span>${x.lose?'otherwise <b>'+pctTxt(x.lidx)+'</b> dearer on average':'never dearer'}</span></div></div>`).join('')+`</div>`;
+    h+=`<h2 class="sec">Which country is cheapest</h2><div class="sub">For items priced in 2+ countries: in how many is each country the cheapest, and how much more expensive is it in the rest.</div><div class="panel2">`
+    +st.cty.slice().sort((a,b)=>b.w/b.n-a.w/a.n).map(x=>`<div class="stb"><div class="stt"><b>${COUNTRIES[x.c].name}</b><span class="stn">cheapest on ${x.w} of ${x.n}</span></div><div class="t"><i class="g" style="width:${(x.w/x.n*100).toFixed(1)}%"></i></div><div class="sts"><span>${x.lose?'otherwise <b>'+pctTxt(x.lidx)+'</b> more expensive on average':'never more expensive'}</span></div></div>`).join('')+`</div>`;
   }
   return h;
 }
