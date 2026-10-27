@@ -71,8 +71,6 @@ main>*:not(.sc){grid-column:1/-1}
 .thd{padding:0 12px;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--fg-3)}.thd span:nth-child(2),.thd span:nth-child(n+5):nth-child(-n+7),.thd span:nth-child(9){text-align:right}
 main{gap:6px}
 }
-@media (min-width:820px){#sheet.on{display:grid;place-items:center}.panel{position:relative;left:auto;right:auto;bottom:auto;width:min(760px,92vw);max-height:88vh;border-radius:14px;border:1px solid var(--line);box-shadow:0 24px 70px rgba(0,0,0,.5)}.panel-in{max-width:none;padding-bottom:22px}}
-@media (min-width:820px) and (prefers-reduced-motion:no-preference){.panel{animation:pop .15s ease-out}@keyframes pop{from{transform:scale(.97);opacity:.6}to{transform:none;opacity:1}}}
 @media (max-width:819px){.wt,.thd{display:none}}
 h2.sec{margin:12px 0 0;font:600 12px/1 var(--font-body);text-transform:uppercase;letter-spacing:.09em;color:var(--fg-3)}
 .banner{padding:10px 12px;border-radius:8px;background:var(--warn-bg);color:var(--warn);font-size:13px}
@@ -329,3 +327,15 @@ details.card>summary{cursor:pointer;list-style:none;min-height:24px}details.card
 .li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;padding:9px 0;border-top:1px solid var(--line);align-items:center}
 .li:first-child{border-top:0}
 @media (prefers-reduced-motion:no-preference){.panel{animation:up .18s ease-out}@keyframes up{from{transform:translateY(24px);opacity:.6}to{transform:none;opacity:1}}}
+@media (min-width:820px){
+.sl.sl,.sl.wi.wi{grid-template-columns:var(--cols);gap:10px;align-items:center;padding:8px 12px}
+.sl .sn{display:contents}.sl .th{display:none}
+.sl .sn b{grid-column:1;grid-row:1}.sl .sv{grid-column:2;grid-row:1}
+.sl .pd{grid-column:3;grid-row:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sl .mt{grid-column:4;grid-row:1}.sl .pk2{grid-column:5;grid-row:1;text-align:right}
+.sl .tgs{grid-column:6/9;grid-row:1}.sl .sb{grid-column:9/11;grid-row:1}
+.sl .pd,.sl .pk2,.sl .mt{font-size:12.5px}
+.fts{padding:2px 12px 8px}.sf{padding:8px 12px}
+}
+@media (min-width:820px){#sheet.on.on{display:grid;place-items:center}.panel.panel{position:relative;left:auto;right:auto;bottom:auto;width:min(760px,92vw);max-height:88vh;border-radius:14px;border:1px solid var(--line);box-shadow:0 24px 70px rgba(0,0,0,.5)}.panel .panel-in{max-width:none;padding-bottom:22px}}
+@media (min-width:820px) and (prefers-reduced-motion:no-preference){.panel{animation:pop .15s ease-out}@keyframes pop{from{transform:scale(.97);opacity:.6}to{transform:none;opacity:1}}}
