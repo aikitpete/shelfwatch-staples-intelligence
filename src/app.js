@@ -296,7 +296,7 @@ function viewCompare(){
       const cs=list.map(x=>({x,c:storeCard(x.i)})).filter(y=>y.c&&!y.c.skip);
       if(!cs.length)continue;
       out+=`<h2 class="sec">${esc(c)} · ${cs.length}</h2>`+cs.map(y=>y.c.html).join('');
-    } else out+=`<h2 class="sec">${esc(c)} · ${list.length}</h2><div class="thd"><span>Item</span><span>Best /unit</span><span>Product</span><span>Shop</span><span>Pack price</span><span>kcal/100g</span><span>Protein g/€</span><span>Flag</span><span>vs usual</span><span>Checked</span><span></span></div>`+list.map(x=>itemCard(x.i)).join('');
+    } else out+=`<h2 class="sec">${esc(c)} · ${list.length}</h2><div class="thd"><span>Item</span><span>Best /unit</span><span>Product</span><span>Shop</span><span>Pack price</span><span>kcal/100g</span><span>Protein g/€</span><span>Status</span><span>vs usual</span><span>Checked</span><span></span></div>`+list.map(x=>itemCard(x.i)).join('');
   }
   if(!f.length&&S.loaded>=3)out+=`<div class="empty"><b>Nothing matches</b><span>Clear the search or pick another category.</span></div>`;
   if(parked.length&&S.cat==='All'&&!q)out+=`<h2 class="sec">Parked</h2>`+parked.map(i=>`<article class="tag none"><div class="tag-head"><span class="tag-name"><b>${esc(i.name)}</b><small>${esc(i.note||i.status)}${i.replaced_by?' → '+esc((S.items.get(i.replaced_by)||{}).name||i.replaced_by):''}</small></span></div></article>`).join('');
