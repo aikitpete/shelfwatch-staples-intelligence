@@ -58,6 +58,10 @@ a{color:var(--link)}
 
 /* body */
 main{padding-block:12px 96px;display:grid;gap:10px;min-width:0}
+.top-in.gut,main.gut,.nav-in.gut{max-width:1480px;margin-inline:auto;box-sizing:border-box}
+main>*:not(.tag){grid-column:1/-1}
+@media (min-width:820px){main{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:10px 14px}}
+@media (min-width:1240px){main{grid-template-columns:repeat(3,minmax(0,1fr))}}
 h2.sec{margin:12px 0 0;font:600 12px/1 var(--font-body);text-transform:uppercase;letter-spacing:.09em;color:var(--fg-3)}
 .banner{padding:10px 12px;border-radius:8px;background:var(--warn-bg);color:var(--warn);font-size:13px}
 .empty{padding:16px;border:1px dashed var(--line);border-radius:8px;display:grid;gap:8px;color:var(--fg-2)}
