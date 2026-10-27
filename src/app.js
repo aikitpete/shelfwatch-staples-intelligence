@@ -15,8 +15,8 @@ const FXCUR=Object.keys(CURS).filter(c=>c!=='EUR');
 const NAMES=(()=>{const n=CODES.map(c=>COUNTRIES[c].name);return n.length>1?n.slice(0,-1).join(', ')+' and '+n[n.length-1]:n[0]})();
 const QCUR=Object.keys(CURS).map(c=>'"'+c+'"').join('|'),QCTY=CODES.map(c=>'"'+c+'"').join('|');
 const HIDDEN_DEFAULT=new Set(CFG.hiddenByDefault||[]),STORE_PRIO=CFG.storePriority||[];
-const UNITS={g:['kg',1000],kg:['kg',1],ml:['l',1000],l:['l',1],pc:['pc',1]};
-const BASE_UNITS={kg:['g','kg'],l:['ml','l'],pc:['pc']};
+const UNITS={g:['kg',1000],kg:['kg',1],ml:['l',1000],l:['l',1],pc:['pc',1],m:['100 m',100],sheet:['500 sheets',500]};
+const BASE_UNITS={kg:['g','kg'],l:['ml','l'],pc:['pc'],'100 m':['m'],'500 sheets':['sheet']};
 const SRC={paste:'Pasted text',dataset:'Dataset',import:'PDF import',research:'Research',photo:'Photo',manual:'Manual'};
 const CATS=['Food','Household','Skincare','Dental','Grooming'];
 let PREF={};try{PREF=JSON.parse(localStorage.getItem('sw.inc')||'{}')||{}}catch(x){}
@@ -102,6 +102,9 @@ function countryCounts(){
 
 /* ---------- rendering ---------- */
 const bl=b=>b||'kg';
+const AS={ok:'OK',watch:'Watch',flag:'Red flag'};
+const assessOf=o=>{for(const r of (o.real||[])){if(r.assess&&r.assess.note)return r.assess}return null};
+const assessHtml=a=>a?`<span class="as ${a.level==='ok'?'':'w'}"><b>${AS[a.level]||'Check'}:</b> ${esc(a.note)}${a.basis?` <small>(${esc(a.basis)}${a.at?', '+esc(a.at):''})</small>`:''}</span>`:'';
 function priceCell(o,big){
   const r=o.latest,b=bl(r.base_unit);
   if(r.unit_price==null){
@@ -125,6 +128,7 @@ function badges(o,withCty){
   else if(isDeal(r))out.push(`<span class="bd${ps==='soon'?' flag':''}">${esc(dealTxt(r))}</span>`);
   if(r.requires_program){const pg=S.prog.find(x=>x.id===r.requires_program);out.push(`<span class="bd">Needs ${esc(pg?pg.name:r.requires_program)}</span>`)}
   if(r.flag)out.push(`<span class="bd flag">Check</span>`);
+  {const a=assessOf(o);if(a&&a.level!=='ok')out.push(`<span class="bd flag">${AS[a.level]||'Watch'}</span>`)}
   if(o.pct!=null&&Math.abs(o.pct)>=.005)out.push(`<span class="${o.pct<0?'dn':'upc'}">${o.pct<0?'▼':'▲'} ${pctTxt(o.pct)}</span>`);
   return `<div class="badges">${out.join('')}</div>`;
 }
@@ -542,7 +546,7 @@ function sheetDetail(key){
     const link=r.source_url?`<a href="${esc(r.source_url)}" target="_blank" rel="noopener">source link</a>`:'';
     return `<div class="h-row"><div class="o-main"><b>${esc(r.observed_at)}${r.date_precision==='year'?' (year only)':''}</b>
       <div class="badges"><span class="bd o-${originOf(r)}">${originOf(r)==='auto'?'Auto':'Yours'}</span><span class="bd src-${r.source_type}">${esc(SRC[r.source_type]||r.source_type)}</span>${isDeal(r)?`<span class="bd">${esc(dealTxt(r))}</span>`:''}${r.flag?'<span class="bd flag">Check</span>':''}${d}</div>
-      ${noteHtml((r.promo&&!isDeal(r)?r.promo+'. ':'')+(r.source_note||''))}${link}${r.research_attempt?noteHtml('Auto '+stamp(r.research_attempt.at)+': '+(r.research_attempt.note||r.research_attempt.result)):''}<span class="sub">${esc(stamp(r.checked_at||r.created_at))}</span>${r.flag?`<span class="sub" style="color:var(--warn)">${esc(r.flag)}</span>`:''}
+      ${noteHtml((r.promo&&!isDeal(r)?r.promo+'. ':'')+(r.source_note||''))}${link}${r.research_attempt?noteHtml('Auto '+stamp(r.research_attempt.at)+': '+(r.research_attempt.note||r.research_attempt.result)):''}<span class="sub">${esc(stamp(r.checked_at||r.created_at))}</span>${r.flag?`<span class="sub" style="color:var(--warn)">${esc(r.flag)}</span>`:''}${assessHtml(r.assess)}
       ${r.asset_id?`<a href="/_blob/${esc(r.asset_id)}" target="_blank" rel="noopener"><img alt="Photo of the price tag" src="/_blob/${esc(r.asset_id)}"></a>`:''}</div>
       <div class="o-price">${r.placeholder?'<small>no price yet</small>':`<span class="num">${money(r.currency,r.unit_price!=null?r.unit_price:r.amount)}${r.unit_price!=null?`<small>/${bl(r.base_unit)}</small>`:''}</span><small>${r.amount!=null&&r.unit_price!=null?'pack '+money(r.currency,r.amount)+(r.size?' · '+r.size+' '+r.size_unit:''):''}</small><small>${eurAt!=null&&r.currency!==home()?'then ≈ '+mh(eurAt):''}</small>`}</div></div>`}).join('');
   openSheet(`<div class="ph"><div><h3>${esc(o.item.name)}</h3><div class="sub">${esc([pl,o.rt.name,COUNTRIES[o.country]?COUNTRIES[o.country].name:o.country].filter(Boolean).join(' · '))}</div></div><button class="x" data-act="close">Close</button></div>
@@ -578,7 +582,7 @@ function sheetAdd(pre){
     <input id="photo-cam" type="file" accept="image/*" capture="environment" hidden><input id="photo-pick" type="file" accept="image/*" hidden>
     <div id="photo-st" class="sub">Claude reads the tag. You confirm before saving.</div><div id="photo-th"></div></div>
   <label class="fld"><span>Item</span><select id="f-item"><option value="">Choose item…</option>${items.map(i=>`<option value="${esc(i.id)}">${esc(i.name)}</option>`).join('')}<option value="__new">+ New item…</option></select></label>
-  <div id="new-item" class="sub-form" hidden><label class="fld"><span>Item name</span><input id="f-ni-name"></label><div class="row2"><label class="fld"><span>Category</span><select id="f-ni-cat">${CATS.map(c=>`<option>${c}</option>`).join('')}</select></label><label class="fld"><span>Compared per</span><select id="f-ni-base"><option value="kg">kg</option><option value="l">litre</option><option value="pc">piece</option></select></label></div></div>
+  <div id="new-item" class="sub-form" hidden><label class="fld"><span>Item name</span><input id="f-ni-name"></label><div class="row2"><label class="fld"><span>Category</span><select id="f-ni-cat">${CATS.map(c=>`<option>${c}</option>`).join('')}</select></label><label class="fld"><span>Compared per</span><select id="f-ni-base"><option value="kg">kg</option><option value="l">litre</option><option value="pc">piece</option><option value="100 m">100 m</option><option value="500 sheets">500 sheets</option></select></label></div></div>
   <label class="fld"><span>Product</span><select id="f-prod"><option value="">Choose item first</option></select></label>
   <div id="new-prod" class="sub-form" hidden><label class="fld"><span>Product name</span><input id="f-np-name"></label></div>
   <label class="fld"><span>Retailer</span><select id="f-ret"><option value="">Choose retailer…</option>${retOpts}<option value="__new">+ New retailer…</option></select></label>
@@ -720,7 +724,7 @@ async function savePrice(){
 /* ---------- shelf scan: many tags per photo ---------- */
 const SC={shots:[],rows:[],seq:0,text:'',pr:''};
 const sid=()=>'s'+(++SC.seq);
-const UNIT_GUESS={g:'kg',kg:'kg',ml:'l',l:'l',pc:'pc'};
+const UNIT_GUESS={g:'kg',kg:'kg',ml:'l',l:'l',pc:'pc',m:'100 m',sheet:'500 sheets'};
 function scanShell(inner){const p=$('#sheet .panel-in');if(p)p.innerHTML=inner}
 function openScan(){
   SC.shots=[];SC.rows=[];SC.pr='';
@@ -808,7 +812,7 @@ function evalRow(r){
   const blocking=flags.some(f=>f.sev>=2),clean=!flags.some(f=>f.sev>=1);
   return {ok:!blocking,clean,flags,mism,up,eur,cur,base,status,pct,verdict,best,item,ret,rcty};
 }
-const BASE_UN={kg:['g','kg'],l:['ml','l'],pc:['pc']};
+const BASE_UN={kg:['g','kg'],l:['ml','l'],pc:['pc'],'100 m':['m'],'500 sheets':['sheet']};
 function fixBox(r,e){
   const sz=e.flags.some(f=>/size missing|Unit does not match/.test(f.t));
   if(!sz)return '';
@@ -843,7 +847,7 @@ function scanRow(r,e){
     ${it?`<label class="fld"><span>Product</span><select data-sf="f" data-k="product_id" data-id="${r.id}">${prods.map(p=>o(p.id,p.name,r.product_id===p.id)).join('')}${o('','+ New product from tag name',!r.product_id||!prods.some(p=>p.id===r.product_id))}</select></label>`:''}
     <label class="fld"><span>Tag name</span><input data-sf="f" data-k="name" data-id="${r.id}" value="${esc(r.name||'')}"></label>
     <div class="row3"><label class="fld"><span>Pack price</span><input inputmode="decimal" data-sf="f" data-k="price" data-id="${r.id}" value="${r.price??''}"></label><label class="fld"><span>Currency</span><select data-sf="f" data-k="cur" data-id="${r.id}">${Object.keys(CUR).map(c=>o(c,c,(e.cur||'')===c)).join('')}</select></label><label class="fld"><span>Promo</span><input data-sf="f" data-k="promo" data-id="${r.id}" value="${esc(r.promo||'')}"></label></div>
-    <div class="row3"><label class="fld"><span>Size</span><input inputmode="decimal" data-sf="f" data-k="size" data-id="${r.id}" value="${r.size??''}"></label><label class="fld"><span>Unit</span><select data-sf="f" data-k="unit" data-id="${r.id}">${['g','kg','ml','l','pc'].map(u=>o(u,u,r.unit===u)).join('')}</select></label><label class="fld"><span>Tag unit price</span><input inputmode="decimal" data-sf="f" data-k="up" data-id="${r.id}" value="${r.up??''}"></label></div>
+    <div class="row3"><label class="fld"><span>Size</span><input inputmode="decimal" data-sf="f" data-k="size" data-id="${r.id}" value="${r.size??''}"></label><label class="fld"><span>Unit</span><select data-sf="f" data-k="unit" data-id="${r.id}">${['g','kg','ml','l','pc','m','sheet'].map(u=>o(u,u,r.unit===u)).join('')}</select></label><label class="fld"><span>Tag unit price</span><input inputmode="decimal" data-sf="f" data-k="up" data-id="${r.id}" value="${r.up??''}"></label></div>
     <div class="btns"><button class="btn" data-act="sc-drop" data-id="${r.id}">Remove this tag</button></div></div>`;
   }
   return h;
@@ -863,7 +867,7 @@ ${rets}
 
 Reply with only one JSON object:
 {"store":{"retailer_id":string|null,"name":string|null,"country":${QCTY}|null,"evidence":string|null},
-"tags":[{"name":string,"brand":string|null,"item_id":string|null,"product_id":string|null,"category":"Food"|"Household"|"Skincare"|"Dental"|"Grooming"|null,"size":number|null,"size_unit":"g"|"kg"|"ml"|"l"|"pc"|null,"price":number|null,"currency":${QCUR}|null,"unit_price":number|null,"promo":string|null,"promo_until":"YYYY-MM-DD"|null,"member_only":boolean,"confidence":number}]}
+"tags":[{"name":string,"brand":string|null,"item_id":string|null,"product_id":string|null,"category":"Food"|"Household"|"Skincare"|"Dental"|"Grooming"|null,"size":number|null,"size_unit":"g"|"kg"|"ml"|"l"|"pc"|"m"|"sheet"|null,"price":number|null,"currency":${QCUR}|null,"unit_price":number|null,"promo":string|null,"promo_until":"YYYY-MM-DD"|null,"member_only":boolean,"confidence":number}]}
 Rules: price is the pack price as sold (the member or sale price if that is what is shown, with promo text). unit_price is the printed price per kg, litre or piece (단가, 100g당, 單價, Grundpreis) normalised to per kg, per litre or per piece, or null if not printed. size is the pack content, for example 500 with unit g, or 6 with unit pc for a 6-pack. item_id and product_id only when they clearly match a known entry. Use null for anything you cannot read. For multi-buy offers (1+1, 2+1, 2 for the price of 1) report the shelf price of ONE pack as price and put the offer text in promo. Never guess a number. confidence is 0 to 1 for how sure you are the row is read correctly. Skip things that are not food, household or personal-care staples only if they are clearly unreadable.`;
 }
 async function scanOne(shot){
@@ -895,7 +899,7 @@ async function scanOne(shot){
   scanDraw();
 }
 const FMT='shelfwatch-import/1';
-function schemaTxt(){return `{"format":"${FMT}","records":[{"store":{"retailer_id":string|null,"name":string,"country":${QCTY}},"item_id":string|null,"item_name":string,"category":"Food"|"Household"|"Skincare"|"Dental"|"Grooming","base_unit":"kg"|"l"|"pc","product_id":string|null,"product_name":string,"brand":string|null,"size":number,"size_unit":"g"|"kg"|"ml"|"l"|"pc","price":number,"currency":${QCUR},"unit_price":number|null,"promo":string|null,"promo_until":"YYYY-MM-DD"|null,"member_only":boolean,"observed_at":"YYYY-MM-DD","source_url":string|null,"source_note":string|null,"confidence":number}]}`}
+function schemaTxt(){return `{"format":"${FMT}","records":[{"store":{"retailer_id":string|null,"name":string,"country":${QCTY}},"item_id":string|null,"item_name":string,"category":"Food"|"Household"|"Skincare"|"Dental"|"Grooming","base_unit":"kg"|"l"|"pc"|"100 m"|"500 sheets","product_id":string|null,"product_name":string,"brand":string|null,"size":number,"size_unit":"g"|"kg"|"ml"|"l"|"pc"|"m"|"sheet","price":number,"currency":${QCUR},"unit_price":number|null,"promo":string|null,"promo_until":"YYYY-MM-DD"|null,"member_only":boolean,"observed_at":"YYYY-MM-DD","source_url":string|null,"source_note":string|null,"confidence":number,"assessment":{"level":"ok"|"watch"|"flag","note":string}|null}]}`}
 function knownTxt(){
   const items=[...S.items.values()].filter(i=>i.status!=='replaced'&&i.status!=='not_needed').map(i=>`${i.id} | ${i.name} | per ${i.base_unit} | ${(i.products||[]).map(p=>p.id+':'+p.name+(p.size?' '+p.size+p.size_unit:'')).join('; ')}`).join('\n');
   const rets=[...S.retailers.values()].filter(r=>!HIDE_RT.has(r.id)).sort((a,b)=>a.country.localeCompare(b.country)||sRank(a.id)-sRank(b.id)||byName(a,b)).map(r=>`${r.id} | ${r.name} | ${r.country}`).join('\n');
@@ -909,6 +913,7 @@ function rulesTxt(){return `Rules:
 - store.name is the shop name as shown. Use retailer_id only if the shop is in the known stores list, otherwise null. Be specific about the format of the shop (for example a hypermarket, its convenience format and its discount format are different shops).
 - item_id and product_id only when they clearly match the known lists, otherwise null with item_name as a short generic staple name in English.
 - observed_at is the date the price was seen. source_url is the exact page of the price, source_note a short note on how you found it (page, date, branch).
+- assessment: a quick red-flag check of the product itself, only from what you see or already know (ingredients, added sugar or salt, additives, contaminants, recalls, third-party or unreliable seller, product not matching its label, clearly bad reviews if shown). level ok, watch or flag. note is ONE short sentence (max 100 characters) saying why; for ok name the main plus or caveat. Do not browse for it and do not invent reviews; null if you cannot say anything useful.
 - Use null when something is not visible. Never guess a number. Prices in the currency of the country. confidence 0 to 1.
 - Reply with ONLY one JSON object, in one code block, nothing before or after it, no comments, no trailing commas.`}
 function researchPrompt(){
@@ -1000,7 +1005,7 @@ function autoConvert(r,item){
 function undoConv(r){if(r.conv){r.size=r.conv.o.size;r.unit=r.conv.o.unit;if(r.conv.up)r.up=r.conv.up}r.conv=null;r.noconv=true}
 function mkRow(shot,t){
   const nm=s=>String(s||'').toLowerCase().trim();
-  const r={id:'t'+(++SC.seq),shot:shot.id,name:t.product_name||t.name||t.item_name||'',brand:t.brand||'',item_id:t.item_id&&S.items.has(t.item_id)?t.item_id:'',product_id:t.product_id||'',category:t.category||'Food',size:+t.size>0?+t.size:null,unit:t.size_unit||'kg',price:+t.price>0?+t.price:null,cur:t.currency||null,up:+t.unit_price>0?+t.unit_price:null,promo:(t.promo&&isDeal({promo:t.promo,promo_until:t.promo_until}))?t.promo:'',until:t.promo_until||'',conf:typeof t.confidence==='number'?t.confidence:null,base_unit:t.base_unit||'',obs:/^\d{4}-\d{2}-\d{2}$/.test(t.observed_at||'')?t.observed_at:'',src_url:t.source_url||'',src_note:t.source_note||'',exp:false,on:false};
+  const r={id:'t'+(++SC.seq),assess:(t.assessment&&['ok','watch','flag'].includes(t.assessment.level)&&t.assessment.note)?{level:t.assessment.level,note:String(t.assessment.note).slice(0,160),basis:'import',at:todayStr()}:null,shot:shot.id,name:t.product_name||t.name||t.item_name||'',brand:t.brand||'',item_id:t.item_id&&S.items.has(t.item_id)?t.item_id:'',product_id:t.product_id||'',category:t.category||'Food',size:+t.size>0?+t.size:null,unit:t.size_unit||'kg',price:+t.price>0?+t.price:null,cur:t.currency||null,up:+t.unit_price>0?+t.unit_price:null,promo:(t.promo&&isDeal({promo:t.promo,promo_until:t.promo_until}))?t.promo:'',until:t.promo_until||'',conf:typeof t.confidence==='number'?t.confidence:null,base_unit:t.base_unit||'',obs:/^\d{4}-\d{2}-\d{2}$/.test(t.observed_at||'')?t.observed_at:'',src_url:t.source_url||'',src_note:t.source_note||'',exp:false,on:false};
   if(t.promo&&!r.promo)r.src_note=((r.src_note?r.src_note+' · ':'')+t.promo);
   if(!r.size){const g=guessSize(r.name);if(g){r.size=g.size;r.unit=g.unit;r.guessed=true}}
   if(!r.item_id&&t.item_name){const m=[...S.items.values()].find(i=>nm(i.name)===nm(t.item_name));if(m)r.item_id=m.id}
@@ -1093,7 +1098,7 @@ async function scanSave(){
       let asset=assets.get(shot.id);
       if(asset===undefined){asset=null;if(shot.blob&&S.assets){try{asset=(await S.assets.upload(shot.blob,{type:'image/jpeg'})).id}catch(x){}}assets.set(shot.id,asset)}
       const cur=e.cur,fx=cur==='EUR'?null:rate(cur),amount=r.price||null;
-      const doc={item_id:item.id,product_id:prod.id,retailer_id:ret.id,country:ret.country,currency:cur,base_unit:e.base,observed_at:r.obs||todayStr(),source_type:shot.blob?'photo':'paste',origin:'user',product_name:((r.brand?r.brand+' ':'')+(r.name||'')).trim()||null,created_at:now,updated_at:now,checked_at:now,source_note:(r.src_note||(shot.blob?'Shelf scan':'Pasted text'))+(r.conv?' · converted '+r.conv.from+' to '+r.conv.to+' ('+r.conv.how+')':'')};if(r.src_url)doc.source_url=r.src_url;
+      const doc={item_id:item.id,product_id:prod.id,retailer_id:ret.id,country:ret.country,currency:cur,base_unit:e.base,observed_at:r.obs||todayStr(),source_type:shot.blob?'photo':'paste',origin:'user',product_name:((r.brand?r.brand+' ':'')+(r.name||'')).trim()||null,created_at:now,updated_at:now,checked_at:now,source_note:(r.src_note||(shot.blob?'Shelf scan':'Pasted text'))+(r.conv?' · converted '+r.conv.from+' to '+r.conv.to+' ('+r.conv.how+')':'')};if(r.src_url)doc.source_url=r.src_url;if(r.assess)doc.assess=r.assess;
       const opt={amount,size:r.size||null,size_unit:r.size?r.unit:null,unit_price:e.up!=null?Math.round(e.up*1e6)/1e6:null,promo:r.promo||null,promo_until:r.until||null,asset_id:asset,fx_per_eur:fx,eur_amount:amount!=null&&(cur==='EUR'||fx)?Math.round(amount/(fx||1)*1e6)/1e6:null,eur_unit_price:e.up!=null&&(cur==='EUR'||fx)?Math.round(e.up/(fx||1)*1e6)/1e6:null};
       for(const k in opt)if(opt[k]!=null)doc[k]=opt[k];
       const fl=e.flags.filter(f=>f.sev>=1).map(f=>f.t);if(fl.length)doc.flag=fl.join('; ');
@@ -1144,7 +1149,7 @@ function buildSql(){
   const prods=[];for(const i of S.items.values())for(const p of i.products||[])prods.push({...p,item_id:i.id,buy_in:p.buy_in?'{'+p.buy_in.join(',')+'}':null});
   ins('products',['id','item_id','name','brand','tier','usage','size','size_unit','buy_in','note'],prods);
   if(S.fx&&S.fx.rates)ins('fx_rates',['date','currency','per_eur','source'],Object.keys(S.fx.rates).map(c=>({date:S.fx.date||todayStr(),currency:c,per_eur:S.fx.rates[c],source:S.fx.source||null})));
-  ins('prices',['id','item_id','product_id','retailer_id','country','currency','amount','size','size_unit','unit_price','base_unit','promo','promo_until','regular_unit_price','requires_program','flag','placeholder','origin','research_note','updated_at','checked_at','observed_at','date_precision','source_type','source_url','source_note','photo_asset','fx_per_eur','eur_amount','eur_unit_price','created_at'],S.prices.map(p=>({...p,placeholder:!!p.placeholder,origin:originOf(p),research_note:p.research_attempt?(p.research_attempt.at+': '+(p.research_attempt.note||p.research_attempt.result)):null,photo_asset:p.asset_id||null})));
+  ins('prices',['id','item_id','product_id','retailer_id','country','currency','amount','size','size_unit','unit_price','base_unit','promo','promo_until','regular_unit_price','requires_program','flag','placeholder','origin','research_note','updated_at','checked_at','observed_at','date_precision','source_type','source_url','source_note','photo_asset','assess_level','assess_note','fx_per_eur','eur_amount','eur_unit_price','created_at'],S.prices.map(p=>({...p,assess_level:p.assess?p.assess.level:null,assess_note:p.assess?p.assess.note:null,placeholder:!!p.placeholder,origin:originOf(p),research_note:p.research_attempt?(p.research_attempt.at+': '+(p.research_attempt.note||p.research_attempt.result)):null,photo_asset:p.asset_id||null})));
   const nrows=[];for(const i of S.items.values())for(const pr of i.products||[])if(pr.nutrition)nrows.push({product_id:pr.id,basis:pr.nutrition.basis,scope:pr.nutrition.scope,form:pr.nutrition.form||null,source_name:pr.nutrition.source_name||null,source_url:pr.nutrition.source_url||null,retrieved_at:pr.nutrition.retrieved_at||null,note:pr.nutrition.note||null,vals:JSON.stringify(pr.nutrition.values||{})});
   ins('nutrition',['product_id','basis','scope','form','source_name','source_url','retrieved_at','note','vals'],nrows);
   ins('knowledge',['id','title','body','sort_order','updated','created_at','updated_at'],S.kn.map(k=>({...k,sort_order:k.order==null?null:k.order})));

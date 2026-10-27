@@ -100,6 +100,7 @@ h2.sec{margin:12px 0 0;font:600 12px/1 var(--font-body);text-transform:uppercase
 .rrow{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--line)}
 .nut{width:100%;border-collapse:collapse;font-size:13px}.nut td{padding:3px 0;border-bottom:1px solid var(--line)}.nut td:last-child{text-align:right;font-variant-numeric:tabular-nums}
 .bd.stale{color:var(--warn);border-color:var(--warn)}
+.as{display:block;font-size:12px;line-height:1.35;margin-top:3px}.as.w{color:var(--warn)}.as small{opacity:.75}
 .bd.flag{background:var(--warn-bg);color:var(--warn);border-color:transparent}
 .bd.cty{background:var(--surface-2);border-color:transparent}
 .dn{color:var(--down);font-weight:700;font-size:12px}
