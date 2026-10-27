@@ -169,6 +169,9 @@ function ladRow(o,rank,max,best){
   const img=r.image_url||(o.prod&&o.prod.image_url)||(r.asset_id?'/_blob/'+r.asset_id:'');
   return `<button class="sl${rank===1?' b':''}${nopx?' nopx':''}${img?' wi':''}" data-act="detail" data-key="${esc(o.key)}">${img?`<img class="th" alt="" loading="lazy" src="${esc(img)}">`:''}<span class="sn"><b>${esc(o.rt.name)}</b><span class="pd">${esc(pname)}</span>${pk?`<span class="pk2">${esc(pk)}</span>`:''}<span class="mt">${esc(meta)}</span>${tags.length?`<span class="tgs">${tags.join('')}</span>`:''}${nopx?'':`<span class="sb" aria-hidden="true"><i style="width:${w}%"></i></span>`}</span><span class="sv">${pv}</span></button>`;
 }
+const WIDE=()=>innerWidth>=820;
+const isEx=id=>S.ex.has(id)!==WIDE();
+let _w=WIDE();addEventListener('resize',()=>{const w=WIDE();if(w!==_w){_w=w;S.ex.clear();try{render()}catch(e){}}});
 function itemCard(it){
   const {all,ranked,other}=offersFor(it);
   const open=S.open.has(it.id);
@@ -191,7 +194,7 @@ function itemCard(it){
   const c=byCty(it),cheaper=Object.keys(c).filter(x=>x!==S.country&&S.country!=='ALL'&&best&&c[x].v<best.eurUnit*0.9).sort((x,y)=>c[x].v-c[y].v)[0];
   if(cheaper)facts.push(`<span class="ft">${cheaper} ${mh(c[cheaper].v)}</span>`);
   const more=rowsAll.length>3?`<button class="lk" data-act="toggle" data-id="${esc(it.id)}">${open?'Show fewer':'All '+rowsAll.length+' shops'}</button>`:'';
-  const ex=S.ex.has(it.id),bs=best?short(best.rt.name):'';
+  const ex=isEx(it.id),bs=best?short(best.rt.name):'';
   return `<article class="sc${ex?' ex':''}"><button class="sh" data-act="cx" data-id="${esc(it.id)}" aria-expanded="${ex}"><div class="sx"><b>${esc(it.name)}</b><small>${esc(sub)}${!ex&&bs?' · '+esc(bs)+(ranked.length>1?' +'+(ranked.length-1):''):''}</small></div>${head}<span class="chv" aria-hidden="true">${ex?'▴':'▾'}</span></button>${ex?`${facts.length?`<div class="fts">${facts.join('')}</div>`:''}<div class="sls">${rowsAll.slice(0,shown).map(([o,k])=>ladRow(o,k,max,e[0])).join('')}</div><div class="sf">${more}<button class="lk" data-act="addfor" data-item="${esc(it.id)}">+ Add price</button></div>`:''}</article>`;
 }
 function storeList(){
@@ -212,7 +215,7 @@ function storeCard(it){
   const verdict=isBest?`<span class="ft g">Cheapest in ${esc(COUNTRIES[S.country].name)}</span>`:`<span class="ft w">+${gap}% vs ${esc(best.rt.name)}</span>`;
   const pe=protPer(it,m.eurUnit,m.prod),pf=pe?`<span class="ft p">${pe>=100?Math.round(pe):pe.toFixed(1)} g protein per €</span>`:'';
   const sub=[it.priority==='daily'?'Daily':'',it.health==='core'?'Core':'','per '+(it.base_unit||'kg')].filter(Boolean).join(' · ');
-  return {isBest,html:`<article class="sc here${isBest?' win':''}${S.ex.has(it.id)?' ex':''}"><button class="sh" data-act="cx" data-id="${esc(it.id)}" aria-expanded="${S.ex.has(it.id)}"><div class="sx"><b>${esc(it.name)}</b><small>${esc(sub)}</small></div><div class="sp"><span class="num">${mh(m.eurUnit)}<small>/${b}</small></span>${nat?`<small>${nat}</small>`:''}</div><span class="chv" aria-hidden="true">${S.ex.has(it.id)?'▴':'▾'}</span></button><div class="fts">${verdict}${S.ex.has(it.id)?pf:''}</div>${S.ex.has(it.id)?`<div class="sls">${rows.map(([o,k],i)=>ladRow(o,k,max,best.eurUnit)).join('')}</div>`:''}</article>`};
+  return {isBest,html:`<article class="sc here${isBest?' win':''}${isEx(it.id)?' ex':''}"><button class="sh" data-act="cx" data-id="${esc(it.id)}" aria-expanded="${isEx(it.id)}"><div class="sx"><b>${esc(it.name)}</b><small>${esc(sub)}</small></div><div class="sp"><span class="num">${mh(m.eurUnit)}<small>/${b}</small></span>${nat?`<small>${nat}</small>`:''}</div><span class="chv" aria-hidden="true">${S.ex.has(it.id)?'▴':'▾'}</span></button><div class="fts">${verdict}${S.ex.has(it.id)?pf:''}</div>${S.ex.has(it.id)?`<div class="sls">${rows.map(([o,k],i)=>ladRow(o,k,max,best.eurUnit)).join('')}</div>`:''}</article>`};
 }
 function dealsStrip(){
   const d=[];
@@ -283,7 +286,7 @@ function viewCompare(){
     const nb=res.filter(r=>r.isBest).length;
     out+=`<div class="here-sum"><div><b>${esc(st?short(st.name):"Store")}</b><span class="sub">${res.length} of ${f.length} staples priced here</span></div><div class="hs-n"><span class="num">${nb}</span><small>cheapest in ${esc(COUNTRIES[S.country].name)}</small></div><button class="chip" data-act="herebest" aria-pressed="${S.hereBest}">Best here only</button></div>`;
   }
-  out+=`<div class="exall"><button class="lk" data-act="cxall">${S.ex.size?'Collapse all':'Expand all'}</button></div>`;
+  out+=`<div class="exall"><button class="lk" data-act="cxall">${(WIDE()?!S.ex.size:S.ex.size)?'Collapse all':'Expand all'}</button></div>`;
   const cats=[...new Set(f.map(i=>i.category||'Other'))].sort((a,b)=>CATS.indexOf(a)-CATS.indexOf(b));
   for(const c of cats){
     const list=f.filter(i=>(i.category||'Other')===c).map(i=>({i,o:offersFor(i)}));
